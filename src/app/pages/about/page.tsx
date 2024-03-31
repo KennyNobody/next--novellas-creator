@@ -1,12 +1,12 @@
 import Image from "next/image";
-import styles from "./page.module.scss";
+import styles from "./page.module.css";
 
-export default function Home() {
+export default function About() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Это главная страница
+         Это страница About
         </p>
         <div>
           <a
@@ -25,17 +25,6 @@ export default function Home() {
             />
           </a>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
       </div>
     </main>
   );
