@@ -1,8 +1,11 @@
+import { ReactNode } from 'react';
+import classNames from 'classnames';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Header } from '@/2_widgets/Header';
+import { Footer } from '@/2_widgets/Footer';
+import { Body } from '@/5_shared/ui/Body/Body';
 import './globals.scss';
-import Link from 'next/link';
-import { ReactNode } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,14 +20,12 @@ export default function RootLayout({
     children: ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={inter.className}>
-                <nav>
-                    <Link href="/">Главная</Link>
-                    <Link href="/about/">О нас</Link>
-                </nav>
+        <html lang="ru">
+            <Body className={classNames(inter.className)}>
+                <Header />
                 {children}
-            </body>
+                <Footer />
+            </Body>
         </html>
     );
 }
