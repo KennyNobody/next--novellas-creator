@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import classNames from 'classnames';
-import { Routes } from '@/5_shared/config/routes';
-import { Container } from '@/5_shared/ui/Container/Container';
+import { Routes } from '5_shared/config/routes';
+import { Container } from '5_shared/ui/Container/Container';
 import cls from './Header.module.scss';
 
 interface HeaderProps {

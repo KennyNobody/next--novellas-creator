@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { Section } from '@/5_shared/ui/Section/Section';
-import { Container } from '@/5_shared/ui/Container/Container';
+import { Section } from '5_shared/ui/Section/Section';
+import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionSubscribe.module.scss';
 
 interface SectionFrontIntroProps {

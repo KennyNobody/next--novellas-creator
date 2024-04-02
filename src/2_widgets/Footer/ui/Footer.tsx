@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Container } from '@/5_shared/ui/Container/Container';
+import { Container } from '5_shared/ui/Container/Container';
 import cls from './Footer.module.scss';
 
 interface FooterProps {
