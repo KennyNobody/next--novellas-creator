@@ -1,10 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { postListReducer } from '4_entities/Post';
+import { $api } from '../api/api';
 
 export const makeStore = () => configureStore({
     reducer: {
         postList: postListReducer,
     },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        thunk: {
+            extraArgument: {
+                api: $api,
+            },
+        },
+    }),
 });
 
 // Infer the type of makeStore

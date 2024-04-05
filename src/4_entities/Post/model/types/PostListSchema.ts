@@ -8,6 +8,7 @@ interface PostListSchema extends EntityState<ArticlePostType, string> {
     page: number;
     perPage?: number;
     count: number;
+    tempName: string;
     // category: number | undefined;
 }
 

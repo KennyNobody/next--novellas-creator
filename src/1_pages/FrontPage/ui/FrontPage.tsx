@@ -1,6 +1,9 @@
+// 'use client';
+
 import Image from 'next/image';
 import { Metadata } from 'next';
 import classNames from 'classnames';
+import { SectionTest } from '2_widgets/SectionTest';
 import { SectionFrontTeam } from '2_widgets/SectionFrontTeam';
 import { SectionFrontNews } from '2_widgets/SectionFrontNews';
 import { SectionFrontGame } from '2_widgets/SectionFrontGame';
@@ -14,13 +17,14 @@ interface FrontPageProps {
     title: string;
 }
 
-const FrontPage = async (title: string) => {
-    // const { title } = props;
+const FrontPage = async (title: string) =>
+// const { title } = props;
 
-    return (
+    (
         <Main className={classNames(cls.block)}>
+            <SectionTest />
             { title || '...' }
-            <SectionFrontIntro />
+            <SectionFrontIntro title="Интро-слайдер" />
             <SectionFrontAbout />
             <SectionFrontGame />
             <SectionFrontTeam />
@@ -36,8 +40,6 @@ const FrontPage = async (title: string) => {
             {/* /> */}
         </Main>
     );
-};
-
 export {
     FrontPage,
 };
