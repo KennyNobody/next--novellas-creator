@@ -6,6 +6,7 @@ import { Header } from '2_widgets/Header';
 import { Footer } from '2_widgets/Footer';
 import { Body } from '5_shared/ui/Body/Body';
 import './globals.scss';
+import StoreProvider from '../5_shared/state/StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,12 +21,14 @@ export default function RootLayout({
     children: ReactNode;
 }>) {
     return (
-        <html lang="ru">
-            <Body className={classNames(inter.className)}>
-                <Header />
-                {children}
-                <Footer />
-            </Body>
-        </html>
+        <StoreProvider>
+            <html lang="ru">
+                <Body className={classNames(inter.className)}>
+                    <Header />
+                    {children}
+                    <Footer />
+                </Body>
+            </html>
+        </StoreProvider>
     );
 }

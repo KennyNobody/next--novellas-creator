@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { ListPost } from '3_features/ListPost';
 import { Section } from '5_shared/ui/Section/Section';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionFrontNews.module.scss';
@@ -14,6 +15,7 @@ export const SectionFrontNews = (props: SectionFrontIntroProps) => {
         <Section className={classNames(cls.block, className)}>
             <Container>
                 Новости
+                <ListPost />
             </Container>
         </Section>
     );
