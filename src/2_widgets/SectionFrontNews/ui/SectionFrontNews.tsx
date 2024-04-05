@@ -25,9 +25,9 @@ export const SectionFrontNews = (props: SectionFrontIntroProps) => {
     // const listData: ArticlePostType[] = useSelector(getPostList.selectAll);
     const listData = useSelector(getPostList.selectAll);
 
-    // useEffect(() => {
-    //     dispatch(fetchPostList({}));
-    // }, []);
+    useEffect(() => {
+        dispatch(fetchPostList({}));
+    }, []);
 
     return (
         <Section className={classNames(cls.block, className)}>
