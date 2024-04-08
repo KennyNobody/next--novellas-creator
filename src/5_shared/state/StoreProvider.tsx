@@ -1,23 +1,22 @@
 'use client';
 
 import { Provider } from 'react-redux';
-import { MutableRefObject, ReactNode, useRef } from 'react';
-import { fetchPostList } from '4_entities/Post/model/services/fetchPostList/fetchPostList';
+import { ReactNode, useRef } from 'react';
 import { makeStore, AppStore } from './state';
+import { prefetchData, PrefetchKey } from './prefetchData';
 
 interface StoreProviderProps {
+    slug: PrefetchKey;
     children: ReactNode;
 }
 
-const getPrefetchData = async (storeRef: MutableRefObject<any>) => {
-    await storeRef.current?.dispatch(fetchPostList({}));
-};
-
-export default async function StoreProvider({ children }: StoreProviderProps) {
+export default async function StoreProvider(props: StoreProviderProps) {
+    const { slug, children } = props;
     const storeRef = useRef<AppStore>();
+
     if (!storeRef.current) {
         storeRef.current = makeStore();
-        await getPrefetchData(storeRef);
+        await prefetchData(slug, storeRef);
     }
 
     return <Provider store={storeRef.current}>{children}</Provider>;

@@ -24,7 +24,7 @@ export const initPostList = createAsyncThunk<void, any, ThunkConfig<string>>(
 
         // @ts-ignore
         await getData(params, true).then((response) => {
-            console.log(response);
+            // console.log(response);
             // // @ts-ignore
             // const { data, meta } = response.data;
             // dispatch(postListActions.addData(data));

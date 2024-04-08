@@ -21,14 +21,10 @@ interface LayoutProps {
 
 export default function RootLayout({ children }: LayoutProps) {
     return (
-        <StoreProvider>
-            <html lang="ru">
-                <Body className={classNames(inter.className)}>
-                    <Header />
-                    {children}
-                    <Footer />
-                </Body>
-            </html>
-        </StoreProvider>
+        <html lang="ru">
+            <Body className={classNames(inter.className)}>
+                {children}
+            </Body>
+        </html>
     );
 }

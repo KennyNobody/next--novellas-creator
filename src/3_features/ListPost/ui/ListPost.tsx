@@ -40,10 +40,6 @@ export const ListPost = (props: ListPostsProps) => {
     const data: ArticlePostType[] = useSelector(getPostList.selectAll);
     const isLoading: boolean = useSelector(getPostListLoading) || false;
 
-    useEffect(() => {
-        console.log('Запрашиваем данные');
-    }, []);
-
     // const loadNextPage = () => {
     //     if (!isLoading && (pageTotal > pageIndex)) {
     //         dispatch(fetchNextPostList({

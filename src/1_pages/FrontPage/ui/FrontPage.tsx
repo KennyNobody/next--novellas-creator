@@ -11,7 +11,11 @@ import { SectionSubscribe } from '2_widgets/SectionSubscribe';
 import { SectionFrontIntro } from '2_widgets/SectionFrontIntro';
 import { SectionFrontAbout } from '2_widgets/SectionFrontAbout';
 import { Main } from '5_shared/ui/Main/Main';
+import StoreProvider from '5_shared/state/StoreProvider';
 import cls from './FrontPage.module.scss';
+import {Header} from "2_widgets/Header";
+import {Footer} from "2_widgets/Footer";
+import { PrefetchKey } from '5_shared/state/prefetchData';
 
 interface FrontPageProps {
     title: string;
@@ -21,24 +25,28 @@ const FrontPage = async (title: string) =>
 // const { title } = props;
 
     (
-        <Main className={classNames(cls.block)}>
-            <SectionTest />
-            { title || '...' }
-            <SectionFrontIntro title="Интро-слайдер" />
-            <SectionFrontAbout />
-            <SectionFrontGame />
-            <SectionFrontTeam />
-            <SectionFrontNews />
-            <SectionSubscribe />
-            {/* <Image */}
-            {/*    src="/vercel.svg" */}
-            {/*    alt="Vercel Logo" */}
-            {/*    className={cls.vercelLogo} */}
-            {/*    width={100} */}
-            {/*    height={24} */}
-            {/*    priority */}
-            {/* /> */}
-        </Main>
+        <StoreProvider slug={PrefetchKey.FRONT}>
+            <Header />
+            <Main className={classNames(cls.block)}>
+                <SectionTest />
+                { title || '...' }
+                <SectionFrontIntro title="Интро-слайдер" />
+                <SectionFrontAbout />
+                <SectionFrontGame />
+                <SectionFrontTeam />
+                <SectionFrontNews />
+                <SectionSubscribe />
+                {/* <Image */}
+                {/*    src="/vercel.svg" */}
+                {/*    alt="Vercel Logo" */}
+                {/*    className={cls.vercelLogo} */}
+                {/*    width={100} */}
+                {/*    height={24} */}
+                {/*    priority */}
+                {/* /> */}
+            </Main>
+            <Footer />
+        </StoreProvider>
     );
 export {
     FrontPage,

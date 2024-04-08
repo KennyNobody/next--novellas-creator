@@ -22,3 +22,7 @@ export {
     getPostListLoading,
     getPostListPerPage,
 } from './model/selectors/postList';
+
+export {
+    fetchPostList,
+} from './model/services/fetchPostList/fetchPostList';

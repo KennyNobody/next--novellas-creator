@@ -3,7 +3,7 @@ import {
 } from '1_pages/FrontPage';
 import { fetchPageData } from '4_entities/Page';
 import {useAppDispatch} from "../5_shared/state/hooks";
-import {fetchPostList} from "../4_entities/Post/model/services/fetchPostList/fetchPostList";
+import {fetchPostList} from "../4_entities/Post";
 // import { generateMeta } from '5_shared/libs/next/generateMeta';
 // import {useAppStore} from "../5_shared/state/hooks";
 // import {useRef} from "react";
@@ -16,7 +16,7 @@ import {fetchPostList} from "../4_entities/Post/model/services/fetchPostList/fet
 
 export default async function Page() {
     const data = fetchPostList({});
-    console.log(data);
+    // console.log(data);
 
     return FrontPage('Заголовок');
 }

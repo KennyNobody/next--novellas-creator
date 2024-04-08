@@ -76,9 +76,9 @@ const postListSlice = createSlice({
             .addCase(fetchPostList.fulfilled, (state, action) => {
                 state.isLoading = false;
 
-                console.log('Работает');
+                // console.log('Работает');
                 // @ts-ignore
-                console.log(action);
+                // console.log(action);
 
                 // @ts-ignore
                 if (action?.payload?.data) {
