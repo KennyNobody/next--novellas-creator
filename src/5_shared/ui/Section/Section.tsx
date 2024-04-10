@@ -15,7 +15,21 @@ export const Section = (props: SectionProps) => {
 
     return (
         <section className={classNames(cls.block, className)}>
+            <div
+                className={
+                    classNames(
+                        cls.decor,
+                    )
+                }
+            />
             { children }
+            <div
+                className={
+                    classNames(
+                        cls.decor,
+                    )
+                }
+            />
         </section>
     );
 };

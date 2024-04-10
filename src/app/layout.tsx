@@ -8,7 +8,7 @@ import { Body } from '5_shared/ui/Body/Body';
 import './globals.scss';
 import StoreProvider from '../5_shared/state/StoreProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -22,9 +22,13 @@ interface LayoutProps {
 export default function RootLayout({ children }: LayoutProps) {
     return (
         <html lang="ru">
-            <Body className={classNames(inter.className)}>
-                {children}
-            </Body>
+            <StoreProvider>
+                <Body>
+                    <Header />
+                    {children}
+                    <Footer />
+                </Body>
+            </StoreProvider>
         </html>
     );
 }

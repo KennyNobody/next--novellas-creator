@@ -1,19 +1,33 @@
 import classNames from 'classnames';
+import { SectionPageNews } from '2_widgets/SectionPageNews';
 import { Main } from '5_shared/ui/Main/Main';
-import { Container } from '5_shared/ui/Container/Container';
 import cls from './NewsPage.module.css';
+import { NewsPageType } from '../model/types/NewsPage';
 
-const NewsPage = () => (
-    <Main className={classNames(cls.block)}>
-        <Container>
-            <div className={classNames(cls.description)}>
-                <p>
-                    Это страница Новости
-                </p>
-            </div>
-        </Container>
-    </Main>
-);
+interface SectionPageNewsProps {
+    className?: string;
+    data: NewsPageType;
+}
+
+const NewsPage = (props: SectionPageNewsProps) => {
+    const {
+        data,
+        className,
+    } = props;
+
+    return (
+        <Main className={classNames(cls.block)}>
+            {
+                data?.['section-news']
+                && (
+                    <SectionPageNews
+                        data={data['section-news']}
+                    />
+                )
+            }
+        </Main>
+    );
+};
 
 export {
     NewsPage,

@@ -1,25 +1,26 @@
-'use client';
-
 import {
     useRef,
     useEffect,
     MutableRefObject,
 } from 'react';
 import classNames from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
-    // GridPosts,
+    GridPosts,
     initPostList,
     getPostListPage,
     getPostListCount,
-    // fetchNextPostList,
+    fetchNextPostList,
     getPostListLoading,
-    ArticlePostType,
+    PostArticleType,
     getPostList,
+    postListReducer,
     useLazyFetchPostList,
 } from '4_entities/Post';
 import { useAppDispatch } from '5_shared/libs/hooks/useAppDispatch';
-// import { useInfiniteScroll } from '5_shared/libs/hooks/useInfiniteScroll';
+import { useInfiniteScroll } from '5_shared/libs/hooks/useInfiniteScroll';
+import { addRandomNulls } from '5_shared/libs/helpers/addRandomNulls/addRandomNulls';
+import { DynamicModuleLoader, ReducersList } from '5_shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './ListPost.module.scss';
 
 interface ListPostsProps {
@@ -27,50 +28,60 @@ interface ListPostsProps {
     isPreview?: boolean;
 }
 
+const reducers: ReducersList = {
+    postList: postListReducer,
+};
+
 export const ListPost = (props: ListPostsProps) => {
     const {
         isPreview,
         className,
     } = props;
 
-    // const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const dispatch = useDispatch();
+    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const dispatch = useAppDispatch();
     const pageIndex: number = useSelector(getPostListPage) || 1;
     const pageTotal: number = useSelector(getPostListCount) || 0;
-    const data: ArticlePostType[] = useSelector(getPostList.selectAll);
+    const data: PostArticleType[] = useSelector(getPostList.selectAll);
     const isLoading: boolean = useSelector(getPostListLoading) || false;
 
-    // const loadNextPage = () => {
-    //     if (!isLoading && (pageTotal > pageIndex)) {
-    //         dispatch(fetchNextPostList({
-    //             getData,
-    //             replace: false,
-    //         }));
-    //     }
-    // };
+    const [getData] = useLazyFetchPostList({});
 
-    // useEffect(() => {
-    //     console.log('Инициализируем список');
-    //     // dispatch(initPostList(getData));
-    // }, []);
+    const loadNextPage = () => {
+        if (!isLoading && (pageTotal > pageIndex)) {
+            dispatch(fetchNextPostList({
+                getData,
+                replace: false,
+            }));
+        }
+    };
 
-    // useInfiniteScroll({
-    //     triggerRef,
-    //     callback: loadNextPage,
-    // });
+    useEffect(() => {
+        dispatch(initPostList(getData));
+    }, []);
+
+    useInfiniteScroll({
+        triggerRef,
+        callback: loadNextPage,
+    });
 
     return (
-        <div
-            className={
-                classNames(cls.block, className)
-            }
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount
         >
-            {/*<GridPosts*/}
-            {/*    data={data}*/}
-            {/*    showSkeleton={isLoading && !data?.length}*/}
-            {/*    showEnd={!isPreview && !isLoading && pageIndex === pageTotal}*/}
-            {/*/>*/}
-            {/*{!isPreview && <div ref={triggerRef} />}*/}
-        </div>
+            <div
+                className={
+                    classNames(cls.block, className)
+                }
+            >
+                <GridPosts
+                    showSkeleton={isLoading && !data?.length}
+                    data={isPreview ? addRandomNulls(data) : data}
+                    showEnd={!isPreview && !isLoading && pageIndex === pageTotal}
+                />
+                {!isPreview && <div ref={triggerRef} />}
+            </div>
+        </DynamicModuleLoader>
     );
 };

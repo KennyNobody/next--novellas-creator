@@ -1,13 +1,8 @@
 import {
+    mockData,
     FrontPage,
 } from '1_pages/FrontPage';
-import { fetchPageData } from '4_entities/Page';
-import {useAppDispatch} from "../5_shared/state/hooks";
-import {fetchPostList} from "../4_entities/Post";
-// import { generateMeta } from '5_shared/libs/next/generateMeta';
-// import {useAppStore} from "../5_shared/state/hooks";
-// import {useRef} from "react";
-// import {postListActions} from "../4_entities/Post";
+import {fetchData} from "../5_shared/libs/fetching/fetchingData";
 
 // async function fetchData() {
 //     const pageData = await fetchPageData('eac91945-8b3e-44c6-99da-1a5224c5be5f');
@@ -15,18 +10,10 @@ import {fetchPostList} from "../4_entities/Post";
 // }
 
 export default async function Page() {
-    const data = fetchPostList({});
-    // console.log(data);
+    const data = await fetchData();
+    console.log(data);
 
-    return FrontPage('Заголовок');
+    return FrontPage({
+        data: mockData,
+    });
 }
-
-// const metadata = async () => {
-//     const data = await fetchData();
-//     console.log(data);
-//     return generateMeta(data);
-// };
-
-// export {
-//     metadata,
-// };

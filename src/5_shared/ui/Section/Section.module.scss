@@ -1,4 +1,18 @@
 .block {
-    padding: 0 50px;
-    border: 1px solid blue;
+    position: relative;
+    background-color: var(--white);
+}
+
+.decor {
+    display: block;
+    position: absolute;
+    background-color: var(--white);
+
+    &--top {
+
+    }
+
+    &--bottom {
+
+    }
 }

@@ -1,11 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { postListReducer } from '4_entities/Post';
 import { $api } from '../api/api';
 
 export const makeStore = () => configureStore({
-    reducer: {
-        postList: postListReducer,
-    },
+    reducer: {},
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         thunk: {
             extraArgument: {
