@@ -1,7 +1,7 @@
-import { SectionPageNewsType } from "2_widgets/SectionPageNews/model/types/SectionPageNews";
+import { SectionPageNewsType } from '2_widgets/SectionPageNews';
 
 interface NewsPageType {
-    'section-news': SectionPageNewsType,
+    sectionNews: SectionPageNewsType,
 }
 
 export {

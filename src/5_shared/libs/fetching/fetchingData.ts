@@ -2,8 +2,8 @@ import { Routes } from '../../api/endpoints';
 
 const fetchData = async () => {
     const response = await fetch(
-        `https://api.novellascreator.ru/api/${Routes.PAGE_FRONT}`,
-        { cache: 'force-cache' },
+        `https://api.novellascreator.ru/api/${Routes.PAGE_FRONT}?data=${Date.now()}`,
+        // { cache: 'force-cache' },
     );
 
     if (!response.ok) {

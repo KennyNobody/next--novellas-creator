@@ -26,12 +26,17 @@ export const SectionPageNews = (props: SectionPageNewsProps) => {
             }
         >
             <Container>
-                <Title
-                    tag="h1"
-                    text="Новости"
-                    mode={TitleMode.STRING}
-                    className={classNames(cls.title)}
-                />
+                {
+                    data?.title
+                    && (
+                        <Title
+                            tag="h1"
+                            mode={TitleMode.STRING}
+                            text={data.title}
+                            className={classNames(cls.title)}
+                        />
+                    )
+                }
             </Container>
         </Section>
     );

@@ -1,7 +1,5 @@
 // 'use client';
 
-import Image from 'next/image';
-import { Metadata } from 'next';
 import classNames from 'classnames';
 import { SectionFrontTeam } from '2_widgets/SectionFrontTeam';
 import { SectionFrontNews } from '2_widgets/SectionFrontNews';
@@ -23,11 +21,32 @@ const FrontPage = async (props: FrontPageProps) => {
     return (
         <Main className={classNames(cls.block)}>
             <SectionFrontIntro title="Интро-слайдер" />
-            <SectionFrontAbout data={data['section-about']} />
-            <SectionFrontGame data={data['section-game']} />
-            <SectionFrontTeam data={data['section-team']}/>
-            <SectionFrontNews />
-            <SectionSubscribe />
+            {
+                data?.sectionFrontAbout
+                && (
+                    <SectionFrontAbout data={data.sectionFrontAbout} />
+                )
+            }
+            <SectionFrontGame />
+
+            {
+                data?.sectionFrontTeam
+                && (
+                    <SectionFrontTeam data={data.sectionFrontTeam} />
+                )
+            }
+            {
+                data?.sectionFrontNews
+                && (
+                    <SectionFrontNews data={data.sectionFrontNews} />
+                )
+            }
+            {
+                data?.sectionForm
+                && (
+                    <SectionSubscribe data={data.sectionForm} />
+                )
+            }
             {/* <Image */}
             {/*    src="/vercel.svg" */}
             {/*    alt="Vercel Logo" */}

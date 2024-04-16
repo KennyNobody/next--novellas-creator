@@ -1,7 +1,5 @@
 import { ReactNode } from 'react';
-import classNames from 'classnames';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { Header } from '2_widgets/Header';
 import { Footer } from '2_widgets/Footer';
 import { Body } from '5_shared/ui/Body/Body';

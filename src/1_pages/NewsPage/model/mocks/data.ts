@@ -5,7 +5,7 @@ const sectionNewsMock = {
 };
 
 const mockData: NewsPageType = {
-    'section-news': sectionNewsMock,
+    sectionNews: sectionNewsMock,
 };
 
 export {

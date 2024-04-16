@@ -16,12 +16,12 @@ const NewsPage = (props: SectionPageNewsProps) => {
     } = props;
 
     return (
-        <Main className={classNames(cls.block)}>
+        <Main className={classNames(cls.block, className)}>
             {
-                data?.['section-news']
+                data?.sectionNews
                 && (
                     <SectionPageNews
-                        data={data['section-news']}
+                        data={data.sectionNews}
                     />
                 )
             }

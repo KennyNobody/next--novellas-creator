@@ -3,7 +3,7 @@ import {
     PictureType,
     BlueprintType,
     CollectionType,
-} from '@/5_shared/types/statamic';
+} from '5_shared/types/statamic';
 
 interface ArticleWorkerType {
     api_url: string;

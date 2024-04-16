@@ -5,3 +5,7 @@ export {
 export {
     FrontPage,
 } from './ui/FrontPage';
+
+export {
+    type FrontPageType,
+} from './model/types/FrontPage';
