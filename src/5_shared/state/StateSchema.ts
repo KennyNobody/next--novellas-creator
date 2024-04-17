@@ -1,7 +1,8 @@
 import { AxiosInstance } from 'axios';
+import { PostListSchema } from '4_entities/Post';
 
 interface StateSchema {
-    // postList?: PostListSchema;
+    postList: PostListSchema,
 }
 
 export interface ThunkExtraArg {
