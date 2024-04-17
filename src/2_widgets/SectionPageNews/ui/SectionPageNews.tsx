@@ -31,8 +31,8 @@ export const SectionPageNews = (props: SectionPageNewsProps) => {
                     && (
                         <Title
                             tag="h1"
-                            mode={TitleMode.STRING}
                             text={data.title}
+                            mode={TitleMode.STRING}
                             className={classNames(cls.title)}
                         />
                     )

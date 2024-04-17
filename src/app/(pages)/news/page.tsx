@@ -1,10 +1,37 @@
+import { Metadata } from 'next';
 import {
-    mockData,
     NewsPage,
+    NewsPageType,
 } from '1_pages/NewsPage';
+import { PageType } from '4_entities/Page';
+import { Routes } from '5_shared/api/endpoints';
+import { fetchData } from '5_shared/libs/fetching/fetchingData';
+import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
 
-export default function Page() {
-    return NewsPage({
-        data: mockData,
-    });
+const prefetchData = async () => {
+    try {
+        const data: PageType = await fetchData(Routes.PAGE_NEWS);
+        return data.data;
+    } catch (error) {
+        console.error('Ошибка получения данных от сервера:', error);
+        return null;
+    }
+};
+
+// @ts-ignore
+export const metadata = async (): Promise<Metadata> => {
+    const data: NewsPageType = await prefetchData();
+    const metaData = data.sectionMeta;
+
+    return setPageMeta(metaData);
+};
+
+export default async function Page() {
+    const data: NewsPageType = await prefetchData();
+
+    if (!data) {
+        return <div>Ошибка получения данных от сервера</div>;
+    }
+
+    return NewsPage({ data });
 }

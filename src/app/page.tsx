@@ -1,15 +1,13 @@
 import { Metadata } from 'next';
-import {
-    FrontPage,
-    FrontPageType,
-} from '1_pages/FrontPage';
+import { FrontPage, FrontPageType } from '1_pages/FrontPage';
 import { PageType } from '4_entities/Page';
+import { Routes } from '5_shared/api/endpoints';
 import { fetchData } from '5_shared/libs/fetching/fetchingData';
 import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
 
 const prefetchData = async () => {
     try {
-        const data: PageType = await fetchData();
+        const data: PageType = await fetchData(Routes.PAGE_FRONT);
         return data.data;
     } catch (error) {
         console.error('Ошибка получения данных от сервера:', error);
@@ -18,7 +16,7 @@ const prefetchData = async () => {
 };
 
 // @ts-ignore
-export const metadata = async (): Metadata => {
+export const metadata = async (): Promise<Metadata> => {
     const data: FrontPageType = await prefetchData();
     const metaData = data.sectionMeta;
 

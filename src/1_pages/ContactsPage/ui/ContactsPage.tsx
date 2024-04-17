@@ -2,18 +2,27 @@ import classNames from 'classnames';
 import { Main } from '5_shared/ui/Main/Main';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './ContactsPage.module.css';
+import { ContactsPageType } from '../model/types/ContactsPage';
 
-const ContactsPage = () => (
-    <Main className={classNames(cls.block)}>
-        <Container>
-            <div className={classNames(cls.description)}>
-                <p>
-                    Это страница Контакты
-                </p>
-            </div>
-        </Container>
-    </Main>
-);
+interface ContactsPageProps {
+    data: ContactsPageType;
+}
+
+const ContactsPage = (props: ContactsPageProps) => {
+    const { data } = props;
+
+    return (
+        <Main className={classNames(cls.block)}>
+            <Container>
+                <div className={classNames(cls.description)}>
+                    <p>
+                        Это страница Контакты
+                    </p>
+                </div>
+            </Container>
+        </Main>
+    );
+};
 
 export {
     ContactsPage,

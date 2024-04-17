@@ -15,7 +15,7 @@ interface FrontPageProps {
     data: FrontPageType;
 }
 
-const FrontPage = async (props: FrontPageProps) => {
+const FrontPage = (props: FrontPageProps) => {
     const { data } = props;
 
     return (
