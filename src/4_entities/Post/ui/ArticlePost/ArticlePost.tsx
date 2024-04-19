@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import cls from './ArticlePost.module.scss';
-import { PostArticleType } from '../../model/types/PostArticle';
+import { ArticlePostType } from '../../model/types/ArticlePost';
 
 interface ArticlePostProps {
     className?: string;
-    data?: PostArticleType;
+    data?: ArticlePostType;
 }
 
 export const ArticlePost = (props: ArticlePostProps) => {
@@ -17,18 +17,17 @@ export const ArticlePost = (props: ArticlePostProps) => {
 
     const article = useMemo(() => (
         <Link
-            href="id"
+            href={`/news/${data?.id}`}
             className={
                 classNames(
-                    cls.article,
-                    cls['article--content'],
+                    cls.block,
                     className,
                 )
             }
         >
             <div className={classNames(cls.main)}>
                 <p>
-                    Одиночная запись
+                    { data?.title }
                 </p>
             </div>
         </Link>

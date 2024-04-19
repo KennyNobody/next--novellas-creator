@@ -3,12 +3,12 @@ export {
 } from './ui/GridPosts/GridPosts';
 
 export type {
-    PostArticleType,
-} from './model/types/PostArticle';
+    ArticlePostType,
+} from './model/types/ArticlePost';
 
 export {
     postApi,
-    useFetchPostById,
+    // useFetchPostById,
     useLazyFetchPostList,
 } from './api/postApi';
 
@@ -19,12 +19,16 @@ export {
 } from './model/slices/postListSlice';
 
 export {
-    fetchNextPostList,
-} from './model/services/fetchNextPostList/fetchNextPostList';
+    fetchPostList,
+} from './model/services/fetchPostList/fetchPostList';
 
 export {
     initPostList,
 } from './model/services/initPostList/initPostList';
+
+export {
+    changePageIndex,
+} from './model/services/changePageIndex/changePageIndex';
 
 export {
     getPostListCount,

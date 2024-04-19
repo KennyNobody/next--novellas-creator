@@ -4,12 +4,12 @@ import {
     createEntityAdapter,
 } from '@reduxjs/toolkit';
 import { StateSchema } from '5_shared/state/StateSchema';
-import { PostArticleType } from '4_entities/Post';
+import { ArticlePostType } from '4_entities/Post';
 import { postApi } from '../../api/postApi';
 import { PostListSchema } from '../types/PostListSchema';
 
-const postListAdapter = createEntityAdapter<PostArticleType>();
-postListAdapter.selectId = (item: PostArticleType) => item.id;
+const postListAdapter = createEntityAdapter<ArticlePostType>();
+postListAdapter.selectId = (item: ArticlePostType) => item.id;
 
 export const getPostList = postListAdapter.getSelectors<StateSchema>(
     (state) => state.postList || postListAdapter.getInitialState(),
@@ -17,7 +17,7 @@ export const getPostList = postListAdapter.getSelectors<StateSchema>(
 
 const initialState: PostListSchema = {
     page: 1,
-    perPage: 8,
+    perPage: 3,
     isLoading: false,
     errors: undefined,
     category: undefined,
@@ -30,32 +30,17 @@ const postListSlice = createSlice({
     name: 'postListSlice',
     initialState,
     reducers: {
-        setPage: (state, action: PayloadAction<number>) => {
-            state.page = action.payload;
-        },
-        setLength: (state, action: PayloadAction<number>) => {
-            state.count = action.payload;
-        },
-        setPerPage: (state, action: PayloadAction<number>) => {
-            state.perPage = action.payload;
-        },
-        addData: (state, action: PayloadAction<PostArticleType[]>) => {
+        addData: (state, action: PayloadAction<ArticlePostType[]>) => {
             postListAdapter.addMany(state, action.payload);
         },
-        replaceData: (state, action: PayloadAction<PostArticleType[]>) => {
+        replaceData: (state, action: PayloadAction<ArticlePostType[]>) => {
             postListAdapter.setAll(state, action.payload);
         },
         setPagination: (state, action) => {
             const pagination = action.payload;
-            state.page = pagination.page;
-            state.count = pagination.pageCount;
-        },
-        toggleCategory: (state, action: PayloadAction<number | undefined>) => {
-            if (state.category === action.payload) {
-                state.category = undefined;
-            } else {
-                state.category = action.payload;
-            }
+            state.page = pagination.current_page;
+            state.count = pagination.last_page;
+            state.perPage = pagination.per_page;
         },
     },
     extraReducers: (builder) => {

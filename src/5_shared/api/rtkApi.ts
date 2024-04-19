@@ -4,12 +4,6 @@ const rtkApi = createApi({
     reducerPath: 'appApi',
     tagTypes: [
         'post',
-        // 'category',
-        // 'dev',
-        // 'photo',
-        // 'postSingle',
-        // 'devSingle',
-        // 'photoSingle',
     ],
     baseQuery: fetchBaseQuery(
         {

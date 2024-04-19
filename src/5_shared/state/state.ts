@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { postListReducer } from '4_entities/Post';
 import { $api } from '../api/api';
+import { rtkApi } from '../api/rtkApi';
 
 export const makeStore = () => configureStore({
     reducer: {
         postList: postListReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         thunk: {
@@ -12,7 +14,7 @@ export const makeStore = () => configureStore({
                 api: $api,
             },
         },
-    }),
+    }).concat(rtkApi.middleware),
 });
 
 // Infer the type of makeStore

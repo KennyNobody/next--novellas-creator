@@ -1,7 +1,7 @@
+'use client';
+
 import {
-    useRef,
     useEffect,
-    MutableRefObject,
 } from 'react';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
@@ -9,54 +9,43 @@ import {
     GridPosts,
     initPostList,
     getPostListPage,
+    changePageIndex,
     getPostListCount,
-    fetchNextPostList,
-    getPostListLoading,
-    PostArticleType,
+    ArticlePostType,
     getPostList,
     useLazyFetchPostList,
 } from '4_entities/Post';
 import { useAppDispatch } from '5_shared/state/hooks';
-import { useInfiniteScroll } from '5_shared/libs/hooks/useInfiniteScroll';
+import { ListPaginationDirection } from '5_shared/types/base/Pagination';
 import cls from './ListPost.module.scss';
 
 interface ListPostsProps {
     className?: string;
-    isPreview?: boolean;
 }
 
 export const ListPost = (props: ListPostsProps) => {
     const {
-        isPreview,
         className,
     } = props;
 
-    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const pageIndex: number = useSelector(getPostListPage) || 1;
-    const pageTotal: number = useSelector(getPostListCount) || 0;
-    const data: PostArticleType[] = useSelector(getPostList.selectAll);
-    const isLoading: boolean = useSelector(getPostListLoading) || false;
+    const pageTotal: number = useSelector(getPostListCount) || 1;
+    const data: ArticlePostType[] = useSelector(getPostList.selectAll);
+    // const isLoading: boolean = useSelector(getPostListLoading) || false;
 
     const [getData] = useLazyFetchPostList({});
 
-    const loadNextPage = () => {
-        if (!isLoading && (pageTotal > pageIndex)) {
-            dispatch(fetchNextPostList({
-                getData,
-                replace: false,
-            }));
-        }
+    const togglePage = (direction: ListPaginationDirection) => {
+        dispatch(changePageIndex({
+            direction,
+            getData,
+        }));
     };
 
     useEffect(() => {
         dispatch(initPostList(getData));
     }, []);
-
-    useInfiniteScroll({
-        triggerRef,
-        callback: loadNextPage,
-    });
 
     return (
         <div
@@ -66,9 +55,29 @@ export const ListPost = (props: ListPostsProps) => {
         >
             <GridPosts
                 data={data}
-                showSkeleton={isLoading && !data?.length}
-                showEnd={!isPreview && !isLoading && pageIndex === pageTotal}
             />
+            <hr />
+            <div className={classNames(cls.pagination)}>
+                <button
+                    type="button"
+                    disabled={pageIndex === 1}
+                    onClick={() => togglePage(ListPaginationDirection.PREV)}
+                >
+                    Предыдущая страница
+                </button>
+                <p>
+                    { pageIndex }
+                    /
+                    { pageTotal }
+                </p>
+                <button
+                    type="button"
+                    disabled={pageTotal === pageIndex}
+                    onClick={() => togglePage(ListPaginationDirection.NEXT)}
+                >
+                    Следующая страница
+                </button>
+            </div>
         </div>
     );
 };

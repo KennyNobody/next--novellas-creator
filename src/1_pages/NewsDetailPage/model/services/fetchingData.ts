@@ -1,8 +1,7 @@
-import { Routes } from '../../api/endpoints';
 
-const fetchData = async (route: Routes) => {
+const fetchData = async (id: string) => {
     const response = await fetch(
-        `https://api.novellascreator.ru/api/${route}?temp=temp`,
+        `https://api.novellascreator.ru/api/collections/news/entries/${id}`,
         { cache: 'force-cache' },
     );
 

@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
-import { AboutPageType } from '../types/AboutPage';
+import { ContactsPageType } from '../types/ContactsPage';
 
 const sectionMetaMock: Metadata = {
     title: 'Заголовок страницы',
     description: 'Description страницы',
 };
 
-const mockData: AboutPageType = {
+const mockData: ContactsPageType = {
     sectionMeta: sectionMetaMock,
 };
 

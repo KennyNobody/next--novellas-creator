@@ -1,4 +1,4 @@
-interface PostArticleType {
+interface ArticlePostType {
     id: number;
     slug: string;
     title: string;
@@ -9,5 +9,5 @@ interface PostArticleType {
 }
 
 export type {
-    PostArticleType,
+    ArticlePostType,
 };
