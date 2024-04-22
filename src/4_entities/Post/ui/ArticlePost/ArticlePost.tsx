@@ -15,6 +15,8 @@ export const ArticlePost = (props: ArticlePostProps) => {
         className,
     } = props;
 
+    console.log(data);
+
     const article = useMemo(() => (
         <Link
             href={`/news/${data?.id}`}
@@ -25,10 +27,34 @@ export const ArticlePost = (props: ArticlePostProps) => {
                 )
             }
         >
+
+            {
+                data?.sectionPostDetail?.preview?.permalink
+                && (
+                    <picture className="picture">
+                        <img src={data.sectionPostDetail.preview.permalink} alt={data?.title || '#'} />
+                    </picture>
+                )
+            }
             <div className={classNames(cls.main)}>
-                <p>
-                    { data?.title }
-                </p>
+                {
+                    data?.publishedAt
+                    && <time>{data.publishedAt.toString()}</time>
+                }
+                {
+                    data?.title
+                    && (
+                        <h3>
+                            { data?.title }
+                        </h3>
+                    )
+                }
+                {
+                    data?.sectionPostDetail?.previewCaption
+                    && (
+                        <p>{data.sectionPostDetail?.previewCaption}</p>
+                    )
+                }
             </div>
         </Link>
     ), [className, data]);

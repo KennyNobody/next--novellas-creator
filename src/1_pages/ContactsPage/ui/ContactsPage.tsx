@@ -1,6 +1,6 @@
 import classNames from 'classnames';
+import { SectionContacts } from '2_widgets/SectionContacts';
 import { Main } from '5_shared/ui/Main/Main';
-import { Container } from '5_shared/ui/Container/Container';
 import cls from './ContactsPage.module.css';
 import { ContactsPageType } from '../model/types/ContactsPage';
 
@@ -13,13 +13,9 @@ const ContactsPage = (props: ContactsPageProps) => {
 
     return (
         <Main className={classNames(cls.block)}>
-            <Container>
-                <div className={classNames(cls.description)}>
-                    <p>
-                        Это страница Контакты
-                    </p>
-                </div>
-            </Container>
+            {
+                data?.sectionContacts && <SectionContacts data={data.sectionContacts} />
+            }
         </Main>
     );
 };

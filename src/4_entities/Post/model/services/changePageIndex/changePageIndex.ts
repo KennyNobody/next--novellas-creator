@@ -23,28 +23,19 @@ export const changePageIndex = createAsyncThunk<void, ChangePageIndexProps, Thun
             direction,
         } = props;
 
-        const perPage = getPostListPerPage(getState()) || 1;
-        const pageIndex = getPostListPage(getState()) || 1;
+        const pageIndex = getPostListPage(getState());
         const total = getPostListCount(getState()) || 1;
-        // const category = getPostListCategory(getState());
-        // const listLength = getPostListCount(getState());
-        // const pageNumber = listIndex === listLength ? listIndex : listIndex + 1;
+        const perPage = getPostListPerPage(getState());
 
         const params = {
-            limit: perPage || 6,
             sort: '-id',
-            page: pageIndex,
+            limit: perPage || 6,
+            page: pageIndex || 1,
         };
 
-        if (
-            pageIndex < total
-            && direction === ListPaginationDirection.NEXT
-        ) {
+        if (pageIndex < total && direction === ListPaginationDirection.NEXT) {
             params.page = pageIndex + 1;
-        } else if (
-            pageIndex > 1
-            && direction === ListPaginationDirection.PREV
-        ) {
+        } else if (pageIndex > 1 && direction === ListPaginationDirection.PREV) {
             params.page = pageIndex - 1;
         }
 

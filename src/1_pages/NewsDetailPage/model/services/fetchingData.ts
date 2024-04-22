@@ -1,7 +1,7 @@
 
 const fetchData = async (id: string) => {
     const response = await fetch(
-        `https://api.novellascreator.ru/api/collections/news/entries/${id}`,
+        `https://api.novellascreator.ru/api/collections/news/entries/${id}?temp=temp13`,
         { cache: 'force-cache' },
     );
 

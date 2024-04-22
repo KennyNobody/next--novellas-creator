@@ -22,7 +22,7 @@ export const GridPosts = (props: GridPostsProps) => {
             <div
                 key={item.id}
                 className={
-                    classNames(grid['grid__col--12'])
+                    classNames(grid['grid__col--6'])
                 }
             >
                 <ArticlePost data={item} />

@@ -25,7 +25,13 @@ interface MetaListType {
     total: number;
 }
 
+interface HTMLType {
+    value: string,
+    code: string,
+}
+
 export {
+    type HTMLType,
     type BlueprintType,
     type CollectionType,
     type MetaListType,

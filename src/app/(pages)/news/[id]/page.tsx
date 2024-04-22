@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import {
-    fetchData, NewsDetailPage,
+    fetchData,
+    NewsDetailPage,
     NewsDetailPageType,
 } from '1_pages/NewsDetailPage';
-// import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
+import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
 
 const prefetchData = async (id: string) => {
     try {
@@ -22,15 +23,17 @@ interface ParamsProps {
     }
 }
 
-// @ts-ignore
-export const metadata = async (): Promise<Metadata> => {
-    // const id = params?.id;
+export async function generateMetadata(
+    { params }:
+    ParamsProps,
+    // parent: ResolvingMetadata,
+): Promise<Metadata> {
+    const { id } = params;
+    const data: NewsDetailPageType = await prefetchData(id);
+    const metaData = data.sectionMeta;
 
-    // const data: NewsDetailPageType = await prefetchData(id);
-    // const metaData = data.sectionMeta;
-
-    // return setPageMeta(metaData);
-};
+    return setPageMeta(metaData);
+}
 
 export default async function Page(props: ParamsProps) {
     const id = props?.params?.id;

@@ -24,9 +24,7 @@ interface ListPostsProps {
 }
 
 export const ListPost = (props: ListPostsProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const dispatch = useAppDispatch();
     const pageIndex: number = useSelector(getPostListPage) || 1;

@@ -2,13 +2,16 @@ export {
     GridPosts,
 } from './ui/GridPosts/GridPosts';
 
-export type {
-    ArticlePostType,
-} from './model/types/ArticlePost';
+export {
+    DetailPost,
+} from './ui/DetailPost/DetailPost';
+
+export {
+    ArticlePost,
+} from './ui/ArticlePost/ArticlePost';
 
 export {
     postApi,
-    // useFetchPostById,
     useLazyFetchPostList,
 } from './api/postApi';
 
@@ -36,6 +39,14 @@ export {
     getPostListPage,
     getPostListCategory,
 } from './model/selectors/postList';
+
+export type {
+    ArticlePostType,
+} from './model/types/ArticlePost';
+
+export type {
+    DetailPostType,
+} from './model/types/DetailPost';
 
 export type {
     PostListSchema,

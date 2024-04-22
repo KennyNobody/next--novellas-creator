@@ -1,18 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '5_shared/state/StateSchema';
 import { RequestParamsType } from '5_shared/types/statamic/RequestParams';
-// import { PaginationParams, RequestParams } from '5_shared/types/RequestData';
-// import {
-//     getPostListPage,
-//     getPostListCount,
-//     getPostListPerPage,
-//     getPostListCategory,
-// } from '../../selectors/postList';
 import { postListActions } from '../../slices/postListSlice';
 
 interface FetchPostListProps {
     replace: boolean;
-    getData: any,
+    getData: any;
     params: RequestParamsType
 }
 

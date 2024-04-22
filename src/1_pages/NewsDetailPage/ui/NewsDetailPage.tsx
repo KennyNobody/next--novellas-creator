@@ -1,11 +1,13 @@
 import classNames from 'classnames';
+import { DetailPost } from '4_entities/Post';
 import { Main } from '5_shared/ui/Main/Main';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './NewsDetailPage.module.scss';
+import { NewsDetailPageType } from '../model/types/NewsDetailPage';
 
 interface NewsDetailPageProps {
     className?: string;
-    data: any;
+    data: NewsDetailPageType;
 }
 
 const NewsDetailPage = (props: NewsDetailPageProps) => {
@@ -14,28 +16,16 @@ const NewsDetailPage = (props: NewsDetailPageProps) => {
         className,
     } = props;
 
-    console.log(data);
-
     return (
         <Main className={classNames(cls.block, className)}>
             <Container>
                 {
-                    data?.title
-                    && <p>{data.title}</p>
-                }
-                {
-                    data?.content
-                    && <p>{data.content}</p>
+                    data?.sectionPostDetail
+                    && (
+                        <DetailPost data={data.sectionPostDetail} />
+                    )
                 }
             </Container>
-            {/* { */}
-            {/*    data?.sectionNews */}
-            {/*    && ( */}
-            {/*        <SectionPageNews */}
-            {/*            data={data.sectionNews} */}
-            {/*        /> */}
-            {/*    ) */}
-            {/* } */}
         </Main>
     );
 };

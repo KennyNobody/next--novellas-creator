@@ -1,9 +1,18 @@
 .block {
-    display: block;
+    gap: 15px;
     padding: 20px;
+    display: flex;
+    color: inherit;
     text-align: center;
     border-radius: 5px;
+    text-decoration: none;
+    flex-direction: column;
     border: 1px solid black;
+    transition: 0.3s opacity;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 @media (width <= 2160px) {
