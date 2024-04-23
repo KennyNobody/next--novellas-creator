@@ -6,10 +6,10 @@ import { SectionSubscribeType } from '2_widgets/SectionSubscribe';
 
 interface FrontPageType {
     sectionMeta: Metadata;
-    sectionFrontAbout: SectionFrontAboutType,
-    sectionFrontTeam: SectionFrontTeamType,
-    sectionFrontNews: SectionFrontNewsType,
-    sectionForm: SectionSubscribeType,
+    sectionFrontAbout: SectionFrontAboutType;
+    sectionFrontTeam: SectionFrontTeamType;
+    sectionFrontNews: SectionFrontNewsType;
+    sectionForm: SectionSubscribeType;
 }
 
 export {

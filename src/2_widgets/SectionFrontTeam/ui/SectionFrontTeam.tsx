@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import { Editor } from '5_shared/ui/Editor/Editor';
-import { Section } from '5_shared/ui/Section/Section';
+import {Section, SectionTagType} from '5_shared/ui/Section/Section';
 import { Title, TitleMode } from '5_shared/ui/Title/Title';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionFrontTeam.module.scss';
@@ -20,7 +20,10 @@ export const SectionFrontTeam = (props: SectionFrontIntroProps) => {
     } = props;
 
     return (
-        <Section className={classNames(cls.block, className)}>
+        <Section
+            tag={SectionTagType.SECTION}
+            className={classNames(cls.block, className)}
+        >
             <Container>
                 <div className={cls.wrapper}>
                     {

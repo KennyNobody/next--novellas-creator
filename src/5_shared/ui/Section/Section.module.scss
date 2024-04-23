@@ -1,19 +1,28 @@
 .block {
     position: relative;
-    border: 1px solid blue;
-    background-color: var(--white);
+
+    &--invert {
+        background-color: var(--white);
+    }
 }
 
 .decor {
+    height: 45px;
+    width: 1920px;
     display: block;
+    max-width: 90%;
     position: absolute;
     background-color: var(--white);
 
     &--top {
-
+        left: 50%;
+        bottom: 100%;
+        transform: translateX(-50%);
     }
 
     &--bottom {
-
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
     }
 }

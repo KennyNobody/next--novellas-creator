@@ -1,0 +1,29 @@
+.block {
+    width: 100%;
+
+    &--fixed {
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+    }
+}
+
+.wrapper {
+    gap: 90px;
+    display: flex;
+    padding: 25px 0;
+    justify-content: space-between;
+}
+
+.nav {
+    gap: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    color: inherit;
+    font-size: 15px;
+    text-decoration: none;
+}

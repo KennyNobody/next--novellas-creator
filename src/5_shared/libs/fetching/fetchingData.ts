@@ -2,7 +2,7 @@ import { Routes } from '../../api/endpoints';
 
 const fetchData = async (route: Routes) => {
     const response = await fetch(
-        `https://api.novellascreator.ru/api/${route}?temp=temp1`,
+        `https://api.novellascreator.ru/api/${route}?temp=temp2`,
         { cache: 'force-cache' },
     );
 
@@ -10,7 +10,8 @@ const fetchData = async (route: Routes) => {
         throw new Error('Failed to fetch data');
     }
 
-    return response.json();
+    const jsonResponse = await response.json();
+    return jsonResponse.data;
 };
 
 export {

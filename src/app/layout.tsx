@@ -16,7 +16,6 @@ export default function RootLayout({ children }: LayoutProps) {
         <html lang="ru">
             <StoreProvider>
                 <Body>
-                    <Header />
                     {children}
                     <Footer />
                 </Body>

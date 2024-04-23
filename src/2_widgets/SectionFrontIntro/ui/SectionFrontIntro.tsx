@@ -1,7 +1,10 @@
 'use client';
 
 import classNames from 'classnames';
-import { Section } from '5_shared/ui/Section/Section';
+import {
+    Section,
+    SectionTagType,
+} from '5_shared/ui/Section/Section';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionFrontIntro.module.scss';
 
@@ -17,7 +20,10 @@ export const SectionFrontIntro = (props: SectionFrontIntroProps) => {
     } = props;
 
     return (
-        <Section className={classNames(cls.block, className)}>
+        <Section
+            tag={SectionTagType.SECTION}
+            className={classNames(cls.block, className)}
+        >
             <Container>
                 { title }
             </Container>

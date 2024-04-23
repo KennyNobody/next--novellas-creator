@@ -1,0 +1,23 @@
+.block {
+    display: flex;
+
+    &--x {
+
+    }
+
+    &--y {
+        flex-direction: column;
+    }
+
+    &--small {
+        gap: 10px;
+    }
+
+    &--middle {
+        gap: 45px;
+    }
+
+    &--large {
+        gap: 90px;
+    }
+}

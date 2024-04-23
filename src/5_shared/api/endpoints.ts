@@ -1,4 +1,6 @@
 export enum Routes {
+    MAIN = 'globals/main',
+
     PAGE_FRONT = 'globals/page-front',
     PAGE_ABOUT = 'globals/page-about',
     PAGE_GAMES = 'globals/page-games',

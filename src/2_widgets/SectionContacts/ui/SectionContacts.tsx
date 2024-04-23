@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import { MapFrame } from '3_features/MapFrame';
-import { ListLinks } from '3_features/ListLinks';
-import { Section } from '5_shared/ui/Section/Section';
-import { Container } from '5_shared/ui/Container/Container';
+import {MapFrame} from '3_features/MapFrame';
+import {ListLinks} from '3_features/ListLinks';
+import {Section, SectionTagType} from '5_shared/ui/Section/Section';
+import {Container} from '5_shared/ui/Container/Container';
 import cls from './SectionContacts.module.scss';
-import { SectionContactsType } from '../model/types/SectionContacts';
+import {SectionContactsType} from '../model/types/SectionContacts';
 import {Picture} from "../../../5_shared/ui/Picture/Picture";
 
 interface SectionContactsProps {
@@ -19,7 +19,10 @@ export const SectionContacts = (props: SectionContactsProps) => {
     } = props;
 
     return (
-        <Section className={classNames(cls.SectionContacts, className)}>
+        <Section
+            tag={SectionTagType.SECTION}
+            className={classNames(cls.SectionContacts, className)}
+        >
             <Container>
                 {
                     data?.blockLinks

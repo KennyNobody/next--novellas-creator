@@ -1,7 +1,7 @@
 import classNames from 'classnames';
+import { LinkApp } from '4_entities/LinkApp';
 import cls from './ListLinks.module.scss';
 import { ListLinksType } from '../model/type/ListLinks';
-import {LinkApp} from "../../../4_entities/LinkApp";
 
 interface ListLinksProps {
     className?: string;
