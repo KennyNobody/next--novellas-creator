@@ -1,5 +1,5 @@
 import { ListLinksType } from '3_features/ListLinks';
-import { PictureType } from '5_shared/types/statamic';
+import { PictureType } from '4_entities/Picture';
 import { HTMLType } from '5_shared/types/statamic/BaseFieldTypes';
 
 interface SectionContactsType {

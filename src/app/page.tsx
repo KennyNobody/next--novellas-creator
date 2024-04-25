@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { ErrorPage } from '1_pages/ErrorPage';
 import { FrontPage, FrontPageType } from '1_pages/FrontPage';
 import { Routes } from '5_shared/api/endpoints';
 import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
@@ -21,7 +22,7 @@ export default async function Page() {
     const mainData: MainDataType | undefined = response?.mainData;
 
     if (!pageData || !mainData) {
-        return <div>Ошибка получения данных от сервера</div>;
+        return <ErrorPage />;
     }
 
     return FrontPage({

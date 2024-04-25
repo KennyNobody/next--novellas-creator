@@ -1,0 +1,18 @@
+.block {
+    display: flex;
+    height: 100vh;
+    padding: 100px 0;
+    min-height: 650px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    color: var(--white);
+    margin-bottom: 35px;
+}
+
+.editor {
+    margin-bottom: 70px;
+}

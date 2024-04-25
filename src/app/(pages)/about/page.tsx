@@ -1,35 +1,35 @@
 import { Metadata } from 'next';
-import { AboutPage, AboutPageType } from '1_pages/AboutPage';
-import { PageType } from '4_entities/Page';
-import { fetchData } from '5_shared/libs/fetching/fetchingData';
-
+import {
+    AboutPage,
+    AboutPageType,
+} from '1_pages/AboutPage';
+import { ErrorPage } from '1_pages/ErrorPage';
 import { Routes } from '5_shared/api/endpoints';
 import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
-
-const prefetchData = async () => {
-    try {
-        const data: PageType = await fetchData(Routes.PAGE_ABOUT);
-        return data.data;
-    } catch (error) {
-        console.error('Ошибка получения данных от сервера:', error);
-        return null;
-    }
-};
+import { PrefetchDataType } from '../../model/types/PrefetchData';
+import { prefetchData } from '../../model/services/fetchData';
+import { MainDataType } from '../../model/types/MainData';
 
 // @ts-ignore
 export const metadata = async (): Promise<Metadata> => {
-    const data: AboutPageType = await prefetchData();
-    const metaData = data.sectionMeta;
+    const data: PrefetchDataType | null = await prefetchData(Routes.PAGE_ABOUT);
+    const metaData = data?.pageData?.sectionMeta;
 
     return setPageMeta(metaData);
 };
 
 export default async function Page() {
-    const data: AboutPageType = await prefetchData();
+    const response: PrefetchDataType | null = await prefetchData(Routes.PAGE_ABOUT);
 
-    if (!data) {
-        return <div>Ошибка получения данных от сервера</div>;
+    const pageData: AboutPageType | undefined = response?.pageData;
+    const mainData: MainDataType | undefined = response?.mainData;
+
+    if (!pageData || !mainData) {
+        return <ErrorPage />;
     }
 
-    return AboutPage({ data });
+    return AboutPage({
+        pageData,
+        mainData,
+    });
 }

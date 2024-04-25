@@ -1,13 +1,18 @@
 'use client';
 
 import classNames from 'classnames';
-import {Editor} from '5_shared/ui/Editor/Editor';
+import {
+    Section,
+    SectionTagType,
+    SectionDecorType,
+    SectionThemeMode,
+} from '5_shared/ui/Section/Section';
+import { Editor } from '5_shared/ui/Editor/Editor';
 import grid from '5_shared/styles/grid.module.scss';
-import {Section, SectionDecorType, SectionTagType} from '5_shared/ui/Section/Section';
-import {Title, TitleMode} from '5_shared/ui/Title/Title';
-import {Container} from '5_shared/ui/Container/Container';
+import { Title, TitleMode } from '5_shared/ui/Title/Title';
+import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionFrontAbout.module.scss';
-import {SectionFrontAboutType} from '../model/types/SectionFrontAbout';
+import { SectionFrontAboutType } from '../model/types/SectionFrontAbout';
 
 interface SectionFrontIntroProps {
     className?: string;
@@ -22,7 +27,7 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
 
     return (
         <Section
-            isInvert
+            theme={SectionThemeMode.LiGHT}
             tag={SectionTagType.SECTION}
             decor={SectionDecorType.FULL}
             className={classNames(cls.block, className)}

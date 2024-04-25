@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import cls from './Section.module.scss';
 
@@ -12,24 +12,32 @@ enum SectionDecorType {
 enum SectionTagType {
     DIV = 'div',
     HEADER = 'header',
-    SECTION = 'section',
     FOOTER = 'footer',
+    SECTION = 'section',
+}
+
+enum SectionThemeMode {
+    LiGHT = 'theme-light',
+    DARK = 'theme-dark',
+    DARK_DECOR = 'theme-dark-decor',
 }
 
 interface SectionProps {
-    isInvert?: true;
     className?: string;
     children: ReactNode;
     tag: SectionTagType;
+    theme?: SectionThemeMode;
     decor?: SectionDecorType;
+    style?: React.CSSProperties;
 }
 
 const Section = (props: SectionProps) => {
     const {
         tag,
+        style,
+        theme,
         decor,
         children,
-        isInvert,
         className,
     } = props;
 
@@ -40,10 +48,14 @@ const Section = (props: SectionProps) => {
 
     return (
         <Tag
+            style={style}
             className={
                 classNames(
                     cls.block,
-                    { [cls['block--invert']]: isInvert },
+                    cls[`block--${theme}`],
+                    {
+                        [cls[`block--${theme}`]]: theme,
+                    },
                     className,
                 )
             }
@@ -84,4 +96,5 @@ export {
     Section,
     SectionTagType,
     SectionDecorType,
+    SectionThemeMode,
 };

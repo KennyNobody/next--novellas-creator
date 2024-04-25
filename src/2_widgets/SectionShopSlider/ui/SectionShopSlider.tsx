@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import {
     Section,
     SectionTagType,
+    SectionThemeMode,
     SectionDecorType,
 } from '5_shared/ui/Section/Section';
 import { Container } from '5_shared/ui/Container/Container';
@@ -16,7 +17,7 @@ export const SectionShopSlider = (props: SectionShopSliderProps) => {
 
     return (
         <Section
-            isInvert
+            theme={SectionThemeMode.DARK}
             tag={SectionTagType.SECTION}
             decor={SectionDecorType.BOTTOM}
             className={

@@ -1,0 +1,37 @@
+.block {
+    height: 100vh;
+    display: flex;
+    padding: 100px 0;
+    min-height: 650px;
+    text-align: center;
+    color: var(--white);
+    flex-direction: column;
+    background-size: cover;
+    justify-content: center;
+    background-position: center;
+
+    &::before {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 40%;
+        content: "";
+        display: block;
+        position: absolute;
+        background-image: linear-gradient(to top, #0F0F16 0%, transparent 100%);
+    }
+}
+
+.container {
+    position: relative;
+}
+
+.title {
+    margin-bottom: 35px;
+}
+
+.editor {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 580px;
+}

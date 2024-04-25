@@ -19,10 +19,4 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-export const Header: Story = {};
-
-// export const LoggedIn: Story = {
-//     args: {},
-// };
-//
-// export const LoggedOut: Story = {};
+// export const Header: Story = {};

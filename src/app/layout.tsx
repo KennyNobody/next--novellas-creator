@@ -17,7 +17,6 @@ export default function RootLayout({ children }: LayoutProps) {
             <StoreProvider>
                 <Body>
                     {children}
-                    <Footer />
                 </Body>
             </StoreProvider>
         </html>

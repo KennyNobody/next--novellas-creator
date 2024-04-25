@@ -1,6 +1,10 @@
 import classNames from 'classnames';
 import { ListPost } from '3_features/ListPost';
-import { Section, SectionTagType } from '5_shared/ui/Section/Section';
+import {
+    Section,
+    SectionTagType,
+    SectionThemeMode,
+} from '5_shared/ui/Section/Section';
 import { Title, TitleMode } from '5_shared/ui/Title/Title';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionPageNews.module.scss';
@@ -19,8 +23,8 @@ export const SectionPageNews = (props: SectionPageNewsProps) => {
 
     return (
         <Section
-            isInvert
             tag={SectionTagType.SECTION}
+            theme={SectionThemeMode.LiGHT}
             className={
                 classNames(
                     cls.block,

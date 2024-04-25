@@ -1,19 +1,33 @@
 import Link from 'next/link';
 import classNames from 'classnames';
-import {IconKey, LinkIcon,} from '5_shared/ui/LinkIcon/LinkIcon';
-import {Routes} from '5_shared/config/routes';
-import {Stack, StackDirectionType, StackSizeType} from '5_shared/ui/Stack/Stack';
-import {Container} from '5_shared/ui/Container/Container';
+import { MainIntoType } from 'app/model/types/MainData';
+import {
+    Logo,
+    LogoMode,
+} from '4_entities/Logo';
+import {
+    Stack,
+    StackSizeType,
+    StackDirectionType,
+} from '5_shared/ui/Stack/Stack';
+import {
+    IconKey,
+    LinkIcon,
+} from '5_shared/ui/LinkIcon/LinkIcon';
+import { Routes } from '5_shared/config/routes';
+import { Container } from '5_shared/ui/Container/Container';
 import cls from './Header.module.scss';
 
 interface HeaderProps {
     isFixed?: true;
     isInvert?: true;
     className?: string;
+    data: MainIntoType;
 }
 
 export const Header = (props: HeaderProps) => {
     const {
+        data,
         isFixed,
         isInvert,
         className,
@@ -31,6 +45,15 @@ export const Header = (props: HeaderProps) => {
         >
             <Container>
                 <div className={classNames(cls.wrapper)}>
+                    {
+                        data?.blockLogo
+                        && (
+                            <Logo
+                                data={data?.blockLogo}
+                                mode={isInvert ? LogoMode.LIGHT : LogoMode.DARK}
+                            />
+                        )
+                    }
                     <nav className={classNames(cls.nav)}>
                         <Link className={classNames(cls.link)} href={Routes.FRONT}>Главная</Link>
                         <Link className={classNames(cls.link)} href={Routes.GAMES}>Игры</Link>

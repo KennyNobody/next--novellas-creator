@@ -1,35 +1,35 @@
 import { Metadata } from 'next';
-import { JobPage } from '1_pages/JobPage';
-import { FrontPageType } from '1_pages/FrontPage';
-import { PageType } from '4_entities/Page';
+import {
+    JobPage,
+    JobPageType,
+} from '1_pages/JobPage';
+import { ErrorPage } from '1_pages/ErrorPage';
 import { Routes } from '5_shared/api/endpoints';
-import { fetchData } from '5_shared/libs/fetching/fetchingData';
 import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
-
-const prefetchData = async () => {
-    try {
-        const data: PageType = await fetchData(Routes.PAGE_JOB);
-        return data.data;
-    } catch (error) {
-        console.error('Ошибка получения данных от сервера:', error);
-        return null;
-    }
-};
+import { MainDataType } from '../../model/types/MainData';
+import { prefetchData } from '../../model/services/fetchData';
+import { PrefetchDataType } from '../../model/types/PrefetchData';
 
 // @ts-ignore
 export const metadata = async (): Promise<Metadata> => {
-    const data: FrontPageType = await prefetchData();
-    const metaData = data.sectionMeta;
+    const data: PrefetchDataType | null = await prefetchData(Routes.PAGE_JOB);
+    const metaData = data?.pageData?.sectionMeta;
 
     return setPageMeta(metaData);
 };
 
 export default async function Page() {
-    const data: FrontPageType = await prefetchData();
+    const response: PrefetchDataType | null = await prefetchData(Routes.PAGE_JOB);
 
-    if (!data) {
-        return <div>Ошибка получения данных от сервера</div>;
+    const pageData: JobPageType | undefined = response?.pageData;
+    const mainData: MainDataType | undefined = response?.mainData;
+
+    if (!pageData || !mainData) {
+        return <ErrorPage />;
     }
 
-    return JobPage({ data });
+    return JobPage({
+        pageData,
+        mainData,
+    });
 }

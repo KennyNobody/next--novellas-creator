@@ -1,6 +1,6 @@
+import { PictureType } from '4_entities/Picture';
 import {
     AuthorType,
-    PictureType,
     BlueprintType,
     CollectionType,
 } from '5_shared/types/statamic';

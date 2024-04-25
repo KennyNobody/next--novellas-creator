@@ -5,39 +5,46 @@ import { SectionSubscribe } from '2_widgets/SectionSubscribe';
 import { Main } from '5_shared/ui/Main/Main';
 import cls from './NewsPage.module.css';
 import { NewsPageType } from '../model/types/NewsPage';
+import {MainDataType} from "../../../app/model/types/MainData";
+import {Footer} from "../../../2_widgets/Footer";
 
-interface SectionPageNewsProps {
-    className?: string;
-    data: NewsPageType;
+interface NewsPageProps {
+    pageData: NewsPageType;
+    mainData: MainDataType,
 }
 
-const NewsPage = (props: SectionPageNewsProps) => {
+const NewsPage = (props: NewsPageProps) => {
     const {
-        data,
-        className,
+        pageData,
+        mainData,
     } = props;
 
     return (
         <>
-            <Header />
-            <Main className={classNames(cls.block, className)}>
+            <Header
+                data={mainData.sectionMainInfo}
+            />
+            <Main className={classNames(cls.block)}>
                 {
-                    data?.sectionNews
+                    pageData?.sectionNews
                     && (
                         <SectionPageNews
-                            data={data.sectionNews}
+                            data={pageData.sectionNews}
                         />
                     )
                 }
                 {
-                    data?.sectionForm
+                    mainData?.sectionForm
                     && (
                         <SectionSubscribe
-                            data={data?.sectionForm}
+                            data={mainData?.sectionForm}
                         />
                     )
                 }
             </Main>
+            <Footer
+                data={mainData.sectionMainInfo}
+            />
         </>
     );
 };

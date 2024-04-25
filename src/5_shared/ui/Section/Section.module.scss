@@ -1,12 +1,32 @@
 .block {
     position: relative;
 
-    &--invert {
+    &--theme-light {
         background-color: var(--white);
+    }
+
+    &--theme-dark {
+        background-color: var(--bg-blue-dark);
+    }
+
+    &--theme-dark-decor {
+        background-image:
+        linear-gradient(to bottom, #0F0F16 0%, transparent 50%, #0F0F16 100%),
+        radial-gradient(circle at center, transparent, transparent 50%, #131316 100%),
+        radial-gradient(circle at 65% 29%, #4c2bc54D, transparent 30%),
+        radial-gradient(circle at 37% 55%, #4c2bc54D, transparent 30%),
+        radial-gradient(circle at 57% 83%, #4c2bc54D, transparent 30%),
+        radial-gradient(ellipse 100% 160% at center, #422940, transparent 40%),
+        url("../../../5_shared/assets/backgrounds/grid.svg");
+        background-color: var(--bg-blue-dark);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 }
 
 .decor {
+    z-index: 1;
     height: 45px;
     width: 1920px;
     display: block;

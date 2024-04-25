@@ -5,21 +5,32 @@ import { SectionShopCatalog } from '2_widgets/SectionShopCatalog';
 import { Main } from '5_shared/ui/Main/Main';
 import cls from './ShopPage.module.css';
 import { ShopPageType } from '../model/types/ShopPage';
+import { MainDataType } from '../../../app/model/types/MainData';
+import {Footer} from "../../../2_widgets/Footer";
 
 interface ShopPageProps {
-    data: ShopPageType;
+    pageData: ShopPageType;
+    mainData: MainDataType;
 }
 
 const ShopPage = (props: ShopPageProps) => {
-    const { data } = props;
+    const {
+        pageData,
+        mainData,
+    } = props;
 
     return (
         <>
-            <Header />
+            <Header
+                data={mainData.sectionMainInfo}
+            />
             <Main className={classNames(cls.block)}>
                 <SectionShopSlider />
                 <SectionShopCatalog />
             </Main>
+            <Footer
+                data={mainData.sectionMainInfo}
+            />
         </>
     );
 };

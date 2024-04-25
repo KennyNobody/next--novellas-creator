@@ -3,10 +3,12 @@ import { PageType } from '4_entities/Page';
 import { fetchData } from '5_shared/libs/fetching/fetchingData';
 import { MainDataType } from '../types/MainData';
 
-const prefetchData = async (pageRoute: Routes) => {
+const prefetchData = async (pageRoute: Routes, id?: string) => {
+    const url = id ? `${pageRoute}/${id}` : pageRoute;
+
     try {
         const mainData: MainDataType = await fetchData(Routes.MAIN);
-        const pageData: PageType = await fetchData(pageRoute);
+        const pageData: PageType = await fetchData(url);
         return {
             pageData,
             mainData,

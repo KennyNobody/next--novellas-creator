@@ -1,4 +1,4 @@
-import { PictureType } from '5_shared/types/statamic';
+import { PictureType } from '4_entities/Picture';
 
 interface SectionFrontGameType {
     title: string;

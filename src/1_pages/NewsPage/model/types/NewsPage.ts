@@ -5,7 +5,6 @@ import { SectionSubscribeType } from '2_widgets/SectionSubscribe';
 interface NewsPageType {
     sectionMeta: Metadata;
     sectionNews: SectionPageNewsType;
-    sectionForm: SectionSubscribeType;
 }
 
 export {

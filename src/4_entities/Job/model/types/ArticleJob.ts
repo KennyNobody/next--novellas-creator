@@ -1,10 +1,10 @@
 import {
     AuthorType,
-    PictureType,
     TaxonomyType,
     BlueprintType,
     CollectionType,
 } from '5_shared/types/statamic';
+import { PictureType } from '4_entities/Picture';
 
 interface ArticleJobType {
     id: string;

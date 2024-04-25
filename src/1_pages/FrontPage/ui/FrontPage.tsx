@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { Header } from '2_widgets/Header';
+import { Footer } from '2_widgets/Footer';
 import { SectionFrontTeam } from '2_widgets/SectionFrontTeam';
 import { SectionFrontNews } from '2_widgets/SectionFrontNews';
 import { SectionFrontGame } from '2_widgets/SectionFrontGame';
@@ -12,8 +13,8 @@ import { FrontPageType } from '../model/types/FrontPage';
 import { MainDataType } from '../../../app/model/types/MainData';
 
 interface FrontPageProps {
-    pageData: FrontPageType,
-    mainData: MainDataType,
+    pageData: FrontPageType;
+    mainData: MainDataType;
 }
 
 const FrontPage = (props: FrontPageProps) => {
@@ -26,6 +27,8 @@ const FrontPage = (props: FrontPageProps) => {
         <>
             <Header
                 isFixed
+                isInvert
+                data={mainData.sectionMainInfo}
                 className={classNames(cls.header)}
             />
             <Main className={classNames(cls.block)}>
@@ -37,7 +40,6 @@ const FrontPage = (props: FrontPageProps) => {
                     )
                 }
                 <SectionFrontGame />
-
                 {
                     pageData?.sectionFrontTeam
                     && (
@@ -51,12 +53,15 @@ const FrontPage = (props: FrontPageProps) => {
                     )
                 }
                 {
-                    pageData?.sectionForm
+                    mainData?.sectionForm
                     && (
-                        <SectionSubscribe data={pageData.sectionForm} />
+                        <SectionSubscribe data={mainData.sectionForm} />
                     )
                 }
             </Main>
+            <Footer
+                data={mainData.sectionMainInfo}
+            />
         </>
     );
 };

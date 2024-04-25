@@ -1,21 +1,15 @@
 import { Metadata } from 'next';
+import { prefetchData } from 'app/model/services/fetchData';
 import {
-    fetchData,
     NewsDetailPage,
     NewsDetailPageType,
 } from '1_pages/NewsDetailPage';
+import { Routes } from '5_shared/api/endpoints';
 import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
-
-const prefetchData = async (id: string) => {
-    try {
-        const data: NewsDetailPageType = await fetchData(id);
-        // @ts-ignore
-        return data.data;
-    } catch (error) {
-        console.error('Ошибка получения данных от сервера:', error);
-        return null;
-    }
-};
+import {PrefetchDataType} from "../../../model/types/PrefetchData";
+import {FrontPageType} from "../../../../1_pages/FrontPage";
+import {MainDataType} from "../../../model/types/MainData";
+import {ErrorPage} from "../../../../1_pages/ErrorPage";
 
 interface ParamsProps {
     params: {
@@ -29,8 +23,8 @@ export async function generateMetadata(
     // parent: ResolvingMetadata,
 ): Promise<Metadata> {
     const { id } = params;
-    const data: NewsDetailPageType = await prefetchData(id);
-    const metaData = data.sectionMeta;
+    const data: PrefetchDataType | null = await prefetchData(Routes.POSTS_LIST, id);
+    const metaData = data?.pageData?.sectionMeta;
 
     return setPageMeta(metaData);
 }
@@ -38,11 +32,17 @@ export async function generateMetadata(
 export default async function Page(props: ParamsProps) {
     const id = props?.params?.id;
 
-    const data: NewsDetailPageType | null = await prefetchData(id);
+    const response: PrefetchDataType | null = await prefetchData(Routes.POSTS_LIST, id);
 
-    if (!data) {
-        return <div>Ошибка получения данных от сервера</div>;
+    const pageData: NewsDetailPageType | undefined = response?.pageData;
+    const mainData: MainDataType | undefined = response?.mainData;
+
+    if (!pageData || !mainData) {
+        return <ErrorPage />;
     }
 
-    return <NewsDetailPage data={data} />;
+    return NewsDetailPage({
+        pageData,
+        mainData,
+    });
 }

@@ -1,29 +1,57 @@
 import classNames from 'classnames';
 import { Header } from '2_widgets/Header';
+import { Footer } from '2_widgets/Footer';
+import { SectionSubscribe } from '2_widgets/SectionSubscribe';
+import { SectionAboutIntro } from '2_widgets/SectionAboutIntro';
 import { Main } from '5_shared/ui/Main/Main';
-import { Container } from '5_shared/ui/Container/Container';
 import cls from './AboutPage.module.css';
 import { AboutPageType } from '../model/types/AboutPage';
+import { MainDataType } from '../../../app/model/types/MainData';
+import {SectionTeam} from "../../../2_widgets/SectionTeam";
 
 interface AboutPageProps {
-    data: AboutPageType;
+    pageData: AboutPageType;
+    mainData: MainDataType,
 }
 
 const AboutPage = (props: AboutPageProps) => {
-    const { data } = props;
+    const {
+        pageData,
+        mainData,
+    } = props;
 
     return (
         <>
-            <Header />
+            <Header
+                isFixed
+                isInvert
+                data={mainData.sectionMainInfo}
+            />
             <Main className={classNames(cls.block)}>
-                <Container>
-                    <div className={classNames(cls.description)}>
-                        <h2>
-                            Это страница О нас
-                        </h2>
-                    </div>
-                </Container>
+                {
+                    pageData?.sectionAboutIntro
+                    && (
+                        <SectionAboutIntro
+                            data={pageData.sectionAboutIntro}
+                        />
+                    )
+                }
+                {
+                    pageData?.sectionTeam
+                    && (
+                        <SectionTeam data={pageData.sectionTeam} />
+                    )
+                }
+                {
+                    mainData?.sectionForm
+                    && (
+                        <SectionSubscribe data={mainData.sectionForm} />
+                    )
+                }
             </Main>
+            <Footer
+                data={mainData.sectionMainInfo}
+            />
         </>
     );
 };

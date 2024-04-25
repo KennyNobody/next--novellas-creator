@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import cls from './Picture.module.scss';
-import { PictureType } from '../../types/statamic';
+import { PictureType } from '../model/types/Picture';
 
 interface PictureProps {
     altText?: string;
