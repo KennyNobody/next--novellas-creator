@@ -29,6 +29,25 @@ const config: StorybookConfig = {
             '@/src': path.resolve(__dirname, '../src'),
         };
 
+        configWebpack!.module!.rules = configWebpack?.module?.rules?.map(
+            // @ts-ignore
+            (rule: RuleSetRule) => {
+                if (/svg/.test(rule.test as string)) {
+                    return {
+                        ...rule,
+                        exclude: /\.svg$/i,
+                    };
+                }
+
+                return rule;
+            },
+        );
+
+        configWebpack!.module!.rules!.push({
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+        });
+
         return configWebpack;
     },
 };

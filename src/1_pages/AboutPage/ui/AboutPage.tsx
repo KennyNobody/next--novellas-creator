@@ -1,13 +1,15 @@
 import classNames from 'classnames';
-import { Header } from '2_widgets/Header';
-import { Footer } from '2_widgets/Footer';
-import { SectionSubscribe } from '2_widgets/SectionSubscribe';
-import { SectionAboutIntro } from '2_widgets/SectionAboutIntro';
-import { Main } from '5_shared/ui/Main/Main';
+import {Header} from '2_widgets/Header';
+import {Footer} from '2_widgets/Footer';
+import {SectionSubscribe} from '2_widgets/SectionSubscribe';
+import {SectionAboutIntro} from '2_widgets/SectionAboutIntro';
+import {Main} from '5_shared/ui/Main/Main';
 import cls from './AboutPage.module.css';
-import { AboutPageType } from '../model/types/AboutPage';
-import { MainDataType } from '../../../app/model/types/MainData';
+import {AboutPageType} from '../model/types/AboutPage';
+import {MainDataType} from '../../../app/model/types/MainData';
 import {SectionTeam} from "../../../2_widgets/SectionTeam";
+import {Breadcrumbs} from "../../../3_features/Breadcrumbs";
+import {RouteSlug} from "../../../5_shared/config/routes";
 
 interface AboutPageProps {
     pageData: AboutPageType;
@@ -26,7 +28,9 @@ const AboutPage = (props: AboutPageProps) => {
                 isFixed
                 isInvert
                 data={mainData.sectionMainInfo}
-            />
+            >
+                <Breadcrumbs slug={RouteSlug.ABOUT} />
+            </Header>
             <Main className={classNames(cls.block)}>
                 {
                     pageData?.sectionAboutIntro

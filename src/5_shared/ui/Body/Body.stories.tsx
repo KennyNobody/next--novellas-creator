@@ -11,11 +11,6 @@ const meta: Meta<typeof BodyComponent> = {
     args: {
         isStorybook: true,
     },
-    // args: {
-    //     onLogin: fn(),
-    //     onLogout: fn(),
-    //     onCreateAccount: fn(),
-    // },
 };
 
 export default meta;

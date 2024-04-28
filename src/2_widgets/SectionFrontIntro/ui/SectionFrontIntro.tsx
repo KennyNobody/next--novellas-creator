@@ -10,12 +10,10 @@ import cls from './SectionFrontIntro.module.scss';
 
 interface SectionFrontIntroProps {
     className?: string;
-    title: string;
 }
 
 export const SectionFrontIntro = (props: SectionFrontIntroProps) => {
     const {
-        title,
         className,
     } = props;
 
@@ -25,7 +23,9 @@ export const SectionFrontIntro = (props: SectionFrontIntroProps) => {
             className={classNames(cls.block, className)}
         >
             <Container>
-                { title }
+                <div className={classNames(cls.box)}>
+                    Слайдер с играми
+                </div>
             </Container>
         </Section>
     );

@@ -1,0 +1,11 @@
+.link {
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--grey-light);
+
+    @at-root a#{&} { // Используем интерполяцию, чтобы скомбинировать тег a с .block
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

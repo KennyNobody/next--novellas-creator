@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import classNames from 'classnames';
+import { ReactNode } from 'react';
 import { MainIntoType } from 'app/model/types/MainData';
 import {
     Logo,
@@ -14,8 +15,8 @@ import {
     IconKey,
     LinkIcon,
 } from '5_shared/ui/LinkIcon/LinkIcon';
-import { Routes } from '5_shared/config/routes';
 import { Container } from '5_shared/ui/Container/Container';
+import { RoutesList, RouteSlug } from '5_shared/config/routes';
 import cls from './Header.module.scss';
 
 interface HeaderProps {
@@ -23,6 +24,7 @@ interface HeaderProps {
     isInvert?: true;
     className?: string;
     data: MainIntoType;
+    children?: ReactNode;
 }
 
 export const Header = (props: HeaderProps) => {
@@ -31,6 +33,7 @@ export const Header = (props: HeaderProps) => {
         isFixed,
         isInvert,
         className,
+        children,
     } = props;
 
     return (
@@ -44,7 +47,7 @@ export const Header = (props: HeaderProps) => {
             }
         >
             <Container>
-                <div className={classNames(cls.wrapper)}>
+                <div className={classNames(cls.main)}>
                     {
                         data?.blockLogo
                         && (
@@ -55,13 +58,48 @@ export const Header = (props: HeaderProps) => {
                         )
                     }
                     <nav className={classNames(cls.nav)}>
-                        <Link className={classNames(cls.link)} href={Routes.FRONT}>Главная</Link>
-                        <Link className={classNames(cls.link)} href={Routes.GAMES}>Игры</Link>
-                        <Link className={classNames(cls.link)} href={Routes.SHOP}>Покупки</Link>
-                        <Link className={classNames(cls.link)} href={Routes.ABOUT}>О нас</Link>
-                        <Link className={classNames(cls.link)} href={Routes.NEWS}>Новости</Link>
-                        <Link className={classNames(cls.link)} href={Routes.JOB}>Вакансии</Link>
-                        <Link className={classNames(cls.link)} href={Routes.CONTACTS}>Контакты</Link>
+                        <Link
+                            className={classNames(cls.link)}
+                            href={RoutesList[RouteSlug.FRONT].url}
+                        >
+                            { RoutesList[RouteSlug.FRONT].caption }
+                        </Link>
+                        <Link
+                            className={classNames(cls.link)}
+                            href={RoutesList[RouteSlug.GAMES].url}
+                        >
+                            { RoutesList[RouteSlug.GAMES].caption }
+                        </Link>
+                        <Link
+                            className={classNames(cls.link)}
+                            href={RoutesList[RouteSlug.SHOP].url}
+                        >
+                            { RoutesList[RouteSlug.SHOP].caption }
+                        </Link>
+                        <Link
+                            className={classNames(cls.link)}
+                            href={RoutesList[RouteSlug.ABOUT].url}
+                        >
+                            { RoutesList[RouteSlug.ABOUT].caption }
+                        </Link>
+                        <Link
+                            className={classNames(cls.link)}
+                            href={RoutesList[RouteSlug.NEWS].url}
+                        >
+                            { RoutesList[RouteSlug.NEWS].caption }
+                        </Link>
+                        <Link
+                            className={classNames(cls.link)}
+                            href={RoutesList[RouteSlug.JOB].url}
+                        >
+                            { RoutesList[RouteSlug.JOB].caption }
+                        </Link>
+                        <Link
+                            className={classNames(cls.link)}
+                            href={RoutesList[RouteSlug.CONTACTS].url}
+                        >
+                            { RoutesList[RouteSlug.CONTACTS].caption }
+                        </Link>
                     </nav>
                     <Stack
                         size={StackSizeType.SMALL}
@@ -80,8 +118,14 @@ export const Header = (props: HeaderProps) => {
                             iconKey={IconKey.CART}
                         />
                     </Stack>
-
                 </div>
+                {
+                    children && (
+                        <div className={classNames(cls.breadcrumbs)}>
+                            { children }
+                        </div>
+                    )
+                }
             </Container>
         </header>
     );

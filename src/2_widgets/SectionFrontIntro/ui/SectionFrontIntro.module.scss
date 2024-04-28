@@ -1,3 +1,11 @@
 .block {
-    min-height: 90vh;
+
+}
+
+.box {
+    height: 90vh;
+    display: flex;
+    min-height: 950px;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,11 +1,13 @@
 import classNames from 'classnames';
+import { MainDataType } from 'app';
 import { Footer } from '2_widgets/Footer';
 import { Header } from '2_widgets/Header';
 import { SectionContacts } from '2_widgets/SectionContacts';
+import { Breadcrumbs } from '3_features/Breadcrumbs';
 import { Main } from '5_shared/ui/Main/Main';
-import cls from './ContactsPage.module.css';
+import { RouteSlug } from '5_shared/config/routes';
 import { ContactsPageType } from '../model/types/ContactsPage';
-import { MainDataType } from '../../../app/model/types/MainData';
+import cls from './ContactsPage.module.css';
 
 interface ContactsPageProps {
     pageData: ContactsPageType;
@@ -22,7 +24,9 @@ const ContactsPage = (props: ContactsPageProps) => {
         <>
             <Header
                 data={mainData.sectionMainInfo}
-            />
+            >
+                <Breadcrumbs slug={RouteSlug.CONTACTS} />
+            </Header>
             <Main className={classNames(cls.block)}>
                 {
                     pageData?.sectionContacts

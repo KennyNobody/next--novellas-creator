@@ -11,6 +11,8 @@ import { Editor } from '5_shared/ui/Editor/Editor';
 import grid from '5_shared/styles/grid.module.scss';
 import { Title, TitleMode } from '5_shared/ui/Title/Title';
 import { Container } from '5_shared/ui/Container/Container';
+import { RoutesList, RouteSlug } from '5_shared/config/routes';
+import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
 import cls from './SectionFrontAbout.module.scss';
 import { SectionFrontAboutType } from '../model/types/SectionFrontAbout';
 
@@ -62,6 +64,12 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                                 />
                             )
                         }
+                        <ButtonRegular
+                            label="Подробнее"
+                            tag={ButtonTagType.LINK}
+                            className={classNames(cls.button)}
+                            path={RoutesList[RouteSlug.ABOUT].url}
+                        />
                     </div>
                     {
                         data?.picture

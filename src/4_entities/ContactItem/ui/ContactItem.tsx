@@ -14,7 +14,8 @@ export const ContactItem = (props: ContactItemProps) => {
     } = props;
 
     return (
-        <div
+        <a
+            href={`mailto:${data.link}`}
             className={
                 classNames(
                     cls.block,
@@ -22,25 +23,12 @@ export const ContactItem = (props: ContactItemProps) => {
                 )
             }
         >
-            {
-                data?.title
-                && (
-                    <p className={classNames(cls.title)}>
-                        { data.title }
-                    </p>
-                )
-            }
-            {
-                data?.link
-                && (
-                    <a
-                        href={`mailto:${data.link}`}
-                        className={classNames(cls.link)}
-                    >
-                        { data.link }
-                    </a>
-                )
-            }
-        </div>
+            <span className={classNames(cls.link)}>
+                { data.link }
+            </span>
+            <span className={classNames(cls.caption)}>
+                { data.title }
+            </span>
+        </a>
     );
 };

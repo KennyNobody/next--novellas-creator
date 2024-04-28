@@ -1,12 +1,17 @@
 .block {
     padding: 130px 0;
-    min-height: 800px;
+    min-height: 850px;
 }
 
 .title {
     margin-bottom: 25px;
+    color: var(--bg-blue-dark);
 }
 
 .editor {
     margin-bottom: 50px;
+}
+
+.button {
+    margin-top: 50px;
 }

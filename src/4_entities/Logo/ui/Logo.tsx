@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import classNames from 'classnames';
+import { RoutesList, RouteSlug } from '5_shared/config/routes';
 import cls from './Logo.module.scss';
 import { LogoType } from '../model/types/Logo';
 
@@ -24,7 +25,7 @@ const Logo = (props: LogoProps) => {
 
     return (
         <Link
-            href="./"
+            href={RoutesList[RouteSlug.FRONT].url}
             className={classNames(cls.block, className)}
         >
             <img src={logoData.permalink} alt="логотип" />

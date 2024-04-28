@@ -1,6 +1,6 @@
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 import cls from './Stack.module.scss';
-import {ReactNode} from "react";
 
 enum StackDirectionType {
     X = 'x',
