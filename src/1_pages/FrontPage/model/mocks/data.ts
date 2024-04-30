@@ -1,14 +1,16 @@
 import { Metadata } from 'next';
 import { SectionSubscribeType } from '2_widgets/SectionSubscribe';
-import { SectionFrontNewsType } from '2_widgets/SectionFrontNews';
+import { SectionFrontTeamType } from '2_widgets/SectionFrontTeam';
+import { SectionPreviewNewsType } from '2_widgets/SectionPreviewNews';
+import { SectionFrontAboutType } from '2_widgets/SectionFrontAbout';
 import { FrontPageType } from '../types/FrontPage';
 
-const sectionMetaMock: Metadata = {
+const sectionMeta: Metadata = {
     title: 'Заголовок страницы',
     description: 'Description страницы',
 };
 
-const sectionAboutMock = {
+const sectionFrontAbout: SectionFrontAboutType = {
     title: '<p>Заголовок <br/><strong>О нас</strong></p>',
     content: '<p>Их привлекает не столько остросюжетность, сколько психологизм, нравственные терзания героев, проблемы внутреннего кризиса.</p><p>Особенно это касается малых форм, где объём не позволяет разбрасываться и надо выбрать что-то одно: либо закрученный сюжет с неожиданной развязкой.</p>',
     picture: {
@@ -19,16 +21,16 @@ const sectionAboutMock = {
     },
 };
 
-const sectionTeamMock = {
+const sectionFrontTeam: SectionFrontTeamType = {
     title: '<p><strong>Наша команда</strong></p>',
     content: '<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete.</p>',
 };
 
-const sectionFrontNewsMock: SectionFrontNewsType = {
+const sectionPreviewNews: SectionPreviewNewsType = {
     title: '<p>Новости</p>\n',
 };
 
-const sectionFormMock: SectionSubscribeType = {
+const sectionForm: SectionSubscribeType = {
     title: '<p>Подпишитесь<br />\nна наши новости</p>\n',
     content: '<p>Какой-то контент в несколько строк</p>\n',
     buttonText: 'Отправить',
@@ -36,11 +38,11 @@ const sectionFormMock: SectionSubscribeType = {
 };
 
 const mockData: FrontPageType = {
-    sectionMeta: sectionMetaMock,
-    sectionForm: sectionFormMock,
-    sectionFrontAbout: sectionAboutMock,
-    sectionFrontTeam: sectionTeamMock,
-    sectionFrontNews: sectionFrontNewsMock,
+    sectionMeta,
+    sectionForm,
+    sectionFrontAbout,
+    sectionFrontTeam,
+    sectionPreviewNews,
 };
 
 export {

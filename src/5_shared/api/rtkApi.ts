@@ -4,6 +4,7 @@ const rtkApi = createApi({
     reducerPath: 'appApi',
     tagTypes: [
         'post',
+        'job',
     ],
     baseQuery: fetchBaseQuery(
         {

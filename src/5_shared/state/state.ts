@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { jobListReducer } from '4_entities/Job';
 import { postListReducer } from '4_entities/Post';
 import { $api } from '../api/api';
 import { rtkApi } from '../api/rtkApi';
@@ -6,6 +7,7 @@ import { rtkApi } from '../api/rtkApi';
 export const makeStore = () => configureStore({
     reducer: {
         postList: postListReducer,
+        jobList: jobListReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({

@@ -1,16 +1,17 @@
 import classNames from 'classnames';
-import { MainDataType } from 'app';
-import { Header } from '2_widgets/Header';
-import { Footer } from '2_widgets/Footer';
-import { SectionFrontTeam } from '2_widgets/SectionFrontTeam';
-import { SectionFrontNews } from '2_widgets/SectionFrontNews';
-import { SectionFrontGame } from '2_widgets/SectionFrontGame';
-import { SectionSubscribe } from '2_widgets/SectionSubscribe';
-import { SectionFrontIntro } from '2_widgets/SectionFrontIntro';
-import { SectionFrontAbout } from '2_widgets/SectionFrontAbout';
-import { Main } from '5_shared/ui/Main/Main';
+import {MainDataType} from 'app';
+import {Header} from '2_widgets/Header';
+import {Footer} from '2_widgets/Footer';
+import {SectionFrontTeam} from '2_widgets/SectionFrontTeam';
+import {SectionPreviewNews} from '2_widgets/SectionPreviewNews';
+import {SectionFrontGame} from '2_widgets/SectionFrontGame';
+import {SectionSubscribe} from '2_widgets/SectionSubscribe';
+import {SectionFrontIntro} from '2_widgets/SectionFrontIntro';
+import {SectionFrontAbout} from '2_widgets/SectionFrontAbout';
+import {Main} from '5_shared/ui/Main/Main';
 import cls from './FrontPage.module.scss';
-import { FrontPageType } from '../model/types/FrontPage';
+import {FrontPageType} from '../model/types/FrontPage';
+import {Section, SectionDecorType, SectionTagType} from "../../../5_shared/ui/Section/Section";
 
 interface FrontPageProps {
     pageData: FrontPageType;
@@ -47,9 +48,17 @@ const FrontPage = (props: FrontPageProps) => {
                     )
                 }
                 {
-                    pageData?.sectionFrontNews
+                    pageData?.sectionPreviewNews
                     && (
-                        <SectionFrontNews data={pageData.sectionFrontNews} />
+                        <Section
+                            tag={SectionTagType.DIV}
+                            decor={SectionDecorType.FULL}
+                        >
+                            <SectionPreviewNews
+                                data={pageData.sectionPreviewNews}
+                                className={classNames(cls['section-news'])}
+                            />
+                        </Section>
                     )
                 }
                 {

@@ -12,7 +12,6 @@ export const SectionJobCatalog = (props: SectionJobCatalogProps) => {
 
     return (
         <Section
-            decor={SectionDecorType.TOP}
             tag={SectionTagType.SECTION}
             theme={SectionThemeMode.LiGHT}
             className={

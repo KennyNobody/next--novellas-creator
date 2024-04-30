@@ -1,15 +1,20 @@
 import classNames from 'classnames';
-import {Header} from '2_widgets/Header';
-import {Footer} from '2_widgets/Footer';
-import {SectionSubscribe} from '2_widgets/SectionSubscribe';
-import {SectionAboutIntro} from '2_widgets/SectionAboutIntro';
-import {Main} from '5_shared/ui/Main/Main';
-import cls from './AboutPage.module.css';
-import {AboutPageType} from '../model/types/AboutPage';
-import {MainDataType} from '../../../app/model/types/MainData';
-import {SectionTeam} from "../../../2_widgets/SectionTeam";
-import {Breadcrumbs} from "../../../3_features/Breadcrumbs";
-import {RouteSlug} from "../../../5_shared/config/routes";
+import { MainDataType } from 'app';
+import { Header } from '2_widgets/Header';
+import { Footer } from '2_widgets/Footer';
+import { SectionSubscribe } from '2_widgets/SectionSubscribe';
+import { SectionAboutIntro } from '2_widgets/SectionAboutIntro';
+import { Main } from '5_shared/ui/Main/Main';
+import { SectionTeam } from '2_widgets/SectionTeam';
+import { Breadcrumbs } from '3_features/Breadcrumbs';
+import { RouteSlug } from '5_shared/config/routes';
+import { SectionJobPreview } from '2_widgets/SectionJobPreview';
+import {
+    Section, SectionDecorType, SectionTagType, SectionThemeMode,
+} from '5_shared/ui/Section/Section';
+import { AboutPageType } from '../model/types/AboutPage';
+import cls from './AboutPage.module.scss';
+import {SectionPreviewNews} from "../../../2_widgets/SectionPreviewNews";
 
 interface AboutPageProps {
     pageData: AboutPageType;
@@ -46,6 +51,25 @@ const AboutPage = (props: AboutPageProps) => {
                         <SectionTeam data={pageData.sectionTeam} />
                     )
                 }
+                <Section
+                    tag={SectionTagType.DIV}
+                    theme={SectionThemeMode.LiGHT}
+                    decor={SectionDecorType.BOTTOM}
+                    className={classNames(cls['section-lists'])}
+                >
+                    {
+                        pageData?.sectionAboutIntro
+                        && (
+                            <SectionJobPreview data={pageData.sectionJobPreview} />
+                        )
+                    }
+                    {
+                        pageData?.sectionPreviewNews
+                        && (
+                            <SectionPreviewNews data={pageData.sectionPreviewNews} />
+                        )
+                    }
+                </Section>
                 {
                     mainData?.sectionForm
                     && (

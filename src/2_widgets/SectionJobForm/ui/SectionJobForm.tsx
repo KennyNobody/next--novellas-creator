@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import {
     Section,
     SectionTagType,
-    SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionJobForm.module.scss';
@@ -17,7 +16,6 @@ export const SectionJobForm = (props: SectionJobFormProps) => {
     return (
         <Section
             tag={SectionTagType.SECTION}
-            theme={SectionThemeMode.DARK_DECOR}
             className={
                 classNames(
                     cls.block,

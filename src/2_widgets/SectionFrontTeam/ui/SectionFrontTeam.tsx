@@ -21,9 +21,7 @@ export const SectionFrontTeam = (props: SectionFrontIntroProps) => {
 
     return (
         <Section
-            decor={SectionDecorType.TOP}
             tag={SectionTagType.SECTION}
-            theme={SectionThemeMode.LiGHT}
             className={classNames(cls.block, className)}
         >
             <Container>

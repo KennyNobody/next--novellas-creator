@@ -41,7 +41,7 @@ const Section = (props: SectionProps) => {
         className,
     } = props;
 
-    const Tag: keyof JSX.IntrinsicElements = tag;
+    const Tag: keyof React.JSX.IntrinsicElements = tag;
 
     const showTopDecor = decor === SectionDecorType.TOP || decor === SectionDecorType.FULL;
     const showBottomDecor = decor === SectionDecorType.BOTTOM || decor === SectionDecorType.FULL;

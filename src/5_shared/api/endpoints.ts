@@ -10,4 +10,5 @@ export enum Routes {
     PAGE_SHOP = 'globals/page-shop',
 
     POSTS_LIST = 'collections/news/entries',
+    JOB_LIST = 'collections/vacancies/entries',
 }

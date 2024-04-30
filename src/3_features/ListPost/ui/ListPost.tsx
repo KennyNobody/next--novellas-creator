@@ -5,6 +5,7 @@ import {
 } from 'react';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
+import { Pagination } from '3_features/Pagination';
 import {
     GridPosts,
     initPostList,
@@ -16,7 +17,6 @@ import {
     useLazyFetchPostList,
 } from '4_entities/Post';
 import { useAppDispatch } from '5_shared/state/hooks';
-import { ListPaginationDirection } from '5_shared/types/base/Pagination';
 import cls from './ListPost.module.scss';
 
 interface ListPostsProps {
@@ -34,9 +34,9 @@ export const ListPost = (props: ListPostsProps) => {
 
     const [getData] = useLazyFetchPostList({});
 
-    const togglePage = (direction: ListPaginationDirection) => {
+    const togglePage = (newIndex: number) => {
         dispatch(changePageIndex({
-            direction,
+            newIndex,
             getData,
         }));
     };
@@ -54,28 +54,11 @@ export const ListPost = (props: ListPostsProps) => {
             <GridPosts
                 data={data}
             />
-            <hr />
-            <div className={classNames(cls.pagination)}>
-                <button
-                    type="button"
-                    disabled={pageIndex === 1}
-                    onClick={() => togglePage(ListPaginationDirection.PREV)}
-                >
-                    Предыдущая страница
-                </button>
-                <p>
-                    { pageIndex }
-                    /
-                    { pageTotal }
-                </p>
-                <button
-                    type="button"
-                    disabled={pageTotal === pageIndex}
-                    onClick={() => togglePage(ListPaginationDirection.NEXT)}
-                >
-                    Следующая страница
-                </button>
-            </div>
+            <Pagination
+                lastPage={pageTotal}
+                currentPage={pageIndex}
+                clickEvent={togglePage}
+            />
         </div>
     );
 };
