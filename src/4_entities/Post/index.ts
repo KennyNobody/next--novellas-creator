@@ -45,9 +45,5 @@ export type {
 } from './model/types/ArticlePost';
 
 export type {
-    DetailPostType,
-} from './model/types/DetailPost';
-
-export type {
     PostListSchema,
 } from './model/types/PostListSchema';

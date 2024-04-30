@@ -3,7 +3,7 @@ import { MainDataType } from 'app';
 import { Header } from '2_widgets/Header';
 import { Footer } from '2_widgets/Footer';
 import { Breadcrumbs } from '3_features/Breadcrumbs';
-import { DetailPost } from '4_entities/Post';
+import {ArticlePostType, DetailPost} from '4_entities/Post';
 import {
     Section,
     SectionTagType,
@@ -14,10 +14,9 @@ import { Main } from '5_shared/ui/Main/Main';
 import { RouteSlug } from '5_shared/config/routes';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './NewsDetailPage.module.scss';
-import { NewsDetailPageType } from '../model/types/NewsDetailPage';
 
 interface NewsDetailPageProps {
-    pageData: NewsDetailPageType;
+    pageData: ArticlePostType;
     mainData: MainDataType;
 }
 
@@ -27,6 +26,7 @@ const NewsDetailPage = (props: NewsDetailPageProps) => {
         mainData,
     } = props;
 
+
     return (
         <>
             <Header
@@ -34,7 +34,7 @@ const NewsDetailPage = (props: NewsDetailPageProps) => {
             >
                 <Breadcrumbs
                     slug={RouteSlug.NEWS}
-                    title={pageData.sectionPostDetail.title}
+                    title={pageData?.title}
                 />
             </Header>
             <Main className={classNames(cls.block)}>
@@ -45,10 +45,7 @@ const NewsDetailPage = (props: NewsDetailPageProps) => {
                 >
                     <Container>
                         {
-                            pageData?.sectionPostDetail
-                            && (
-                                <DetailPost data={pageData.sectionPostDetail} />
-                            )
+                            pageData && <DetailPost data={pageData} />
                         }
                     </Container>
                 </Section>

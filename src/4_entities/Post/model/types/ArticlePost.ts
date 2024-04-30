@@ -1,5 +1,5 @@
+import { Metadata } from 'next';
 import { PictureType } from '4_entities/Picture';
-import { DetailPostType } from './DetailPost';
 
 interface ArticlePostType {
     id: number;
@@ -7,10 +7,12 @@ interface ArticlePostType {
     title: string;
     locale: string;
     createdAt: Date;
+    meta: Metadata;
     updatedAt: Date;
+    content: string;
     publishedAt?: Date;
     preview: PictureType;
-    sectionPostDetail: DetailPostType;
+    previewCaption: string;
 }
 
 export type {

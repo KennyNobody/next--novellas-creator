@@ -11,22 +11,17 @@ const data: ArticlePostType = {
     createdAt: date,
     updatedAt: date,
     publishedAt: date,
+    content: '<p>Контент новости</p>',
+    previewCaption: 'Подзаголовок новости',
     preview: {
         id: '1',
         url: 'https://placehold.co/600x900.png',
         permalink: 'https://placehold.co/600x900.png',
         api_url: 'https://placehold.co/600x900.png',
     },
-    sectionPostDetail: {
-        title: 'Заголовок ArticlePost',
-        content: '<p>Контент новости</p>',
-        previewCaption: 'Подзаголовок новости',
-        preview: {
-            id: '1',
-            url: 'https://placehold.co/600x900.png',
-            permalink: 'https://placehold.co/600x900.png',
-            api_url: 'https://placehold.co/600x900.png',
-        },
+    meta: {
+        title: 'Meta-заголовок',
+        description: 'Meta-description',
     },
 };
 

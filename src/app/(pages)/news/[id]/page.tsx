@@ -2,14 +2,13 @@ import { Metadata } from 'next';
 import { prefetchData } from 'app/model/services/fetchData';
 import {
     NewsDetailPage,
-    NewsDetailPageType,
 } from '1_pages/NewsDetailPage';
+import { ErrorPage } from '1_pages/ErrorPage';
+import { ArticlePostType } from '4_entities/Post';
 import { Routes } from '5_shared/api/endpoints';
 import { setPageMeta } from '5_shared/libs/helpers/setPageMeta';
-import {PrefetchDataType} from "../../../model/types/PrefetchData";
-import {FrontPageType} from "../../../../1_pages/FrontPage";
-import {MainDataType} from "../../../model/types/MainData";
-import {ErrorPage} from "../../../../1_pages/ErrorPage";
+import { PrefetchDataType } from '../../../model/types/PrefetchData';
+import { MainDataType } from '../../../model/types/MainData';
 
 interface ParamsProps {
     params: {
@@ -34,7 +33,7 @@ export default async function Page(props: ParamsProps) {
 
     const response: PrefetchDataType | null = await prefetchData(Routes.POSTS_LIST, id);
 
-    const pageData: NewsDetailPageType | undefined = response?.pageData;
+    const pageData: ArticlePostType | undefined = response?.pageData;
     const mainData: MainDataType | undefined = response?.mainData;
 
     if (!pageData || !mainData) {

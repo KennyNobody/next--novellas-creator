@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import { Editor } from '5_shared/ui/Editor/Editor';
 import cls from './DetailPost.module.scss';
-import { DetailPostType } from '../../model/types/DetailPost';
+import { ArticlePostType } from '../../model/types/ArticlePost';
 
 interface DetailPostProps {
     className?: string;
-    data: DetailPostType;
+    data: ArticlePostType;
 }
 
 export const DetailPost = (props: DetailPostProps) => {
