@@ -5,6 +5,7 @@ const rtkApi = createApi({
     tagTypes: [
         'post',
         'job',
+        'jobTax',
     ],
     baseQuery: fetchBaseQuery(
         {

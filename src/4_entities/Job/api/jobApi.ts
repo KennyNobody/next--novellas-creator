@@ -6,7 +6,10 @@ const jobApi = rtkApi.injectEndpoints({
         fetchJobList: build.query({
             query: (params) => ({
                 url: Routes.JOB_LIST,
-                params,
+                params: {
+                    sort: '-id',
+                    ...params,
+                },
             }),
             providesTags: ['job'],
         }),

@@ -1,7 +1,16 @@
+'use client';
+
 import classNames from 'classnames';
-import {Section, SectionDecorType, SectionTagType, SectionThemeMode,} from '5_shared/ui/Section/Section';
-import {Container} from '5_shared/ui/Container/Container';
+import { JobFilter } from '3_features/JobFilter';
+import {
+    Section,
+    SectionTagType,
+    SectionDecorType,
+    SectionThemeMode,
+} from '5_shared/ui/Section/Section';
+import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionJobCatalog.module.scss';
+import {ListJob} from "../../../3_features/ListJob";
 
 interface SectionJobCatalogProps {
     className?: string;
@@ -12,6 +21,7 @@ export const SectionJobCatalog = (props: SectionJobCatalogProps) => {
 
     return (
         <Section
+            decor={SectionDecorType.TOP}
             tag={SectionTagType.SECTION}
             theme={SectionThemeMode.LiGHT}
             className={
@@ -22,7 +32,10 @@ export const SectionJobCatalog = (props: SectionJobCatalogProps) => {
             }
         >
             <Container>
-                123
+                <JobFilter
+                    className={classNames(cls.filter)}
+                />
+                <ListJob />
             </Container>
         </Section>
     );

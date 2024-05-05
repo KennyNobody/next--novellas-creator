@@ -1,15 +1,19 @@
 import classNames from 'classnames';
-import {MainDataType} from 'app';
-import {Footer} from '2_widgets/Footer';
-import {Header} from '2_widgets/Header';
-import {SectionJobForm} from '2_widgets/SectionJobForm';
-import {SectionJobCatalog} from '2_widgets/SectionJobCatalog';
-import {SectionPreviewNews} from '2_widgets/SectionPreviewNews';
-import {Main} from '5_shared/ui/Main/Main';
-import {Section, SectionDecorType, SectionTagType, SectionThemeMode} from "5_shared/ui/Section/Section";
-import {Breadcrumbs} from '3_features/Breadcrumbs';
-import {RouteSlug} from '5_shared/config/routes';
-import {JobPageType} from '../model/types/JobPage';
+import { MainDataType } from 'app';
+import { Footer } from '2_widgets/Footer';
+import { Header } from '2_widgets/Header';
+import { SectionJobCatalog } from '2_widgets/SectionJobCatalog';
+import { SectionPreviewNews } from '2_widgets/SectionPreviewNews';
+import { Breadcrumbs } from '3_features/Breadcrumbs';
+import { Main } from '5_shared/ui/Main/Main';
+import {
+    Section,
+    SectionTagType,
+    SectionThemeMode,
+    SectionDecorType,
+} from '5_shared/ui/Section/Section';
+import { RouteSlug } from '5_shared/config/routes';
+import { JobPageType } from '../model/types/JobPage';
 import cls from './JobPage.module.css';
 
 interface JobPageProps {
@@ -33,7 +37,6 @@ const JobPage = (props: JobPageProps) => {
                 <Breadcrumbs slug={RouteSlug.JOB} />
             </Header>
             <Main className={classNames(cls.block)}>
-                <SectionJobForm />
                 <Section
                     tag={SectionTagType.DIV}
                     decor={SectionDecorType.FULL}

@@ -30,9 +30,6 @@ const jobListSlice = createSlice({
     name: 'jobListSlice',
     initialState,
     reducers: {
-        addData: (state, action: PayloadAction<ArticleJobType[]>) => {
-            jobListAdapter.addMany(state, action.payload);
-        },
         replaceData: (state, action: PayloadAction<ArticleJobType[]>) => {
             jobListAdapter.setAll(state, action.payload);
         },
@@ -42,14 +39,17 @@ const jobListSlice = createSlice({
             state.count = pagination.last_page;
             state.perPage = pagination.per_page;
         },
+        resetState: (state) => {
+            jobListAdapter.removeAll(state);
+            Object.assign(state, initialState);
+        },
     },
     extraReducers: (builder) => {
         const request = jobApi.endpoints.fetchJobList;
 
         builder
-            .addMatcher(request.matchPending, (state, action) => {
-                const { replace } = action.meta.arg.originalArgs;
-                if (replace) jobListAdapter.removeAll(state);
+            .addMatcher(request.matchPending, (state) => {
+                jobListAdapter.removeAll(state);
 
                 state.errors = undefined;
                 state.isLoading = true;
