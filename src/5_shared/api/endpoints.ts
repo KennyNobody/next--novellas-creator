@@ -10,6 +10,7 @@ export enum Routes {
     PAGE_SHOP = 'globals/page-shop',
 
     POSTS_LIST = 'collections/news/entries',
+    GAMES_LIST = 'collections/games/entries',
     JOB_LIST = 'collections/vacancies/entries',
 
     JOB_TAX_TYPE = 'taxonomies/type_vacancy/terms',

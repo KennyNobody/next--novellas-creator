@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { jobListReducer } from '4_entities/Job';
 import { postListReducer } from '4_entities/Post';
+import { gameListReducer } from '4_entities/Game';
 import { jobFilterReducer } from '3_features/JobFilter';
 import { $api } from '../api/api';
 import { rtkApi } from '../api/rtkApi';
@@ -8,6 +9,7 @@ import { rtkApi } from '../api/rtkApi';
 export const makeStore = () => configureStore({
     reducer: {
         postList: postListReducer,
+        gameList: gameListReducer,
         jobList: jobListReducer,
         jobFilter: jobFilterReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
