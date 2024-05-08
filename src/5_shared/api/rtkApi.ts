@@ -7,7 +7,9 @@ const rtkApi = createApi({
         'job',
         'games',
         'games-intro',
+        'games-list',
         'jobTax',
+        'person',
     ],
     baseQuery: fetchBaseQuery(
         {

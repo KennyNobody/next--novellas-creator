@@ -15,6 +15,7 @@ export {
 
 export {
     useLazyFetchGameList,
+    useLazyFetchGameListSlider,
     useLazyFetchGameIntroSlider,
 } from './api/gameApi';
 
@@ -23,13 +24,21 @@ export {
     getGameListCount,
     getGameListPerPage,
     getGameListLoading,
-    getGameListGamesSlider,
-    getGameListIntroSlider,
+    getGameGamesSlider,
+    getGameIntroSlider,
 } from './model/selectors/gameList';
 
 export {
     initGameList,
 } from './model/services/initGameList/initGameList';
+
+export {
+    fetchGameIntroSlider,
+} from './model/services/fetchGameIntroSlider/fetchGameIntroSlider';
+
+export {
+    fetchGameListSlider,
+} from './model/services/fetchGameListSlider/fetchGameListSlider';
 
 export {
     DetailGame,

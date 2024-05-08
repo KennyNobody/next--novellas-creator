@@ -1,9 +1,14 @@
 import { Metadata } from 'next';
 import { PictureType } from '4_entities/Picture';
-import { BlueprintType, CollectionType, TaxonomyType } from '5_shared/types/statamic';
+import {
+    TaxonomyType,
+    BlueprintType,
+    CollectionType,
+} from '5_shared/types/statamic';
 
 interface GamePreviewSlideType {
     pictureFull: PictureType;
+    picturePerson: PictureType;
     picturePreview: PictureType;
 }
 

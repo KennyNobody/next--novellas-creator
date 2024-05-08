@@ -40,6 +40,10 @@ const gameSlice = createSlice({
             // @ts-ignore
             state.introSlider = action.payload;
         },
+        setListSliderData: (state, action: PayloadAction<ArticleGameType[]>) => {
+            // @ts-ignore
+            state.gamesSlider = action.payload;
+        },
         setPagination: (state, action) => {
             const pagination = action.payload;
             state.page = pagination.current_page;

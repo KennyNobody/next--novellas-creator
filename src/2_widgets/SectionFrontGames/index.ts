@@ -1,6 +1,6 @@
 export {
-    SectionFrontGame,
-} from './ui/SectionFrontGame';
+    SectionFrontGames,
+} from './ui/SectionFrontGames';
 
 export {
     type SectionFrontGameType,

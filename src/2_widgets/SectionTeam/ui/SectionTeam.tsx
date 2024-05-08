@@ -1,10 +1,14 @@
 import classNames from 'classnames';
+import { TeamTabs } from '3_features/TeamTabs';
+import {
+    Title,
+    TitleMode,
+} from '5_shared/ui/Title/Title';
 import {
     Section,
     SectionTagType,
     SectionThemeMode,
 } from '5_shared/ui/Section/Section';
-import { Title, TitleMode } from '5_shared/ui/Title/Title';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionTeam.module.scss';
 import { SectionTeamType } from '../model/types/SectionTeam';
@@ -38,7 +42,7 @@ export const SectionTeam = (props: SectionTeamProps) => {
                         />
                     )
                 }
-
+                <TeamTabs />
             </Container>
         </Section>
     );

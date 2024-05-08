@@ -1,30 +1,32 @@
 'use client';
 
 import classNames from 'classnames';
-import {useSelector} from 'react-redux';
-import {useEffect, useState} from 'react';
-import {Swiper as SwiperInstance} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { Swiper as SwiperInstance } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import {ArticleGameType, getGameListIntroSlider, useLazyFetchGameIntroSlider,} from '4_entities/Game';
-import {useAppDispatch} from '5_shared/state/hooks';
-import cls from './SliderGamesFull.module.scss';
-import {fetchGameIntroSlider} from "../../../4_entities/Game/model/services/fetchGameIntroSlider/fetchGameIntroSlider";
-import {ButtonRegular, ButtonTagType} from "../../../5_shared/ui/ButtonRegular";
+import {
+    ArticleGameType,
+    getGameIntroSlider,
+    fetchGameIntroSlider,
+    useLazyFetchGameIntroSlider,
+} from '4_entities/Game';
+import { useAppDispatch } from '5_shared/state/hooks';
+import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
+import cls from './SliderGamesIntro.module.scss';
 
-interface SliderGamesFullProps {
+interface SliderGamesIntroProps {
     className?: string;
 }
 
-export const SliderGamesFull = (props: SliderGamesFullProps) => {
-    const { className } = props;
+export const SliderGamesIntro = ({ className }: SliderGamesIntroProps) => {
     const dispatch = useAppDispatch();
     const [getData] = useLazyFetchGameIntroSlider({});
-    // const data: ArticleGameType[] = useSelector(getGameListIntroSlider) || [];
-    const data: ArticleGameType[] = useSelector(getGameListIntroSlider) || [];
-    // const isLoading: boolean = useSelector(getGameListLoading);
+    const data: ArticleGameType[] = useSelector(getGameIntroSlider) || [];
+    // const isLoading: boolean = useSelector(getGameIntroSliderLoading);
 
     const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
     const [activeIndex, setActiveIndex] = useState<number>(0);

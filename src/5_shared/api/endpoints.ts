@@ -9,6 +9,7 @@ export enum Routes {
     PAGE_NEWS = 'globals/page-news',
     PAGE_SHOP = 'globals/page-shop',
 
+    PERSON_LIST = 'collections/team/entries',
     POSTS_LIST = 'collections/news/entries',
     GAMES_LIST = 'collections/games/entries',
     JOB_LIST = 'collections/vacancies/entries',

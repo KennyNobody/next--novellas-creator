@@ -1,12 +1,12 @@
 'use client';
 
 import classNames from 'classnames';
-import {Editor} from '5_shared/ui/Editor/Editor';
-import {Section, SectionDecorType, SectionTagType, SectionThemeMode} from '5_shared/ui/Section/Section';
-import {Title, TitleMode} from '5_shared/ui/Title/Title';
-import {Container} from '5_shared/ui/Container/Container';
+import { TeamTabs } from '3_features/TeamTabs';
+import { Title, TitleMode } from '5_shared/ui/Title/Title';
+import { Container } from '5_shared/ui/Container/Container';
+import { Section, SectionTagType } from '5_shared/ui/Section/Section';
 import cls from './SectionFrontTeam.module.scss';
-import {SectionFrontTeamType} from '../model/types/SectionFrontTeam';
+import { SectionFrontTeamType } from '../model/types/SectionFrontTeam';
 
 interface SectionFrontIntroProps {
     className?: string;
@@ -34,15 +34,6 @@ export const SectionFrontTeam = (props: SectionFrontIntroProps) => {
                                 text={data.title}
                                 mode={TitleMode.MARKUP}
                                 className={classNames(cls.title)}
-                            />
-                        )
-                    }
-                    {
-                        data?.content
-                        && (
-                            <Editor
-                                data={data.content}
-                                className={classNames(cls.editor)}
                             />
                         )
                     }

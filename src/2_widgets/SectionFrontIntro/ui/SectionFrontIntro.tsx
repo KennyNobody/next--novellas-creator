@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { SliderGamesFull } from '3_features/SliderGamesFull';
+import { SliderGamesIntro } from '3_features/SliderGamesIntro';
 import {
     Section,
     SectionTagType,
@@ -20,7 +20,7 @@ export const SectionFrontIntro = (props: SectionFrontIntroProps) => {
             tag={SectionTagType.SECTION}
             className={classNames(cls.block, className)}
         >
-            <SliderGamesFull />
+            <SliderGamesIntro />
         </Section>
     );
 };
