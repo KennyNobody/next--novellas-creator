@@ -8,6 +8,7 @@ const rtkApi = createApi({
         'games',
         'games-intro',
         'games-list',
+        'shop',
         'jobTax',
         'person',
     ],

@@ -8,9 +8,7 @@ import {
 } from '5_shared/ui/Title/Title';
 import {
     Section,
-    SectionTagType,
     SectionThemeMode,
-    SectionDecorType,
 } from '5_shared/ui/Section/Section';
 import { Toolbar } from '5_shared/ui/Toolbar/Toolbar';
 import { Container } from '5_shared/ui/Container/Container';
@@ -32,7 +30,6 @@ export const SectionPreviewNews = (props: SectionPreviewNewsProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
             theme={SectionThemeMode.LiGHT}
             className={classNames(cls.block, className)}
         >

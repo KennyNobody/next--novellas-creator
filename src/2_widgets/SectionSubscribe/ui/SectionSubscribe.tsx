@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { FormSubscription } from '3_features/FormSubscription';
 import {
     Section,
-    SectionTagType,
     SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import { Editor } from '5_shared/ui/Editor/Editor';
@@ -26,7 +25,6 @@ export const SectionSubscribe = (props: SectionFrontIntroProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
             theme={SectionThemeMode.DARK_DECOR}
             className={classNames(cls.block, className)}
         >

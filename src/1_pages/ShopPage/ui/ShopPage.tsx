@@ -9,6 +9,7 @@ import {MainDataType} from '../../../app/model/types/MainData';
 import {Footer} from "../../../2_widgets/Footer";
 import {Breadcrumbs} from "../../../3_features/Breadcrumbs";
 import {RouteSlug} from "../../../5_shared/config/routes";
+import {WrapperDecor, WrapperDecorType} from "../../../5_shared/ui/WrapperDecor/WrapperDecor";
 
 interface ShopPageProps {
     pageData: ShopPageType;
@@ -29,7 +30,9 @@ const ShopPage = (props: ShopPageProps) => {
                 <Breadcrumbs slug={RouteSlug.SHOP} />
             </Header>
             <Main className={classNames(cls.block)}>
-                <SectionShopSlider />
+                <WrapperDecor decor={WrapperDecorType.BOTTOM}>
+                    <SectionShopSlider />
+                </WrapperDecor>
                 <SectionShopCatalog />
             </Main>
             <Footer

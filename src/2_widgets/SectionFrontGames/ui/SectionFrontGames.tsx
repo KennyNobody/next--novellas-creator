@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import { SliderGamesList } from '3_features/SliderGamesList';
-import { Section, SectionTagType } from '5_shared/ui/Section/Section';
+import { Section } from '5_shared/ui/Section/Section';
 import cls from './SectionFrontGames.module.scss';
 
 interface SectionFrontGamesProps {
@@ -12,7 +12,6 @@ interface SectionFrontGamesProps {
 export const SectionFrontGames = ({ className }: SectionFrontGamesProps) => {
     return (
         <Section
-            tag={SectionTagType.SECTION}
             className={classNames(cls.block, className)}
         >
             <SliderGamesList />

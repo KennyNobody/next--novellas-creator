@@ -6,7 +6,6 @@ import {
 } from '5_shared/ui/Title/Title';
 import {
     Section,
-    SectionTagType,
 } from '5_shared/ui/Section/Section';
 import { Editor } from '5_shared/ui/Editor/Editor';
 import { Container } from '5_shared/ui/Container/Container';
@@ -29,7 +28,6 @@ export const SectionAboutIntro = (props: SectionAboutIntroProps) => {
             style={{
                 backgroundImage: `url(${data?.background?.permalink})`,
             }}
-            tag={SectionTagType.SECTION}
             className={
                 classNames(
                     cls.block,

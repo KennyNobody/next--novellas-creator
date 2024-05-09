@@ -13,6 +13,7 @@ export enum Routes {
     POSTS_LIST = 'collections/news/entries',
     GAMES_LIST = 'collections/games/entries',
     JOB_LIST = 'collections/vacancies/entries',
+    SHOP_LIST = 'collections/shop/entries',
 
     JOB_TAX_TYPE = 'taxonomies/type_vacancy/terms',
     JOB_TAX_PRODUCT = 'taxonomies/product_vacancy/terms',

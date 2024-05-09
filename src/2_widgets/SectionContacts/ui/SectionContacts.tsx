@@ -1,14 +1,11 @@
 import classNames from 'classnames';
-import { MapFrame } from '3_features/MapFrame';
-import { ListLinks } from '3_features/ListLinks';
-import { Picture } from '4_entities/Picture';
-import {
-    Section,
-    SectionTagType,
-} from '5_shared/ui/Section/Section';
-import { Container } from '5_shared/ui/Container/Container';
+import {MapFrame} from '3_features/MapFrame';
+import {ListLinks} from '3_features/ListLinks';
+import {Picture} from '4_entities/Picture';
+import {Section, SectionThemeMode,} from '5_shared/ui/Section/Section';
+import {Container} from '5_shared/ui/Container/Container';
 import cls from './SectionContacts.module.scss';
-import { SectionContactsType } from '../model/types/SectionContacts';
+import {SectionContactsType} from '../model/types/SectionContacts';
 
 interface SectionContactsProps {
     className?: string;
@@ -23,7 +20,7 @@ export const SectionContacts = (props: SectionContactsProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
+            theme={SectionThemeMode.LiGHT}
             className={classNames(cls.SectionContacts, className)}
         >
             <Container>

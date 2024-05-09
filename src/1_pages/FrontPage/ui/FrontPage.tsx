@@ -9,7 +9,7 @@ import { SectionSubscribe } from '2_widgets/SectionSubscribe';
 import { SectionFrontIntro } from '2_widgets/SectionFrontIntro';
 import { SectionFrontAbout } from '2_widgets/SectionFrontAbout';
 import { Main } from '5_shared/ui/Main/Main';
-import { Section, SectionDecorType, SectionTagType } from '5_shared/ui/Section/Section';
+import { WrapperDecor, WrapperDecorType } from '5_shared/ui/WrapperDecor/WrapperDecor';
 import cls from './FrontPage.module.scss';
 import { FrontPageType } from '../model/types/FrontPage';
 
@@ -50,15 +50,14 @@ const FrontPage = (props: FrontPageProps) => {
                 {
                     pageData?.sectionPreviewNews
                     && (
-                        <Section
-                            tag={SectionTagType.DIV}
-                            decor={SectionDecorType.FULL}
+                        <WrapperDecor
+                            decor={WrapperDecorType.FULL}
                         >
                             <SectionPreviewNews
                                 data={pageData.sectionPreviewNews}
                                 className={classNames(cls['section-news'])}
                             />
-                        </Section>
+                        </WrapperDecor>
                     )
                 }
                 {

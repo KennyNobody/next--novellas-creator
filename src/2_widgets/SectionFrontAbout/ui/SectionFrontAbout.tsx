@@ -3,8 +3,6 @@
 import classNames from 'classnames';
 import {
     Section,
-    SectionTagType,
-    SectionDecorType,
     SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import { Editor } from '5_shared/ui/Editor/Editor';
@@ -30,8 +28,6 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
     return (
         <Section
             theme={SectionThemeMode.LiGHT}
-            tag={SectionTagType.SECTION}
-            decor={SectionDecorType.FULL}
             className={classNames(cls.block, className)}
         >
             <Container>

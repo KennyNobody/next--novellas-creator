@@ -9,11 +9,13 @@ import {
 } from '4_entities/Game';
 import {
     Section,
-    SectionTagType,
     SectionThemeMode,
-    SectionDecorType,
 } from '5_shared/ui/Section/Section';
 import { Main } from '5_shared/ui/Main/Main';
+import {
+    WrapperDecor,
+    WrapperDecorType,
+} from '5_shared/ui/WrapperDecor/WrapperDecor';
 import { RouteSlug } from '5_shared/config/routes';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './GameDetailPage.module.scss';
@@ -29,8 +31,6 @@ const GameDetailPage = (props: GameDetailPageProps) => {
         mainData,
     } = props;
 
-    console.log(pageData);
-
     return (
         <>
             <Header
@@ -42,17 +42,19 @@ const GameDetailPage = (props: GameDetailPageProps) => {
                 />
             </Header>
             <Main className={classNames(cls.block)}>
-                <Section
-                    tag={SectionTagType.SECTION}
-                    theme={SectionThemeMode.LiGHT}
-                    decor={SectionDecorType.BOTTOM}
+                <WrapperDecor
+                    decor={WrapperDecorType.BOTTOM}
                 >
-                    <Container>
-                        {
-                            pageData && <DetailGame data={pageData} />
-                        }
-                    </Container>
-                </Section>
+                    <Section
+                        theme={SectionThemeMode.LiGHT}
+                    >
+                        <Container>
+                            {
+                                pageData && <DetailGame data={pageData} />
+                            }
+                        </Container>
+                    </Section>
+                </WrapperDecor>
             </Main>
             <Footer
                 data={mainData.sectionMainInfo}

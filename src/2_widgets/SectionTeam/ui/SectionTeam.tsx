@@ -6,7 +6,6 @@ import {
 } from '5_shared/ui/Title/Title';
 import {
     Section,
-    SectionTagType,
     SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import { Container } from '5_shared/ui/Container/Container';
@@ -26,7 +25,6 @@ export const SectionTeam = (props: SectionTeamProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
             theme={SectionThemeMode.DARK}
             className={classNames(cls.block, className)}
         >

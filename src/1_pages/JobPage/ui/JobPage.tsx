@@ -5,13 +5,15 @@ import { Header } from '2_widgets/Header';
 import { SectionJobCatalog } from '2_widgets/SectionJobCatalog';
 import { SectionPreviewNews } from '2_widgets/SectionPreviewNews';
 import { Breadcrumbs } from '3_features/Breadcrumbs';
-import { Main } from '5_shared/ui/Main/Main';
 import {
     Section,
-    SectionTagType,
     SectionThemeMode,
-    SectionDecorType,
 } from '5_shared/ui/Section/Section';
+import { Main } from '5_shared/ui/Main/Main';
+import {
+    WrapperDecor,
+    WrapperDecorType,
+} from '5_shared/ui/WrapperDecor/WrapperDecor';
 import { RouteSlug } from '5_shared/config/routes';
 import { JobPageType } from '../model/types/JobPage';
 import cls from './JobPage.module.css';
@@ -37,22 +39,22 @@ const JobPage = (props: JobPageProps) => {
                 <Breadcrumbs slug={RouteSlug.JOB} />
             </Header>
             <Main className={classNames(cls.block)}>
-                <Section
-                    tag={SectionTagType.DIV}
-                    decor={SectionDecorType.FULL}
-                    theme={SectionThemeMode.LiGHT}
-                    className={classNames(cls['section-group'])}
+                <WrapperDecor
+                    decor={WrapperDecorType.FULL}
                 >
-                    <SectionJobCatalog />
-                    {
-                        pageData?.sectionPreviewNews
+                    <Section
+                        theme={SectionThemeMode.LiGHT}
+                        className={classNames(cls['section-group'])}
+                    >
+                        <SectionJobCatalog />
+                        { pageData?.sectionPreviewNews
                         && (
                             <SectionPreviewNews
                                 data={pageData.sectionPreviewNews}
                             />
-                        )
-                    }
-                </Section>
+                        )}
+                    </Section>
+                </WrapperDecor>
             </Main>
             <Footer
                 data={mainData.sectionMainInfo}

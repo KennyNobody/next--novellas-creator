@@ -1,6 +1,10 @@
 .block {
     width: 100%;
 
+    &--light {
+        background-color: var(--white);
+    }
+
     &--fixed {
         top: 0;
         left: 0;

@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { ListPost } from '3_features/ListPost';
 import {
     Section,
-    SectionTagType,
     SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import { Title, TitleMode } from '5_shared/ui/Title/Title';
@@ -23,7 +22,6 @@ export const SectionListNews = (props: SectionListNewsProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
             theme={SectionThemeMode.LiGHT}
             className={
                 classNames(

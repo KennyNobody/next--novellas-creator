@@ -8,7 +8,8 @@ import { Breadcrumbs } from '3_features/Breadcrumbs';
 import { Main } from '5_shared/ui/Main/Main';
 import { RouteSlug } from '5_shared/config/routes';
 import {
-    Section, SectionDecorType, SectionTagType, SectionThemeMode,
+    Section,
+    SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import cls from './NewsPage.module.css';
 import { NewsPageType } from '../model/types/NewsPage';
@@ -33,9 +34,7 @@ const NewsPage = (props: NewsPageProps) => {
             </Header>
             <Main className={classNames(cls.block)}>
                 <Section
-                    tag={SectionTagType.DIV}
                     theme={SectionThemeMode.LiGHT}
-                    decor={SectionDecorType.BOTTOM}
                 >
                     {
                         pageData?.sectionNews

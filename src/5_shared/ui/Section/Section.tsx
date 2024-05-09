@@ -2,20 +2,6 @@ import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import cls from './Section.module.scss';
 
-enum SectionDecorType {
-    TOP,
-    NONE,
-    FULL,
-    BOTTOM,
-}
-
-enum SectionTagType {
-    DIV = 'div',
-    HEADER = 'header',
-    FOOTER = 'footer',
-    SECTION = 'section',
-}
-
 enum SectionThemeMode {
     LiGHT = 'theme-light',
     DARK = 'theme-dark',
@@ -25,29 +11,20 @@ enum SectionThemeMode {
 interface SectionProps {
     className?: string;
     children: ReactNode;
-    tag: SectionTagType;
     theme?: SectionThemeMode;
-    decor?: SectionDecorType;
     style?: React.CSSProperties;
 }
 
 const Section = (props: SectionProps) => {
     const {
-        tag,
         style,
         theme,
-        decor,
         children,
         className,
     } = props;
 
-    const Tag: keyof React.JSX.IntrinsicElements = tag;
-
-    const showTopDecor = decor === SectionDecorType.TOP || decor === SectionDecorType.FULL;
-    const showBottomDecor = decor === SectionDecorType.BOTTOM || decor === SectionDecorType.FULL;
-
     return (
-        <Tag
+        <section
             style={style}
             className={
                 classNames(
@@ -60,41 +37,12 @@ const Section = (props: SectionProps) => {
                 )
             }
         >
-            {
-                showTopDecor
-                && (
-                    <div
-                        className={
-                            classNames(
-                                cls.decor,
-                                cls['decor--top'],
-                            )
-                        }
-                    />
-                )
-            }
-
             { children }
-            {
-                showBottomDecor
-                && (
-                    <div
-                        className={
-                            classNames(
-                                cls.decor,
-                                cls['decor--bottom'],
-                            )
-                        }
-                    />
-                )
-            }
-        </Tag>
+        </section>
     );
 };
 
 export {
     Section,
-    SectionTagType,
-    SectionDecorType,
     SectionThemeMode,
 };

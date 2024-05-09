@@ -8,14 +8,9 @@ import { SectionAboutIntro } from '2_widgets/SectionAboutIntro';
 import { SectionJobPreview } from '2_widgets/SectionJobPreview';
 import { SectionPreviewNews } from '2_widgets/SectionPreviewNews';
 import { Breadcrumbs } from '3_features/Breadcrumbs';
-import {
-    Section,
-    SectionTagType,
-    SectionThemeMode,
-    SectionDecorType,
-} from '5_shared/ui/Section/Section';
 import { Main } from '5_shared/ui/Main/Main';
 import { RouteSlug } from '5_shared/config/routes';
+import { WrapperDecor, WrapperDecorType } from '5_shared/ui/WrapperDecor/WrapperDecor';
 import { AboutPageType } from '../model/types/AboutPage';
 import cls from './AboutPage.module.scss';
 
@@ -54,10 +49,8 @@ const AboutPage = (props: AboutPageProps) => {
                         <SectionTeam data={pageData.sectionTeam} />
                     )
                 }
-                <Section
-                    tag={SectionTagType.DIV}
-                    theme={SectionThemeMode.LiGHT}
-                    decor={SectionDecorType.BOTTOM}
+                <WrapperDecor
+                    decor={WrapperDecorType.BOTTOM}
                     className={classNames(cls['section-lists'])}
                 >
                     {
@@ -72,7 +65,7 @@ const AboutPage = (props: AboutPageProps) => {
                             <SectionPreviewNews data={pageData.sectionPreviewNews} />
                         )
                     }
-                </Section>
+                </WrapperDecor>
                 {
                     mainData?.sectionForm
                     && (

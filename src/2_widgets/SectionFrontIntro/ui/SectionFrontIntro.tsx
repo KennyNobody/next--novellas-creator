@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { SliderGamesIntro } from '3_features/SliderGamesIntro';
 import {
     Section,
-    SectionTagType,
 } from '5_shared/ui/Section/Section';
 import cls from './SectionFrontIntro.module.scss';
 
@@ -17,7 +16,6 @@ export const SectionFrontIntro = (props: SectionFrontIntroProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
             className={classNames(cls.block, className)}
         >
             <SliderGamesIntro />

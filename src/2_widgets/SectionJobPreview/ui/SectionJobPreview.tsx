@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { GridJobPreview } from '3_features/GridJobPreview';
 import {
     Section,
-    SectionTagType,
     SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import { Toolbar } from '5_shared/ui/Toolbar/Toolbar';
@@ -26,7 +25,6 @@ export const SectionJobPreview = (props: SectionJobPreviewProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
             theme={SectionThemeMode.LiGHT}
             className={
                 classNames(

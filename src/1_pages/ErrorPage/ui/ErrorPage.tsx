@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import {
     Section,
-    SectionTagType,
 } from '5_shared/ui/Section/Section';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './ErrorPage.module.scss';
@@ -15,7 +14,6 @@ export const ErrorPage = (props: ErrorPageProps) => {
 
     return (
         <Section
-            tag={SectionTagType.SECTION}
             className={
                 classNames(
                     cls.block,
