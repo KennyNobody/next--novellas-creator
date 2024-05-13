@@ -19,27 +19,6 @@ const Breadcrumbs = (props: BreadcrumbsProps) => {
         className,
     } = props;
 
-    const middleEl = () => {
-        if (!title) {
-            return (
-                <span
-                    className={classNames(cls.link)}
-                >
-                    {RoutesList[slug].caption}
-                </span>
-            );
-        }
-
-        return (
-            <Link
-                className={classNames(cls.link)}
-                href={RoutesList[slug].url}
-            >
-                {RoutesList[slug].caption}
-            </Link>
-        );
-    };
-
     const middleElement = title ? (
         <Link href={RoutesList[slug].url} className={classNames(cls.link)}>
             {RoutesList[slug].caption}

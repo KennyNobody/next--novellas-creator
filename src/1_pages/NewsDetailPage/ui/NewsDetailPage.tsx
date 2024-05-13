@@ -2,16 +2,15 @@ import classNames from 'classnames';
 import { MainDataType } from 'app';
 import { Header } from '2_widgets/Header';
 import { Footer } from '2_widgets/Footer';
+import { SectionSubscribe } from '2_widgets/SectionSubscribe';
+import { SectionPreviewNews } from '2_widgets/SectionPreviewNews';
 import { Breadcrumbs } from '3_features/Breadcrumbs';
 import { ArticlePostType, DetailPost } from '4_entities/Post';
 import { Main } from '5_shared/ui/Main/Main';
-import {
-    WrapperDecor,
-    WrapperDecorType,
-} from '5_shared/ui/WrapperDecor/WrapperDecor';
 import { RouteSlug } from '5_shared/config/routes';
 import { Container } from '5_shared/ui/Container/Container';
 import { Section, SectionThemeMode } from '5_shared/ui/Section/Section';
+import { WrapperDecor, WrapperDecorType } from '5_shared/ui/WrapperDecor/WrapperDecor';
 import cls from './NewsDetailPage.module.scss';
 
 interface NewsDetailPageProps {
@@ -38,9 +37,11 @@ const NewsDetailPage = (props: NewsDetailPageProps) => {
             <Main className={classNames(cls.block)}>
                 <WrapperDecor
                     decor={WrapperDecorType.BOTTOM}
+                    className={classNames(cls.wrapper)}
                 >
                     <Section
                         theme={SectionThemeMode.LiGHT}
+                        className={classNames(cls.detail)}
                     >
                         <Container>
                             {
@@ -48,7 +49,18 @@ const NewsDetailPage = (props: NewsDetailPageProps) => {
                             }
                         </Container>
                     </Section>
+                    <SectionPreviewNews
+                        data={{
+                            title: 'Другие новости',
+                        }}
+                    />
                 </WrapperDecor>
+                {
+                    mainData?.sectionForm
+                    && (
+                        <SectionSubscribe data={mainData.sectionForm} />
+                    )
+                }
             </Main>
             <Footer
                 data={mainData.sectionMainInfo}

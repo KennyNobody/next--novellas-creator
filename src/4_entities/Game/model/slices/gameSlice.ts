@@ -19,30 +19,24 @@ const initialState: GameListSchema = {
     page: 1,
     perPage: 3,
     isListLoading: false,
-    isIntroSliderLoading: false,
-    isGamesSliderLoading: false,
+    isSliderLoading: false,
     errors: undefined,
     count: 1,
     ids: [],
     entities: {},
-    introSlider: [],
-    gamesSlider: [],
+    slider: [],
 };
 
 const gameSlice = createSlice({
-    name: 'gameListSlice',
+    name: 'gameSlice',
     initialState,
     reducers: {
-        replaceData: (state, action: PayloadAction<ArticleGameType[]>) => {
+        setData: (state, action: PayloadAction<ArticleGameType[]>) => {
             gameListAdapter.setAll(state, action.payload);
         },
-        setIntroSliderData: (state, action: PayloadAction<ArticleGameType[]>) => {
+        setSliderData: (state, action: PayloadAction<ArticleGameType[]>) => {
             // @ts-ignore
-            state.introSlider = action.payload;
-        },
-        setListSliderData: (state, action: PayloadAction<ArticleGameType[]>) => {
-            // @ts-ignore
-            state.gamesSlider = action.payload;
+            state.slider = action.payload;
         },
         setPagination: (state, action) => {
             const pagination = action.payload;
@@ -57,7 +51,7 @@ const gameSlice = createSlice({
     },
     extraReducers: (builder) => {
         const requestList = gameApi.endpoints.fetchGameList;
-        const requestIntroSlider = gameApi.endpoints.fetchGameIntroSlider;
+        const requestSlider = gameApi.endpoints.fetchGameList;
 
         builder
             // Main list
@@ -75,15 +69,15 @@ const gameSlice = createSlice({
                 state.errors = action.payload;
             })
             // Intro slider
-            .addMatcher(requestIntroSlider.matchPending, (state) => {
+            .addMatcher(requestSlider.matchPending, (state) => {
                 state.errors = undefined;
-                state.isIntroSliderLoading = true;
+                state.isSliderLoading = true;
             })
-            .addMatcher(requestIntroSlider.matchFulfilled, (state) => {
-                state.isIntroSliderLoading = false;
+            .addMatcher(requestSlider.matchFulfilled, (state) => {
+                state.isSliderLoading = false;
             })
-            .addMatcher(requestIntroSlider.matchRejected, (state, action) => {
-                state.isIntroSliderLoading = false;
+            .addMatcher(requestSlider.matchRejected, (state, action) => {
+                state.isSliderLoading = false;
                 state.errors = action.payload;
             });
     },

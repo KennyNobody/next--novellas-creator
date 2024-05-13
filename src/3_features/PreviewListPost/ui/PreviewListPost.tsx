@@ -6,12 +6,14 @@ import {
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import {
-    GridPosts,
+    getPostList,
+    ArticlePost,
     initPostList,
     ArticlePostType,
-    getPostList,
+    ArticlePostSmall,
     useLazyFetchPostList,
 } from '4_entities/Post';
+import grid from '5_shared/styles/grid.module.scss';
 import { useAppDispatch } from '5_shared/state/hooks';
 import cls from './PreviewListPost.module.scss';
 
@@ -38,9 +40,52 @@ export const PreviewListPost = (props: PreviewListPostProps) => {
                 classNames(cls.block, className)
             }
         >
-            <GridPosts
-                data={data}
-            />
+            <div className={grid.grid}>
+                {
+                    data.map((item, index) => {
+                        if (index === 0 || index === 1) {
+                            return (
+                                <div
+                                    key={item.id}
+                                    className={
+                                        classNames(
+                                            grid.grid__col,
+                                            grid['grid__col--4'],
+                                        )
+                                    }
+                                >
+                                    <ArticlePost data={item} />
+                                </div>
+                            );
+                        }
+                        return null;
+                    })
+                }
+                <div
+                    className={
+                        classNames(
+                            grid.grid__col,
+                            grid['grid__col--4'],
+                        )
+                    }
+                >
+                    <div className={classNames(cls.stack)}>
+                        {
+                            data.map((item, index) => {
+                                if (index > 1 && index < 4) {
+                                    return (
+                                        <ArticlePostSmall
+                                            data={item}
+                                            key={item.id}
+                                        />
+                                    );
+                                }
+                                return null;
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

@@ -15,17 +15,15 @@ export {
 
 export {
     useLazyFetchGameList,
-    useLazyFetchGameListSlider,
-    useLazyFetchGameIntroSlider,
+    useLazyFetchGameSlider,
 } from './api/gameApi';
 
 export {
+    getGameSlider,
     getGameListPage,
     getGameListCount,
     getGameListPerPage,
     getGameListLoading,
-    getGameGamesSlider,
-    getGameIntroSlider,
 } from './model/selectors/gameList';
 
 export {
@@ -33,13 +31,17 @@ export {
 } from './model/services/initGameList/initGameList';
 
 export {
-    fetchGameIntroSlider,
-} from './model/services/fetchGameIntroSlider/fetchGameIntroSlider';
-
-export {
-    fetchGameListSlider,
-} from './model/services/fetchGameListSlider/fetchGameListSlider';
+    fetchGameSlider,
+} from './model/services/fetchGameSlider/fetchGameSlider';
 
 export {
     DetailGame,
 } from './ui/DetailGame/DetailGame';
+
+export {
+    changePageIndex,
+} from './model/services/changePageIndex/changePageIndex';
+
+export {
+    ArticleGame,
+} from './ui/ArticleGame/ArticleGame';

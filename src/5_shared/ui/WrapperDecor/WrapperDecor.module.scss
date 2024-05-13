@@ -1,25 +1,40 @@
 .block {
     position: relative;
-}
-
-.decor {
-    z-index: 1;
-    height: 45px;
-    width: 1920px;
-    display: block;
-    max-width: 90%;
-    position: absolute;
     background-color: var(--white);
 
     &--top {
-        left: 50%;
-        bottom: 100%;
-        transform: translateX(-50%);
+        &:after {
+            left: 50%;
+            z-index: 1;
+            content: "";
+            width: 100%;
+            bottom: 100%;
+            display: block;
+            position: absolute;
+            background-size: contain;
+            transform: translateX(-50%);
+            background-repeat: no-repeat;
+            height: var(--decor-line-size);
+            background-position: bottom center;
+            background-image: url("../../../5_shared/assets/backgrounds/decor-top.svg");
+        }
     }
 
     &--bottom {
-        left: 50%;
-        top: 100%;
-        transform: translateX(-50%);
+        &:before {
+            top: 100%;
+            left: 50%;
+            z-index: 1;
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            background-size: contain;
+            transform: translateX(-50%);
+            background-repeat: no-repeat;
+            height: var(--decor-line-size);
+            background-position: top center;
+            background-image: url("../../../5_shared/assets/backgrounds/decor-bottom.svg");
+        }
     }
 }

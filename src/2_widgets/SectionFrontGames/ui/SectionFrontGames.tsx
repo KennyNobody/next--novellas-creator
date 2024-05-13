@@ -9,12 +9,10 @@ interface SectionFrontGamesProps {
     className?: string;
 }
 
-export const SectionFrontGames = ({ className }: SectionFrontGamesProps) => {
-    return (
-        <Section
-            className={classNames(cls.block, className)}
-        >
-            <SliderGamesList />
-        </Section>
-    );
-};
+export const SectionFrontGames = ({ className }: SectionFrontGamesProps) => (
+    <Section
+        className={classNames(cls.block, className)}
+    >
+        <SliderGamesList />
+    </Section>
+);

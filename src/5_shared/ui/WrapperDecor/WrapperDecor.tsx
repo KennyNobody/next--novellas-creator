@@ -34,37 +34,12 @@ const WrapperDecor = (props: WrapperDecorProps) => {
                 classNames(
                     cls.block,
                     className,
+                    { [cls['block--top']]: showTopDecor },
+                    { [cls['block--bottom']]: showBottomDecor },
                 )
             }
         >
-            {
-                showTopDecor
-                && (
-                    <div
-                        className={
-                            classNames(
-                                cls.decor,
-                                cls['decor--top'],
-                            )
-                        }
-                    />
-                )
-            }
-
             { children }
-            {
-                showBottomDecor
-                && (
-                    <div
-                        className={
-                            classNames(
-                                cls.decor,
-                                cls['decor--bottom'],
-                            )
-                        }
-                    />
-                )
-            }
         </div>
     );
 };

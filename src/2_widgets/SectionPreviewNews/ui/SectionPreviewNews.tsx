@@ -13,7 +13,7 @@ import {
 import { Toolbar } from '5_shared/ui/Toolbar/Toolbar';
 import { Container } from '5_shared/ui/Container/Container';
 import { RoutesList, RouteSlug } from '5_shared/config/routes';
-import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
+import {ButtonIconType, ButtonRegular, ButtonTagType} from '5_shared/ui/ButtonRegular';
 import cls from './SectionPreviewNews.module.scss';
 import { SectionPreviewNewsType } from '../model/types/SectionPreviewNews';
 
@@ -47,6 +47,7 @@ export const SectionPreviewNews = (props: SectionPreviewNewsProps) => {
                             <ButtonRegular
                                 tag={ButtonTagType.LINK}
                                 label="Ко всем новостям"
+                                icon={ButtonIconType.NEXT}
                                 path={RoutesList[RouteSlug.NEWS].url}
                             />
                         </Toolbar>

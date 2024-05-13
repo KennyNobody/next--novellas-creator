@@ -21,6 +21,7 @@ interface ArticleGameType {
     content: string;
     date: Date | null;
     request_id: string;
+    preview: PictureType;
     previewCaption: string;
     updated_at: Date | null;
     blueprint: BlueprintType;

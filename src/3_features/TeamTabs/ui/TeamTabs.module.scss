@@ -1,11 +1,14 @@
+.toolbar {
+    height: 92px;
+    margin-bottom: 25px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url("../../../5_shared/assets/backgrounds/nav-blur-bg.svg");
+}
+
 .nav {
     gap: 50px;
     display: flex;
-    border-radius: 4px;
     padding: 10px 50px;
     align-items: center;
-    margin-bottom: 25px;
-    border: 1px solid #302d4a;
-    backdrop-filter: blur(10px);
-    background: linear-gradient(to right, #FFFFFF33, #412FB133);
 }

@@ -27,10 +27,19 @@ export const GridJobPreview = (props: ListPostsProps) => {
     const { className } = props;
 
     const dispatch = useAppDispatch();
+    const pageIndex: number = useSelector(getJobListPage) || 1;
+    const pageTotal: number = useSelector(getJobListCount) || 1;
     const data: ArticleJobType[] = useSelector(getJobList.selectAll);
     // const isLoading: boolean = useSelector(getPostListLoading) || false;
 
     const [getData] = useLazyFetchJobList({});
+
+    const togglePage = (newIndex: number) => {
+        dispatch(changePageIndex({
+            newIndex,
+            getData,
+        }));
+    };
 
     useEffect(() => {
         dispatch(initJobList(getData));
@@ -44,6 +53,11 @@ export const GridJobPreview = (props: ListPostsProps) => {
         >
             <GridJob
                 data={data}
+            />
+            <Pagination
+                lastPage={pageTotal}
+                currentPage={pageIndex}
+                clickEvent={togglePage}
             />
         </div>
     );

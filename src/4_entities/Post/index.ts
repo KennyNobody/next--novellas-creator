@@ -1,8 +1,4 @@
 export {
-    GridPosts,
-} from './ui/GridPosts/GridPosts';
-
-export {
     DetailPost,
 } from './ui/DetailPost/DetailPost';
 
@@ -11,19 +7,28 @@ export {
 } from './ui/ArticlePost/ArticlePost';
 
 export {
+    ArticlePostSmall,
+} from './ui/ArticlePostSmall/ArticlePostSmall';
+
+export {
     postApi,
     useLazyFetchPostList,
+    useLazyFetchPostSlider,
 } from './api/postApi';
 
 export {
     getPostList,
     postListReducer,
     postListActions,
-} from './model/slices/postListSlice';
+} from './model/slices/postSlice';
 
 export {
     fetchPostList,
 } from './model/services/fetchPostList/fetchPostList';
+
+export {
+    fetchPostSlider,
+} from './model/services/fetchPostSlider/fetchPostSlider';
 
 export {
     initPostList,
@@ -34,6 +39,7 @@ export {
 } from './model/services/changePageIndex/changePageIndex';
 
 export {
+    getPostSlider,
     getPostListCount,
     getPostListLoading,
     getPostListPage,

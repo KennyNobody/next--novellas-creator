@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Section as SectionComponent, SectionDecorType, SectionTagType, SectionThemeMode } from './Section';
+import {
+    Section as SectionComponent, SectionDecorType, SectionTagType, SectionThemeMode,
+} from './Section';
 
 const meta: Meta<typeof SectionComponent> = {
     title: 'Shared/Section',

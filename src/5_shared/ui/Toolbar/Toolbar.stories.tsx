@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Toolbar as ToolbarComponent } from './Toolbar';
 
 const meta: Meta<typeof ToolbarComponent> = {
@@ -15,7 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Toolbar: Story = {
-    render: (args) => (
+    render: () => (
         <ToolbarComponent>
             <div>Лево</div>
             <div>Право</div>

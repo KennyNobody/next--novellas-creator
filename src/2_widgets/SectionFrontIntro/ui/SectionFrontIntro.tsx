@@ -1,8 +1,6 @@
 import classNames from 'classnames';
-import { SliderGamesIntro } from '3_features/SliderGamesIntro';
-import {
-    Section,
-} from '5_shared/ui/Section/Section';
+import { SliderPostIntro } from '3_features/SliderPostIntro';
+import { Section } from '5_shared/ui/Section/Section';
 import cls from './SectionFrontIntro.module.scss';
 
 interface SectionFrontIntroProps {
@@ -18,7 +16,7 @@ export const SectionFrontIntro = (props: SectionFrontIntroProps) => {
         <Section
             className={classNames(cls.block, className)}
         >
-            <SliderGamesIntro />
+            <SliderPostIntro />
         </Section>
     );
 };

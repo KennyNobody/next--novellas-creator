@@ -3,10 +3,12 @@ import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { ArticlePostType } from './ArticlePost';
 
 export interface PostListSchema extends EntityState<ArticlePostType, number> {
-    isLoading?: boolean;
+    isListLoading?: boolean;
+    isSliderLoading: boolean;
     errors?: FetchBaseQueryError;
     page: number;
     perPage?: number;
     count: number;
+    slider: ArticlePostType[];
     category: number | undefined;
 }

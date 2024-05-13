@@ -14,8 +14,7 @@ const prefetchData = async (pageRoute: Routes, id?: string) => {
             mainData,
         };
     } catch (error) {
-        console.error('Ошибка получения данных от сервера:', error);
-        return null;
+        throw new Error(`Ошибка получения данных от сервера: ${error}`);
     }
 };
 

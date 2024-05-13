@@ -13,21 +13,7 @@ const gameApi = rtkApi.injectEndpoints({
             }),
             providesTags: ['games'],
         }),
-        fetchGameIntroSlider: build.query({
-            query: () => (
-                {
-                    url: Routes.GAMES_LIST,
-                    params: {
-                        page: 1,
-                        limit: 10,
-                        sort: '-id',
-                        'filter[inIntroSlider:is]': true,
-                    },
-                }
-            ),
-            providesTags: ['games-intro'],
-        }),
-        fetchGameListSlider: build.query({
+        fetchGameSlider: build.query({
             query: () => (
                 {
                     url: Routes.GAMES_LIST,
@@ -39,19 +25,17 @@ const gameApi = rtkApi.injectEndpoints({
                     },
                 }
             ),
-            providesTags: ['games-list'],
+            providesTags: ['games-slider'],
         }),
     }),
     overrideExisting: false,
 });
 
 const useLazyFetchGameList = gameApi.useLazyFetchGameListQuery;
-const useLazyFetchGameIntroSlider = gameApi.useLazyFetchGameIntroSliderQuery;
-const useLazyFetchGameListSlider = gameApi.useLazyFetchGameListSliderQuery;
+const useLazyFetchGameSlider = gameApi.useLazyFetchGameSliderQuery;
 
 export {
     gameApi,
     useLazyFetchGameList,
-    useLazyFetchGameIntroSlider,
-    useLazyFetchGameListSlider,
+    useLazyFetchGameSlider,
 };

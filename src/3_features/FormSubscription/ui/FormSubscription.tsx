@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import classNames from 'classnames';
+import { Label } from '5_shared/ui/Label/Label';
+import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
 import cls from './FormSubscription.module.scss';
-import {useState} from "react";
 
 interface FormSubscriptionProps {
     className?: string
@@ -8,8 +10,12 @@ interface FormSubscriptionProps {
 
 export const FormSubscription = (props: FormSubscriptionProps) => {
     const { className } = props;
+    const [checked, setChecked] = useState(true);
 
-    const [buttonText, setButtonText] = useState('Отправить');
+    const [
+        buttonText,
+        // setButtonText,
+    ] = useState('Отправить');
 
     return (
         <div
@@ -27,20 +33,24 @@ export const FormSubscription = (props: FormSubscriptionProps) => {
                     )
                 }
             >
-                <input type="text" />
-                <button
-                    type="button"
-                    className={
-                        classNames(
-                            cls.button,
-                        )
-                    }
-                >
-                    { buttonText }
-                </button>
+                <div className={classNames(cls.main)}>
+                    <input
+                        type="text"
+                        placeholder="Ваш e-mail"
+                        className={classNames(cls.input)}
+                    />
+                    <ButtonRegular
+                        label={buttonText}
+                        disabled={!checked}
+                        tag={ButtonTagType.BUTTON}
+                        className={classNames(cls.button)}
+                    />
+                </div>
+                <Label
+                    isChecked={checked}
+                    changeEvent={() => setChecked(!checked)}
+                />
             </form>
-
-            Чекбокс
         </div>
 
     );

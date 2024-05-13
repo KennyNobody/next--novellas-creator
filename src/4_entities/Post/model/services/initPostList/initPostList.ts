@@ -8,7 +8,7 @@ export const initPostList = createAsyncThunk<void, any, ThunkConfig<string>>(
         const { dispatch } = thunkAPI;
 
         const params = {
-            limit: 2,
+            limit: 6,
             page: 1,
             sort: '-id',
         };

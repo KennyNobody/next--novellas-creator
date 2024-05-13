@@ -1,8 +1,8 @@
 import {
-    createSlice, current,
+    createSlice,
     PayloadAction,
 } from '@reduxjs/toolkit';
-import {TaxSimpleType, TaxType} from '4_entities/Tax';
+import { TaxSimpleType, TaxType } from '4_entities/Tax';
 import { jobFilterApi } from '../../api/jobFilterApi';
 import { JobFilterSchema } from '../types/JobFilterSchema';
 import { JobFilterTag } from '../types/JobFilter';
@@ -13,10 +13,10 @@ interface SetResultType {
 }
 
 const initialState: JobFilterSchema = {
-    type: [],
-    product: [],
-    location: [],
-    department: [],
+    [JobFilterTag.TYPE]: [],
+    [JobFilterTag.PRODUCT]: [],
+    [JobFilterTag.LOCATION]: [],
+    [JobFilterTag.DEPARTMENT]: [],
     selected: [],
     isLoading: false,
     errors: undefined,
@@ -35,10 +35,10 @@ const jobFilterSlice = createSlice({
             state[tag] = data;
         },
         setSelectedParams: (state, action: PayloadAction<TaxSimpleType>) => {
-            // @ts-ignore
-            const item = state[action.payload.key].find((item: TaxType) => item.slug === action.payload.slug);
+            const taxKey = action.payload.key as JobFilterTag;
+            const item = state[taxKey].find((el: TaxType) => el.slug === action.payload.slug);
 
-            const itSelected = state?.selected.some((el: TaxType) => el.slug === item.slug);
+            const itSelected = state?.selected.some((el: TaxType) => el.slug === item?.slug);
 
             if (item && !itSelected) {
                 state?.selected?.push(item);

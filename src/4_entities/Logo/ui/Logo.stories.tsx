@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/react';
-import {Logo as LogoComponent, LogoMode} from './Logo';
-import {data} from '../model/mocks/data';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Logo as LogoComponent, LogoMode } from './Logo';
+import { data } from '../model/mocks/data';
 
 const meta: Meta<typeof LogoComponent> = {
     title: 'Entities/Logo',

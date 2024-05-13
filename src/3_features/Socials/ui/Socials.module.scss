@@ -1,0 +1,21 @@
+.block {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    display: flex;
+    flex-shrink: 0;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 32px;
+    justify-content: center;
+    background-color: #2D3043;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--white);
+}

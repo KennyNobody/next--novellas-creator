@@ -4,7 +4,7 @@ import { fetchGameList } from '../fetchGameList/fetchGameList';
 import { gameListActions } from '../../slices/gameSlice';
 
 export const initGameList = createAsyncThunk<void, any, ThunkConfig<string>>(
-    'gameList/initGameList',
+    'game/initGameList',
     (getData, thunkAPI) => {
         const { dispatch } = thunkAPI;
 

@@ -1,12 +1,10 @@
 .block {
-    gap: 45px;
-    display: flex;
-    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #E0E0E0;
 }
 
-.pagination {
-    gap: 30px;
+.stack {
+    gap: 50px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }

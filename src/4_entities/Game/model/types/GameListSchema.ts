@@ -4,12 +4,10 @@ import { ArticleGameType } from './ArticleGame';
 
 export interface GameListSchema extends EntityState<ArticleGameType, number> {
     isListLoading?: boolean;
-    isIntroSliderLoading?: boolean;
-    isGamesSliderLoading?: boolean;
+    isSliderLoading?: boolean;
     errors?: FetchBaseQueryError;
     page: number;
     perPage?: number;
     count: number;
-    introSlider: ArticleGameType[];
-    gamesSlider: ArticleGameType[];
+    slider: ArticleGameType[];
 }

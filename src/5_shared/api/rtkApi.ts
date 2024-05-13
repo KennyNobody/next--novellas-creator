@@ -4,10 +4,10 @@ const rtkApi = createApi({
     reducerPath: 'appApi',
     tagTypes: [
         'post',
+        'post-slider',
         'job',
         'games',
-        'games-intro',
-        'games-list',
+        'games-slider',
         'shop',
         'jobTax',
         'person',

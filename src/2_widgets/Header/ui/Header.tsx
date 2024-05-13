@@ -112,10 +112,6 @@ export const Header = (props: HeaderProps) => {
                         />
                         <LinkIcon
                             href="#"
-                            iconKey={IconKey.LOGIN}
-                        />
-                        <LinkIcon
-                            href="#"
                             iconKey={IconKey.CART}
                         />
                     </Stack>

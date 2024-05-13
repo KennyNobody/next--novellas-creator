@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { IconKey, LinkIcon as LinkIconComponent } from './LinkIcon';
 
 const meta: Meta<typeof LinkIconComponent> = {
@@ -17,7 +17,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const LinkIcon: Story = {
-    render: (args) => (
+    render: () => (
         <LinkIconComponent
             href="#"
             iconKey={IconKey.SEARCH}

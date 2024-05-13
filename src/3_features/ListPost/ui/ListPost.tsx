@@ -7,15 +7,16 @@ import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { Pagination } from '3_features/Pagination';
 import {
-    GridPosts,
+    getPostList,
+    ArticlePost,
     initPostList,
+    ArticlePostType,
     getPostListPage,
     changePageIndex,
     getPostListCount,
-    ArticlePostType,
-    getPostList,
     useLazyFetchPostList,
 } from '4_entities/Post';
+import grid from '5_shared/styles/grid.module.scss';
 import { useAppDispatch } from '5_shared/state/hooks';
 import cls from './ListPost.module.scss';
 
@@ -45,15 +46,30 @@ export const ListPost = (props: ListPostsProps) => {
         dispatch(initPostList(getData));
     }, []);
 
+    const content = (
+        data
+        && data?.length > 0
+        && data.map((item: ArticlePostType) => (
+            <div
+                key={item.id}
+                className={
+                    classNames(grid['grid__col--6'])
+                }
+            >
+                <ArticlePost data={item} />
+            </div>
+        ))
+    );
+
     return (
         <div
             className={
                 classNames(cls.block, className)
             }
         >
-            <GridPosts
-                data={data}
-            />
+            <div className={classNames(grid.grid, cls.grid)}>
+                { content }
+            </div>
             <Pagination
                 lastPage={pageTotal}
                 currentPage={pageIndex}

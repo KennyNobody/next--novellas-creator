@@ -10,10 +10,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {
+    getGameSlider,
+    fetchGameSlider,
     ArticleGameType,
-    getGameGamesSlider,
-    fetchGameListSlider,
-    useLazyFetchGameListSlider,
+    useLazyFetchGameSlider,
 } from '4_entities/Game';
 import { Editor } from '5_shared/ui/Editor/Editor';
 import { useAppDispatch } from '5_shared/state/hooks';
@@ -28,8 +28,8 @@ interface SliderGamesListProps {
 
 export const SliderGamesList = ({ className }: SliderGamesListProps) => {
     const dispatch = useAppDispatch();
-    const [getData] = useLazyFetchGameListSlider({});
-    const data: ArticleGameType[] = useSelector(getGameGamesSlider) || [];
+    const [getData] = useLazyFetchGameSlider({});
+    const data: ArticleGameType[] = useSelector(getGameSlider) || [];
     // const isLoading: boolean = useSelector(getGameListLoading);
 
     const [mainSlider, setMainSlider] = useState<SwiperInstance | null>(null);
@@ -38,7 +38,7 @@ export const SliderGamesList = ({ className }: SliderGamesListProps) => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     useEffect(() => {
-        dispatch(fetchGameListSlider({ getData }));
+        dispatch(fetchGameSlider({ getData }));
     }, []);
 
     useEffect(() => {

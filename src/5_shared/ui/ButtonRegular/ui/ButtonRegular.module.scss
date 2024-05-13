@@ -1,12 +1,12 @@
 .button {
     padding: 1px;
+    height: 60px;
     display: block;
     width: fit-content;
     position: relative;
     border-radius: 60px;
     transition: 0.3s all;
     text-decoration: none;
-    //align-self: flex-start;
     background-image: linear-gradient(to bottom, #9e89ff, #4539c9);
 
     &::after {
@@ -45,6 +45,7 @@
 
     &[disabled] {
         pointer-events: none;
+        background-image: none;
         background-color: #D3D3D3;
 
         &:after {
@@ -60,10 +61,12 @@
 }
 
 .wrapper {
+    gap: 10px;
     width: 100%;
+    height: 100%;
     display: flex;
-    min-height: 60px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     padding: 10px 30px;
     align-items: center;
     color: var(--white);

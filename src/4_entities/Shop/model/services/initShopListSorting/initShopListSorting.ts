@@ -12,7 +12,7 @@ import { fetchShopList } from '../fetchShopList/fetchShopList';
 export const initShopListSorting = createAsyncThunk<void, any, ThunkConfig<string>>(
     'shopList/initShopListSorting',
     (getData, thunkAPI) => {
-        const { dispatch, getState } = thunkAPI;
+        const { dispatch } = thunkAPI;
 
         // const type: TaxType[] = getJobFilterType(getState()) || [];
         // const product: TaxType[] = getJobFilterProduct(getState()) || [];

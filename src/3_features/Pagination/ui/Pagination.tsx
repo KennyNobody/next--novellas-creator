@@ -29,9 +29,10 @@ export const Pagination = (props: PaginationProps) => {
             <button
                 key="prev"
                 type="button"
-                onClick={() => buttonEvent(currentPage - 1)}
                 disabled={currentPage === 1}
+                aria-label="предыдущая страница"
                 className={classNames(cls.button)}
+                onClick={() => buttonEvent(currentPage - 1)}
             >
                 <IconLeft className={classNames(cls.icon)} />
             </button>,
@@ -50,6 +51,7 @@ export const Pagination = (props: PaginationProps) => {
                     key={i}
                     type="button"
                     onClick={() => buttonEvent(i)}
+                    aria-label={`перейти к странице номер: ${i}`}
                     className={
                         classNames(
                             cls.button,
@@ -70,6 +72,7 @@ export const Pagination = (props: PaginationProps) => {
             <button
                 key="next"
                 type="button"
+                aria-label="следующая страница"
                 disabled={currentPage === lastPage}
                 className={classNames(cls.button)}
                 onClick={() => buttonEvent(currentPage + 1)}
