@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {
+    useMemo,
+    useState,
+    useEffect,
+    useReducer,
+} from 'react';
 import {
     Column,
+    RowData,
     ColumnDef,
     ColumnFiltersState,
-    RowData,
     flexRender,
+    useReactTable,
     getCoreRowModel,
+    getSortedRowModel,
     getFilteredRowModel,
     getPaginationRowModel,
-    getSortedRowModel,
-    useReactTable,
 } from '@tanstack/react-table';
 
 import { makeData, Person } from './makedata';
@@ -17,7 +22,7 @@ import { makeData, Person } from './makedata';
 declare module '@tanstack/react-table' {
     // allows us to define custom properties for our columns
     interface ColumnMeta<TData extends RowData, TValue> {
-        filterVariant?: 'text' | 'range' | 'select'
+        filterVariant?: 'text' | 'select'
     }
 }
 
@@ -33,11 +38,11 @@ function DebouncedInput({
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'>) {
     const [value, setValue] = React.useState(initialValue);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setValue(initialValue);
     }, [initialValue]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const timeout = setTimeout(() => {
             onChange(value);
         }, debounce);
@@ -54,26 +59,7 @@ function Filter({ column }: { column: Column<any, unknown> }) {
     const columnFilterValue = column.getFilterValue();
     const { filterVariant } = column.columnDef.meta ?? {};
 
-    return filterVariant === 'range' ? (
-        <div>
-            <div>
-                {/* See faceted column filters example for min max values functionality */}
-                <DebouncedInput
-                    type="number"
-                    value={(columnFilterValue as [number, number])?.[0] ?? ''}
-                    onChange={(value) => column.setFilterValue((old: [number, number]) => [value, old?.[1]])}
-                    placeholder="Min"
-                />
-                <DebouncedInput
-                    type="number"
-                    value={(columnFilterValue as [number, number])?.[1] ?? ''}
-                    onChange={(value) => column.setFilterValue((old: [number, number]) => [old?.[0], value])}
-                    placeholder="Max"
-                />
-            </div>
-            <div />
-        </div>
-    ) : filterVariant === 'select' ? (
+    return filterVariant === 'select' ? (
         <select
             onChange={(e) => column.setFilterValue(e.target.value)}
             value={columnFilterValue?.toString()}
@@ -95,13 +81,13 @@ function Filter({ column }: { column: Column<any, unknown> }) {
 }
 
 const TableDemo = () => {
-    const rerender = React.useReducer(() => ({}), {})[1];
+    const rerender = useReducer(() => ({}), {})[1];
 
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
         [],
     );
 
-    const columns = React.useMemo<ColumnDef<Person, any>[]>(
+    const columns = useMemo<ColumnDef<Person, any>[]>(
         () => [
             {
                 accessorKey: 'firstName',
@@ -122,16 +108,10 @@ const TableDemo = () => {
             {
                 accessorKey: 'age',
                 header: () => 'Age',
-                meta: {
-                    filterVariant: 'range',
-                },
             },
             {
                 accessorKey: 'visits',
                 header: () => 'Visits',
-                meta: {
-                    filterVariant: 'range',
-                },
             },
             {
                 accessorKey: 'status',
@@ -140,18 +120,11 @@ const TableDemo = () => {
                     filterVariant: 'select',
                 },
             },
-            {
-                accessorKey: 'progress',
-                header: 'Profile Progress',
-                meta: {
-                    filterVariant: 'range',
-                },
-            },
         ],
         [],
     );
 
-    const [data, setData] = React.useState<Person[]>(() => makeData(5_000));
+    const [data, setData] = useState<Person[]>(() => makeData(5_000));
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const refreshData = () => setData((_old) => makeData(50_000)); // stress test
 
