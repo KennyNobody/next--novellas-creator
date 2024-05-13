@@ -1,14 +1,14 @@
 'use client';
 
 import classNames from 'classnames';
-import { ListJob } from '3_features/ListJob';
-import { JobFilter } from '3_features/JobFilter';
+import { TableJob } from '3_features/TableJob';
 import {
     Section,
     SectionThemeMode,
 } from '5_shared/ui/Section/Section';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionJobCatalog.module.scss';
+import {TableDemo} from "../../../3_features/TableDemo";
 
 interface SectionJobCatalogProps {
     className?: string;
@@ -28,10 +28,8 @@ export const SectionJobCatalog = (props: SectionJobCatalogProps) => {
             }
         >
             <Container>
-                <JobFilter
-                    className={classNames(cls.filter)}
-                />
-                <ListJob />
+                <TableDemo />
+                {/*<TableJob />*/}
             </Container>
         </Section>
     );
