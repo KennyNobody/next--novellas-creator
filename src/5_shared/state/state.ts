@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { jobFilterReducer } from '3_features/JobFilter';
 import { jobListReducer } from '4_entities/Job';
 import { postListReducer } from '4_entities/Post';
 import { shopListReducer } from '4_entities/Shop';
@@ -15,7 +14,6 @@ export const makeStore = () => configureStore({
         postList: postListReducer,
         gameList: gameListReducer,
         personList: personListReducer,
-        jobFilter: jobFilterReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({

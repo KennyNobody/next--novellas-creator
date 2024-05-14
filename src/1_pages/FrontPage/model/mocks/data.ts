@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { SectionSubscribeType } from '2_widgets/SectionSubscribe';
-import { SectionFrontTeamType } from '2_widgets/SectionFrontTeam';
+import { SectionTeamType } from '2_widgets/SectionTeam';
 import { SectionPreviewNewsType } from '2_widgets/SectionPreviewNews';
 import { SectionFrontAboutType } from '2_widgets/SectionFrontAbout';
 import { FrontPageType } from '../types/FrontPage';
@@ -21,9 +21,8 @@ const sectionFrontAbout: SectionFrontAboutType = {
     },
 };
 
-const sectionFrontTeam: SectionFrontTeamType = {
+const sectionFrontTeam: SectionTeamType = {
     title: '<p><strong>Наша команда</strong></p>',
-    content: '<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete.</p>',
 };
 
 const sectionPreviewNews: SectionPreviewNewsType = {

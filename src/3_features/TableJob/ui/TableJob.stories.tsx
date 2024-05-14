@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ListJob as ListPostComponent } from './ListJob';
+import { TableJob as TableJobComponent } from './TableJob';
 
-const meta: Meta<typeof ListPostComponent> = {
-    title: 'Features/ListPost',
-    component: ListPostComponent,
+const meta: Meta<typeof TableJobComponent> = {
+    title: 'Features/TableJob',
+    component: TableJobComponent,
     // tags: ['autodocs'],
     parameters: {
         layout: 'fullscreen',
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ListPost: Story = {
     render: (args) => (
-        <ListPostComponent
+        <TableJobComponent
             {...args}
         />
     ),

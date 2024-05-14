@@ -1,83 +1,77 @@
-import { ArticleJobType } from '../types/ArticleJob';
+import { ArticleGameType } from '../types/ArticleGame';
 
 const dateString: string = '1995-12-17T03:24:00';
 const date: Date = new Date(dateString);
 
-const data: ArticleJobType = {
-    id: 1,
-    slug: 'post_example',
-    title: 'Заголовок ArticlePost',
-    meta: {
-        title: 'Meta-заголовок',
-        description: 'Meta-description',
-    },
-    api_url: 'https://api.novellascreator.ru/api/collections/vacancies/entries/18',
-    content: '<p>Контент новости</p>',
-    date,
-    request_id: 'R1456',
-    updated_at: date,
-    previewCaption: 'Подзаголовок новости',
-    preview_small: {
-        id: '1',
-        url: 'https://placehold.co/600x900.png',
-        permalink: 'https://placehold.co/600x900.png',
-        api_url: 'https://placehold.co/600x900.png',
-    },
+const data: ArticleGameType = {
+    id: 20,
+    slug: 'v-tvoei-golove',
+    title: 'В твоей голове',
+    api_url: 'https://api.novellascreator.ru/api/collections/games/entries/20',
     blueprint: {
-        title: 'Вакансии',
-        handle: 'vacancy',
+        title: 'Игры',
+        handle: 'game',
     },
     collection: {
-        title: 'Вакансии',
-        handle: 'vacancies',
+        title: 'Игры',
+        handle: 'games',
     },
-    product_vacancy: [
-        {
-            id: 'product_vacancy::game',
-            title: 'Игра',
-            slug: 'game',
-            url: '/vacancies/product-vacancy/game',
-            permalink: 'https://api.novellascreator.ru/vacancies/product-vacancy/game',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/product_vacancy/terms/game',
-        },
-    ],
-    last_modified: date,
+    content: '<p>Контент страницы игра &quot;В твоей голове&quot;</p>\n',
+    date,
+    inFullSlider: true,
+    preview_small: {
+        id: 'assets::placeholders/game-preview-1.jpg',
+        url: '/assets/placeholders/game-preview-1.jpg',
+        permalink: 'https://api.novellascreator.ru/assets/placeholders/game-preview-1.jpg',
+        api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/game-preview-1.jpg',
+    },
     preview_page: {
-        id: '1',
-        url: 'https://placehold.co/600x900.png',
-        permalink: 'https://placehold.co/600x900.png',
-        api_url: 'https://placehold.co/600x900.png',
+        id: 'assets::placeholders/game-preview-1.jpg',
+        url: '/assets/placeholders/game-preview-1.jpg',
+        permalink: 'https://api.novellascreator.ru/assets/placeholders/game-preview-1.jpg',
+        api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/game-preview-1.jpg',
     },
-    mestonakhozhdenie: [
+    preview: {
+        id: 'assets::placeholders/game-preview-1.jpg',
+        url: '/assets/placeholders/game-preview-1.jpg',
+        permalink: 'https://api.novellascreator.ru/assets/placeholders/game-preview-1.jpg',
+        api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/game-preview-1.jpg',
+    },
+    previewCaption: '<p>Динамичность, быстрое, иногда даже головокружительное развитие сюжета, который захватывает читателя и держит его в напряжении. Это характерно для новелл мастера этого жанра Эдгара Алана По, острота сюжетов его произведений часто приправлена мистикой.</p>\n',
+    scienic_tax: [
         {
-            id: 'mestonakhozhdenie::remote',
-            title: 'Удаленно',
-            slug: 'remote',
-            url: '/vacancies/mestonakhozhdenie/remote',
-            permalink: 'https://api.novellascreator.ru/vacancies/mestonakhozhdenie/remote',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/mestonakhozhdenie/terms/remote',
+            id: 'scienic_tax::romantis',
+            title: 'Романтика',
+            slug: 'romantis',
+            url: '/games/scienic-tax/romantis',
+            permalink: 'https://api.novellascreator.ru/games/scienic-tax/romantis',
+            api_url: 'https://api.novellascreator.ru/api/taxonomies/scienic_tax/terms/romantis',
         },
     ],
-    department_vacancy: [
-        {
-            id: 'department_vacancy::design',
-            title: 'Дизайн',
-            slug: 'design',
-            url: '/vacancies/department-vacancy/design',
-            permalink: 'https://api.novellascreator.ru/vacancies/department-vacancy/design',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/department_vacancy/terms/design',
+    sectionMeta: {
+        title: 'В твоей голове',
+        description: null,
+    },
+    sectionSlider: {
+        pictureFull: {
+            id: 'assets::placeholders/preview_large.png',
+            url: '/assets/placeholders/preview_large.png',
+            permalink: 'https://api.novellascreator.ru/assets/placeholders/preview_large.png',
+            api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/preview_large.png',
         },
-    ],
-    type_vacancy: [
-        {
-            id: 'type_vacancy::full-time',
-            title: 'Полный день',
-            slug: 'full-time',
-            url: '/vacancies/type-vacancy/full-time',
-            permalink: 'https://api.novellascreator.ru/vacancies/type-vacancy/full-time',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/type_vacancy/terms/full-time',
+        picturePreview: {
+            id: 'assets::placeholders/preview_small.png',
+            url: '/assets/placeholders/preview_small.png',
+            permalink: 'https://api.novellascreator.ru/assets/placeholders/preview_small.png',
+            api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/preview_small.png',
         },
-    ],
+        picturePerson: {
+            id: 'assets::placeholders/600x900.jpg',
+            url: '/assets/placeholders/600x900.jpg',
+            permalink: 'https://api.novellascreator.ru/assets/placeholders/600x900.jpg',
+            api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/600x900.jpg',
+        },
+    },
 };
 
 export {

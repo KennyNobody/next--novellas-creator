@@ -16,19 +16,20 @@ interface ArticleGameType {
     id: number;
     slug: string;
     title: string;
-    meta: Metadata;
     api_url: string;
     content: string;
     date: Date | null;
-    request_id: string;
+    // request_id: string;
     preview: PictureType;
+    sectionMeta: Metadata;
+    inFullSlider: boolean;
     previewCaption: string;
-    updated_at: Date | null;
+    // updated_at: Date | null;
     blueprint: BlueprintType;
     preview_page: PictureType;
     collection: CollectionType;
     preview_small: PictureType;
-    last_modified: Date | null;
+    // last_modified: Date | null;
     scienic_tax: TaxonomyType[];
     sectionSlider: GamePreviewSlideType;
 }

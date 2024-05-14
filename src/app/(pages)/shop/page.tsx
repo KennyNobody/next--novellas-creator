@@ -29,7 +29,7 @@ export default async function Page() {
     }
 
     return ShopPage({
-        pageData,
+        // pageData,
         mainData,
     });
 }

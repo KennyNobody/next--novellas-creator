@@ -1,11 +1,9 @@
 import React, {
     useMemo,
     useState,
-    useEffect,
     useReducer,
 } from 'react';
 import {
-    Column,
     RowData,
     ColumnDef,
     ColumnFiltersState,
@@ -16,72 +14,25 @@ import {
     getFilteredRowModel,
     getPaginationRowModel,
 } from '@tanstack/react-table';
-
-import { makeData, Person } from './makedata';
+import {
+    typeOptions,
+    placeOptions,
+    productOptions,
+    departmentsOptions,
+} from '../makeselectors';
+import { makeData, Person } from '../makedata';
+import { TableFilter } from '../TableFilter/TableFilter';
 
 declare module '@tanstack/react-table' {
-    // allows us to define custom properties for our columns
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface ColumnMeta<TData extends RowData, TValue> {
-        filterVariant?: 'text' | 'select'
+        filterVariant?: 'text' | 'select';
+        selectOptions?: string[];
     }
 }
 
-function DebouncedInput({
-    value: initialValue,
-    onChange,
-    debounce = 500,
-    ...props
-}: {
-    value: string | number
-    onChange: (value: string | number) => void
-    debounce?: number
-} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'>) {
-    const [value, setValue] = React.useState(initialValue);
-
-    useEffect(() => {
-        setValue(initialValue);
-    }, [initialValue]);
-
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            onChange(value);
-        }, debounce);
-
-        return () => clearTimeout(timeout);
-    }, [value]);
-
-    return (
-        <input {...props} value={value} onChange={(e) => setValue(e.target.value)} />
-    );
-}
-
-function Filter({ column }: { column: Column<any, unknown> }) {
-    const columnFilterValue = column.getFilterValue();
-    const { filterVariant } = column.columnDef.meta ?? {};
-
-    return filterVariant === 'select' ? (
-        <select
-            onChange={(e) => column.setFilterValue(e.target.value)}
-            value={columnFilterValue?.toString()}
-        >
-            {/* See faceted column filters example for dynamic select options */}
-            <option value="">All</option>
-            <option value="complicated">complicated</option>
-            <option value="relationship">relationship</option>
-            <option value="single">single</option>
-        </select>
-    ) : (
-        <DebouncedInput
-            onChange={(value) => column.setFilterValue(value)}
-            placeholder="Search..."
-            type="text"
-            value={(columnFilterValue ?? '') as string}
-        />
-    );
-}
-
 const TableDemo = () => {
-    const rerender = useReducer(() => ({}), {})[1];
+    // const rerender = useReducer(() => ({}), {})[1];
 
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
         [],
@@ -90,43 +41,48 @@ const TableDemo = () => {
     const columns = useMemo<ColumnDef<Person, any>[]>(
         () => [
             {
-                accessorKey: 'firstName',
+                header: 'Название вакансии',
+                accessorKey: 'title',
                 cell: (info) => info.getValue(),
             },
             {
-                accessorFn: (row) => row.lastName,
-                id: 'lastName',
-                cell: (info) => info.getValue(),
-                header: () => 'Last Name',
-            },
-            {
-                accessorFn: (row) => `${row.firstName} ${row.lastName}`,
-                id: 'fullName',
-                header: 'Full Name',
-                cell: (info) => info.getValue(),
-            },
-            {
-                accessorKey: 'age',
-                header: () => 'Age',
-            },
-            {
-                accessorKey: 'visits',
-                header: () => 'Visits',
-            },
-            {
-                accessorKey: 'status',
-                header: 'Status',
+                header: 'Отдел',
+                accessorKey: 'department',
                 meta: {
                     filterVariant: 'select',
+                    selectOptions: departmentsOptions,
+                },
+            },
+            {
+                header: 'Place',
+                accessorKey: 'place',
+                meta: {
+                    filterVariant: 'select',
+                    selectOptions: placeOptions,
+                },
+            },
+            {
+                accessorKey: 'product',
+                header: 'Product',
+                meta: {
+                    filterVariant: 'select',
+                    selectOptions: productOptions,
+                },
+            },
+            {
+                accessorKey: 'type',
+                header: 'Type',
+                meta: {
+                    filterVariant: 'select',
+                    selectOptions: typeOptions,
                 },
             },
         ],
         [],
     );
 
-    const [data, setData] = useState<Person[]>(() => makeData(5_000));
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const refreshData = () => setData((_old) => makeData(50_000)); // stress test
+    const [data, setData] = useState<Person[]>(() => makeData(50_0));
+    // const refreshData = () => setData(() => makeData(50_0)); // stress test
 
     const table = useReactTable({
         data,
@@ -172,7 +128,9 @@ const TableDemo = () => {
                                             </div>
                                             {header.column.getCanFilter() ? (
                                                 <div>
-                                                    <Filter column={header.column} />
+                                                    <TableFilter
+                                                        column={header.column}
+                                                    />
                                                 </div>
                                             ) : null}
                                         </>
@@ -223,17 +181,17 @@ const TableDemo = () => {
                     {'>>'}
                 </button>
                 <span>
-                    <div>Page</div>
+                    <div>Страница</div>
                     <strong>
                         {table.getState().pagination.pageIndex + 1}
                         {' '}
-                        of
+                        из
                         {' '}
                         {table.getPageCount()}
                     </strong>
                 </span>
                 <span>
-                    | Go to page:
+                    | Перейти к странице:
                     <input
                         type="number"
                         defaultValue={table.getState().pagination.pageIndex + 1}
@@ -251,31 +209,31 @@ const TableDemo = () => {
                 >
                     {[10, 20, 30, 40, 50].map((pageSize) => (
                         <option key={pageSize} value={pageSize}>
-                            Show
+                            Показывать
                             {' '}
                             {pageSize}
                         </option>
                     ))}
                 </select>
             </div>
-            <div>
-                {table.getPrePaginationRowModel().rows.length}
-                {' '}
-                Rows
-            </div>
-            <div>
-                <button onClick={() => rerender()}>Force Rerender</button>
-            </div>
-            <div>
-                <button onClick={() => refreshData()}>Refresh Data</button>
-            </div>
-            <pre>
-                {JSON.stringify(
-                    { columnFilters: table.getState().columnFilters },
-                    null,
-                    2,
-                )}
-            </pre>
+            {/* <div> */}
+            {/*    {table.getPrePaginationRowModel().rows.length} */}
+            {/*    {' '} */}
+            {/*    Столбцы */}
+            {/* </div> */}
+            {/* <div> */}
+            {/*    <button onClick={() => rerender()}>Принудительно перерисовать</button> */}
+            {/* </div> */}
+            {/* <div> */}
+            {/*    <button onClick={() => refreshData()}>Обновить данные</button> */}
+            {/* </div> */}
+            {/* <pre> */}
+            {/*    {JSON.stringify( */}
+            {/*        { columnFilters: table.getState().columnFilters }, */}
+            {/*        null, */}
+            {/*        2, */}
+            {/*    )} */}
+            {/* </pre> */}
         </div>
     );
 };

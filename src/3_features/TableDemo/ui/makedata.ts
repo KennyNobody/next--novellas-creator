@@ -1,13 +1,18 @@
 import { faker } from '@faker-js/faker';
+import {
+    typeOptions,
+    placeOptions,
+    productOptions,
+    departmentsOptions,
+} from './makeselectors';
 
 export type Person = {
-    firstName: string
-    lastName: string
-    age: number
-    visits: number
-    progress: number
-    status: 'relationship' | 'complicated' | 'single'
-    subRows?: Person[]
+    title: string;
+    department: string;
+    place: string;
+    product: string;
+    type: string;
+    subRows?: Person[];
 };
 
 const range = (len: number) => {
@@ -19,16 +24,19 @@ const range = (len: number) => {
 };
 
 const newPerson = (): Person => ({
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
-    age: faker.number.int(40),
-    visits: faker.number.int(1000),
-    progress: faker.number.int(100),
-    status: faker.helpers.shuffle<Person['status']>([
-        'relationship',
-        'complicated',
-        'single',
-    ])[0]!,
+    title: faker.person.jobTitle(),
+    department: faker.helpers.shuffle<Person['department']>(
+        departmentsOptions,
+    )[0]!,
+    place: faker.helpers.shuffle<Person['place']>(
+        placeOptions,
+    )[0]!,
+    product: faker.helpers.shuffle<Person['product']>(
+        productOptions,
+    )[0]!,
+    type: faker.helpers.shuffle<Person['type']>(
+        typeOptions,
+    )[0]!,
 });
 
 export function makeData(...lens: number[]) {

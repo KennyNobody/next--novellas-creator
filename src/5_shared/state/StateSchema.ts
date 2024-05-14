@@ -1,5 +1,4 @@
 import { AxiosInstance } from 'axios';
-import { JobFilterSchema } from '3_features/JobFilter';
 import { JobListSchema } from '4_entities/Job';
 import { GameListSchema } from '4_entities/Game';
 import { PostListSchema } from '4_entities/Post';
@@ -12,7 +11,6 @@ interface StateSchema {
     gameList: GameListSchema;
     shopList: ShopListSchema;
     personList: PersonListSchema;
-    jobFilter: JobFilterSchema;
 }
 
 export interface ThunkExtraArg {

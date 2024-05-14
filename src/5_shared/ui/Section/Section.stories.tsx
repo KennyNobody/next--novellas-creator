@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-    Section as SectionComponent, SectionDecorType, SectionTagType, SectionThemeMode,
+    Section as SectionComponent, SectionThemeMode,
 } from './Section';
 
 const meta: Meta<typeof SectionComponent> = {
@@ -11,8 +11,6 @@ const meta: Meta<typeof SectionComponent> = {
         layout: 'fullscreen',
     },
     args: {
-        tag: SectionTagType.DIV,
-        decor: SectionDecorType.FULL,
         theme: SectionThemeMode.LiGHT,
         style: {
             height: '50vh',

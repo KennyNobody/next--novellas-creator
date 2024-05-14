@@ -8,6 +8,9 @@ const sectionMetaMock: Metadata = {
 
 const mockData: JobPageType = {
     sectionMeta: sectionMetaMock,
+    sectionPreviewNews: {
+        title: 'Все новости',
+    },
 };
 
 export {
