@@ -1,6 +1,10 @@
 .block {
     width: 100%;
 
+    &--dark {
+        color: var(--white);
+    }
+
     &--light {
         background-color: var(--white);
     }

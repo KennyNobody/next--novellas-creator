@@ -1,6 +1,13 @@
 import { Metadata } from 'next';
 import { PictureType } from '4_entities/Picture';
 
+interface IntroSlide {
+    title: string;
+    content: string;
+    image: PictureType;
+    background: PictureType;
+}
+
 interface ArticlePostType {
     id: number;
     date: Date;
@@ -13,6 +20,7 @@ interface ArticlePostType {
     publishedAt?: Date;
     preview: PictureType;
     previewCaption: string;
+    introSlider: IntroSlide;
 }
 
 export type {

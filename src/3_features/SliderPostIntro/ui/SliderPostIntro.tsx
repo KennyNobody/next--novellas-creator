@@ -12,7 +12,7 @@ import {
     ArticlePostType,
     getPostSlider,
     fetchPostSlider,
-    useLazyFetchPostSlider,
+    useLazyFetchPostSlider, ArticlePostSlide,
 } from '4_entities/Post';
 import { useAppDispatch } from '5_shared/state/hooks';
 import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
@@ -57,44 +57,16 @@ export const SliderPostIntro = ({ className }: SliderPostIntroProps) => {
                     onSwiper={(swiperInstance: SwiperInstance) => initSwiper(swiperInstance)}
                 >
                     {
-                        data.map((item) => (
+                        data.map((item: ArticlePostType) => (
                             <SwiperSlide
                                 key={item.id}
                                 className={classNames(cls.slide)}
                             >
-                                { item.title }
-                                <br />
-                                <ButtonRegular
-                                    label="Перейти"
-                                    path={`/news/${item.id}`}
-                                    tag={ButtonTagType.LINK}
-                                />
+                                <ArticlePostSlide data={item} />
                             </SwiperSlide>
                         ))
                     }
                 </Swiper>
-            </div>
-            <div className={classNames(cls.pagination)}>
-                {
-                    data.map((item, index) => (
-                        <button
-                            key={item.id}
-                            onClick={() => setActiveIndex(index)}
-                            className={
-                                classNames(
-                                    cls.button,
-                                    {
-                                        [cls['button--active']]: index === activeIndex,
-                                    },
-                                )
-                            }
-                        >
-                            <span className={classNames(cls['button-content'])}>
-                                { item.title }
-                            </span>
-                        </button>
-                    ))
-                }
             </div>
         </div>
     );

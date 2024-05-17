@@ -26,14 +26,12 @@ const GamesPage = (props: GamesPageProps) => {
     return (
         <>
             <Header
-                isFixed
                 isInvert
                 data={mainData.sectionMainInfo}
             >
                 <Breadcrumbs slug={RouteSlug.GAMES} />
             </Header>
             <Main className={classNames(cls.block)}>
-                <SectionGameIntro />
                 <SectionGameCatalog />
             </Main>
             <Footer

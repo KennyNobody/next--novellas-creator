@@ -7,7 +7,7 @@ import {
 } from '5_shared/types/statamic';
 
 interface GamePreviewSlideType {
-    pictureFull: PictureType;
+    // pictureFull: PictureType;
     picturePerson: PictureType;
     picturePreview: PictureType;
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import classNames from 'classnames';
 import {
     Section,
@@ -68,7 +69,7 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                         />
                     </div>
                     {
-                        data?.picture
+                        data?.image?.permalink
                         && (
                             <div
                                 className={
@@ -79,7 +80,13 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                                 }
                             >
                                 <picture className={classNames(cls.picture)}>
-                                    <img src={data?.picture?.permalink} alt="#" />
+                                    <Image
+                                        width={530}
+                                        height={835}
+                                        src={data.image.permalink}
+                                        alt="декоративное изображение"
+                                        className={classNames(cls.image)}
+                                    />
                                 </picture>
                             </div>
                         )

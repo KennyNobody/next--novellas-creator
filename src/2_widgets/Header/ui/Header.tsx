@@ -42,6 +42,7 @@ export const Header = (props: HeaderProps) => {
                 classNames(
                     cls.block,
                     { [cls['block--light']]: !isInvert },
+                    { [cls['block--dark']]: isInvert },
                     { [cls['block--fixed']]: isFixed },
                     className,
                 )

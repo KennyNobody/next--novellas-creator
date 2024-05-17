@@ -7,6 +7,10 @@ export {
 } from './ui/ArticlePost/ArticlePost';
 
 export {
+    ArticlePostSlide,
+} from './ui/ArticlePostSlide/ArticlePostSlide';
+
+export {
     ArticlePostSmall,
 } from './ui/ArticlePostSmall/ArticlePostSmall';
 

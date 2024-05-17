@@ -1,10 +1,15 @@
 .block {
     display: flex;
     align-items: center;
+    transition: 0.3s opacity;
+
+    &:hover {
+        opacity: 0.7;
+    }
 
     img {
         width: auto;
-        height: 46px;
+        height: 32px;
         display: block;
     }
 }
