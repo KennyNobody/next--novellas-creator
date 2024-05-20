@@ -27,10 +27,10 @@ export const ArticleShop = (props: ArticleShopProps) => {
         >
 
             {
-                data?.preview_small?.permalink
+                data?.picturePreview?.permalink
                 && (
-                    <picture className="picture">
-                        <img src={data.preview_small.permalink} alt={data?.title || '#'} />
+                    <picture className={classNames(cls.picture)}>
+                        <img src={data.picturePreview.permalink} alt={data?.title || '#'} />
                     </picture>
                 )
             }
@@ -40,9 +40,17 @@ export const ArticleShop = (props: ArticleShopProps) => {
                     && <time>{data.date.toString()}</time>
                 }
                 {
+                    data?.vendor
+                    && (
+                        <p className={classNames(cls.vendor)}>
+                            { data?.vendor }
+                        </p>
+                    )
+                }
+                {
                     data?.title
                     && (
-                        <h3>
+                        <h3 className={classNames(cls.title)}>
                             { data?.title }
                         </h3>
                     )
@@ -51,6 +59,30 @@ export const ArticleShop = (props: ArticleShopProps) => {
                     data?.previewCaption
                     && (
                         <p>{data.previewCaption}</p>
+                    )
+                }
+            </div>
+            <div className={classNames(cls.footer)}>
+                {
+                    data?.priceOld
+                    && data?.discount
+                    && (
+                        <>
+                            <span className={classNames(cls.discount)}>
+                                {`- ${data.discount} %`}
+                            </span>
+                            <span className={classNames(cls.oldPrice)}>
+                                {`${data.discount} ₽`}
+                            </span>
+                        </>
+                    )
+                }
+                {
+                    data?.price
+                    && (
+                        <span className={classNames(cls.price)}>
+                            { `${data.price} ₽` }
+                        </span>
                     )
                 }
             </div>

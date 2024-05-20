@@ -16,7 +16,9 @@ interface MainIntoType {
     contactsSupport: ContactItemType;
     socials: {
         list: SocialLink[];
-    }
+    };
+    gamesLinks: FooterLink[];
+    shopLinks: FooterLink[];
 }
 
 interface MainDataType {

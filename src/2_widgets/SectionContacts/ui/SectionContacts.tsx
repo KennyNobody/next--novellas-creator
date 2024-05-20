@@ -21,22 +21,40 @@ export const SectionContacts = (props: SectionContactsProps) => {
     return (
         <Section
             theme={SectionThemeMode.LiGHT}
-            className={classNames(cls.SectionContacts, className)}
+            className={classNames(cls.block, className)}
         >
             <Container>
-                {
-                    data?.blockLinks
-                    && (
-                        <ListLinks data={data.blockLinks} />
-                    )
-                }
-                {
-                    data?.mapFrame?.value
-                    && <MapFrame className={classNames(cls.map)} data={data.mapFrame.value} />
-                }
-                {
-                    data?.picture && <Picture data={data.picture} />
-                }
+                <div className={classNames(cls.block)}>
+                    <div className={classNames(cls.content)}>
+                        {
+                            data?.blockLinks
+                            && (
+                                <ListLinks
+                                    data={data.blockLinks}
+                                    className={classNames(cls.info)}
+                                />
+                            )
+                        }
+                        {
+                            data?.picture
+                            && (
+                                <Picture
+                                    data={data.picture}
+                                    className={classNames(cls.picture)}
+                                />
+                            )
+                        }
+                    </div>
+                    {
+                        data?.coords
+                        && (
+                            <MapFrame
+                                data={data.coords}
+                                className={classNames(cls.map)}
+                            />
+                        )
+                    }
+                </div>
             </Container>
         </Section>
     );

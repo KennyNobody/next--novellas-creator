@@ -53,12 +53,6 @@ const data: ArticleGameType = {
         description: null,
     },
     sectionSlider: {
-        pictureFull: {
-            id: 'assets::placeholders/preview_large.png',
-            url: '/assets/placeholders/preview_large.png',
-            permalink: 'https://api.novellascreator.ru/assets/placeholders/preview_large.png',
-            api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/preview_large.png',
-        },
         picturePreview: {
             id: 'assets::placeholders/preview_small.png',
             url: '/assets/placeholders/preview_small.png',

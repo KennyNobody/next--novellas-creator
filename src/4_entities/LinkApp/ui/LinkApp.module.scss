@@ -1,0 +1,26 @@
+.block {
+    gap: 16px;
+    display: flex;
+    color: inherit;
+    font-size: 18px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.iconBlock {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    border-radius: 12px;
+    justify-content: center;
+    border: 1px solid var(--white);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    fill: var(--white)
+}

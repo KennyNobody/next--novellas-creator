@@ -1,7 +1,9 @@
 import React from 'react';
 import { Column } from '@tanstack/react-table';
+import classNames from 'classnames';
 import { TableInput } from '../TableInput/TableInput';
 import { Person } from '../makedata';
+import cls from './TableFilter.module.scss';
 
 interface TableFilterProps {
     column: Column<Person, unknown>;
@@ -18,6 +20,7 @@ export const TableFilter = (props: TableFilterProps) => {
 
     return filterVariant === 'select' ? (
         <select
+            className={classNames(cls.select)}
             onChange={(e) => column.setFilterValue(e.target.value)}
             value={columnFilterValue?.toString()}
         >
@@ -26,14 +29,14 @@ export const TableFilter = (props: TableFilterProps) => {
             {
                 selectOptions
                 && selectOptions?.map((item: string) => (
-                    <option value={item}>{item}</option>
+                    <option key={item} value={item}>{item}</option>
                 ))
             }
         </select>
     ) : (
         <TableInput
             onChange={(value) => column.setFilterValue(value)}
-            placeholder="Search..."
+            placeholder="Искать..."
             type="text"
             initialValue={(columnFilterValue ?? '') as string}
         />

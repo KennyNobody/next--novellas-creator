@@ -62,30 +62,17 @@ export const Footer = (props: FooterProps) => {
                         >
                             { RoutesList[RouteSlug.GAMES].caption }
                         </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
+                        {
+                            data.gamesLinks.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    href={item.link}
+                                    className={classNames(cls.link)}
+                                >
+                                    {item.title}
+                                </Link>
+                            ))
+                        }
                     </div>
                     <div
                         className={
@@ -101,30 +88,17 @@ export const Footer = (props: FooterProps) => {
                         >
                             { RoutesList[RouteSlug.SHOP].caption }
                         </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
-                        <Link
-                            href="/#/"
-                            className={classNames(cls.link)}
-                        >
-                            Название игры
-                        </Link>
+                        {
+                            data.shopLinks.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    href={item.link}
+                                    className={classNames(cls.link)}
+                                >
+                                    {item.title}
+                                </Link>
+                            ))
+                        }
                     </div>
                     <div
                         className={

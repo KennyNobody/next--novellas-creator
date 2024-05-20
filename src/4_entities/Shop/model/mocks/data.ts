@@ -11,73 +11,37 @@ const data: ArticleShopType = {
         title: 'Meta-заголовок',
         description: 'Meta-description',
     },
+    vendor: '12345',
     api_url: 'https://api.novellascreator.ru/api/collections/vacancies/entries/18',
     content: '<p>Контент новости</p>',
     date,
     request_id: 'R1456',
-    updated_at: date,
     previewCaption: 'Подзаголовок новости',
-    preview_small: {
-        id: '1',
-        url: 'https://placehold.co/600x900.png',
-        permalink: 'https://placehold.co/600x900.png',
-        api_url: 'https://placehold.co/600x900.png',
-    },
+    price: 12345,
+    priceOld: 1234,
+    discount: 45,
+    updated_at: date,
     blueprint: {
         title: 'Вакансии',
         handle: 'vacancy',
     },
-    collection: {
-        title: 'Вакансии',
-        handle: 'vacancies',
-    },
-    product_vacancy: [
-        {
-            id: 'product_vacancy::game',
-            title: 'Игра',
-            slug: 'game',
-            url: '/vacancies/product-vacancy/game',
-            permalink: 'https://api.novellascreator.ru/vacancies/product-vacancy/game',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/product_vacancy/terms/game',
-        },
-    ],
-    last_modified: date,
     preview_page: {
         id: '1',
         url: 'https://placehold.co/600x900.png',
         permalink: 'https://placehold.co/600x900.png',
         api_url: 'https://placehold.co/600x900.png',
     },
-    mestonakhozhdenie: [
-        {
-            id: 'mestonakhozhdenie::remote',
-            title: 'Удаленно',
-            slug: 'remote',
-            url: '/vacancies/mestonakhozhdenie/remote',
-            permalink: 'https://api.novellascreator.ru/vacancies/mestonakhozhdenie/remote',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/mestonakhozhdenie/terms/remote',
-        },
-    ],
-    department_vacancy: [
-        {
-            id: 'department_vacancy::design',
-            title: 'Дизайн',
-            slug: 'design',
-            url: '/vacancies/department-vacancy/design',
-            permalink: 'https://api.novellascreator.ru/vacancies/department-vacancy/design',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/department_vacancy/terms/design',
-        },
-    ],
-    type_vacancy: [
-        {
-            id: 'type_vacancy::full-time',
-            title: 'Полный день',
-            slug: 'full-time',
-            url: '/vacancies/type-vacancy/full-time',
-            permalink: 'https://api.novellascreator.ru/vacancies/type-vacancy/full-time',
-            api_url: 'https://api.novellascreator.ru/api/taxonomies/type_vacancy/terms/full-time',
-        },
-    ],
+    collection: {
+        title: 'Вакансии',
+        handle: 'vacancies',
+    },
+    last_modified: date,
+    picturePreview: {
+        id: '1',
+        url: 'https://placehold.co/600x900.png',
+        permalink: 'https://placehold.co/600x900.png',
+        api_url: 'https://placehold.co/600x900.png',
+    },
 };
 
 export {

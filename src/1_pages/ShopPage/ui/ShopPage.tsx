@@ -28,14 +28,15 @@ const ShopPage = (props: ShopPageProps) => {
     return (
         <>
             <Header
+                isInvert
                 data={mainData.sectionMainInfo}
             >
                 <Breadcrumbs slug={RouteSlug.SHOP} />
             </Header>
             <Main className={classNames(cls.block)}>
-                <WrapperDecor decor={WrapperDecorType.BOTTOM}>
-                    <SectionShopSlider />
-                </WrapperDecor>
+                {/*<WrapperDecor decor={WrapperDecorType.BOTTOM}>*/}
+                {/*    <SectionShopSlider />*/}
+                {/*</WrapperDecor>*/}
                 <SectionShopCatalog />
             </Main>
             <Footer

@@ -1,9 +1,8 @@
 import { ListLinksType } from '3_features/ListLinks';
 import { PictureType } from '4_entities/Picture';
-import { HTMLType } from '5_shared/types/statamic/BaseFieldTypes';
 
 interface SectionContactsType {
-    mapFrame: HTMLType;
+    coords: string;
     picture: PictureType;
     blockLinks: ListLinksType;
 }

@@ -13,7 +13,7 @@ const sectionMeta: Metadata = {
 const sectionFrontAbout: SectionFrontAboutType = {
     title: '<p>Заголовок <br/><strong>О нас</strong></p>',
     content: '<p>Их привлекает не столько остросюжетность, сколько психологизм, нравственные терзания героев, проблемы внутреннего кризиса.</p><p>Особенно это касается малых форм, где объём не позволяет разбрасываться и надо выбрать что-то одно: либо закрученный сюжет с неожиданной развязкой.</p>',
-    picture: {
+    image: {
         id: '1',
         url: 'https://placehold.co/600x900.png',
         permalink: 'https://placehold.co/600x900.png',

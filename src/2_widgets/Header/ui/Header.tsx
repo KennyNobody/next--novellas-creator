@@ -111,10 +111,10 @@ export const Header = (props: HeaderProps) => {
                             href="#"
                             iconKey={IconKey.SEARCH}
                         />
-                        <LinkIcon
-                            href="#"
-                            iconKey={IconKey.CART}
-                        />
+                        {/*<LinkIcon*/}
+                        {/*    href="#"*/}
+                        {/*    iconKey={IconKey.CART}*/}
+                        {/*/>*/}
                     </Stack>
                 </div>
                 {

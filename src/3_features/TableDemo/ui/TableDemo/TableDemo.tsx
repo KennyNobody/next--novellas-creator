@@ -1,25 +1,21 @@
-import React, {
-    useMemo,
-    useState,
-    useReducer,
-} from 'react';
+import React, { useMemo, useState } from 'react';
 import {
-    RowData,
     ColumnDef,
     ColumnFiltersState,
     flexRender,
-    useReactTable,
     getCoreRowModel,
-    getSortedRowModel,
     getFilteredRowModel,
     getPaginationRowModel,
+    getSortedRowModel,
+    RowData,
+    useReactTable,
 } from '@tanstack/react-table';
+import classNames from 'classnames';
+import { ButtonNav, ButtonNavMode } from '5_shared/ui/ButtonNav/ButtonNav';
 import {
-    typeOptions,
-    placeOptions,
-    productOptions,
-    departmentsOptions,
+    departmentsOptions, placeOptions, productOptions, typeOptions,
 } from '../makeselectors';
+import cls from './TableDemo.module.scss';
 import { makeData, Person } from '../makedata';
 import { TableFilter } from '../TableFilter/TableFilter';
 
@@ -54,7 +50,7 @@ const TableDemo = () => {
                 },
             },
             {
-                header: 'Place',
+                header: 'Локация',
                 accessorKey: 'place',
                 meta: {
                     filterVariant: 'select',
@@ -63,7 +59,7 @@ const TableDemo = () => {
             },
             {
                 accessorKey: 'product',
-                header: 'Product',
+                header: 'Продукт',
                 meta: {
                     filterVariant: 'select',
                     selectOptions: productOptions,
@@ -71,7 +67,7 @@ const TableDemo = () => {
             },
             {
                 accessorKey: 'type',
-                header: 'Type',
+                header: 'Тип',
                 meta: {
                     filterVariant: 'select',
                     selectOptions: typeOptions,
@@ -103,16 +99,20 @@ const TableDemo = () => {
 
     return (
         <div>
-            <table>
+            <table className={classNames(cls.table)}>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <tr key={headerGroup.id}>
+                        <tr
+                            key={headerGroup.id}
+                            className={classNames(cls.tr)}
+                        >
                             {headerGroup.headers.map((header) => (
-                                <th key={header.id} colSpan={header.colSpan}>
+                                <th className={classNames(cls.th)} key={header.id} colSpan={header.colSpan}>
                                     {header.isPlaceholder ? null : (
                                         <>
                                             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
                                             <div
+                                                className={classNames(cls.title)}
                                                 {...{
                                                     onClick: header.column.getToggleSortingHandler(),
                                                 }}
@@ -142,9 +142,12 @@ const TableDemo = () => {
                 </thead>
                 <tbody>
                     {table.getRowModel().rows.map((row) => (
-                        <tr key={row.id}>
+                        <tr
+                            key={row.id}
+                            className={classNames(cls.tr)}
+                        >
                             {row.getVisibleCells().map((cell) => (
-                                <td key={cell.id}>
+                                <td className={classNames(cls.td)} key={cell.id}>
                                     {flexRender(
                                         cell.column.columnDef.cell,
                                         cell.getContext(),
@@ -155,33 +158,14 @@ const TableDemo = () => {
                     ))}
                 </tbody>
             </table>
-            <div>
-                <button
-                    onClick={() => table.setPageIndex(0)}
-                    disabled={!table.getCanPreviousPage()}
-                >
-                    {'<<'}
-                </button>
-                <button
-                    onClick={() => table.previousPage()}
-                    disabled={!table.getCanPreviousPage()}
-                >
-                    {'<'}
-                </button>
-                <button
-                    onClick={() => table.nextPage()}
-                    disabled={!table.getCanNextPage()}
-                >
-                    {'>'}
-                </button>
-                <button
-                    onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-                    disabled={!table.getCanNextPage()}
-                >
-                    {'>>'}
-                </button>
+            <div className={classNames(cls.pagination)}>
+                <ButtonNav
+                    mode={ButtonNavMode.LEFT}
+                    isDisabled={!table.getCanPreviousPage()}
+                    clickEvent={() => table.previousPage()}
+                />
+
                 <span>
-                    <div>Страница</div>
                     <strong>
                         {table.getState().pagination.pageIndex + 1}
                         {' '}
@@ -190,50 +174,12 @@ const TableDemo = () => {
                         {table.getPageCount()}
                     </strong>
                 </span>
-                <span>
-                    | Перейти к странице:
-                    <input
-                        type="number"
-                        defaultValue={table.getState().pagination.pageIndex + 1}
-                        onChange={(e) => {
-                            const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                            table.setPageIndex(page);
-                        }}
-                    />
-                </span>
-                <select
-                    value={table.getState().pagination.pageSize}
-                    onChange={(e) => {
-                        table.setPageSize(Number(e.target.value));
-                    }}
-                >
-                    {[10, 20, 30, 40, 50].map((pageSize) => (
-                        <option key={pageSize} value={pageSize}>
-                            Показывать
-                            {' '}
-                            {pageSize}
-                        </option>
-                    ))}
-                </select>
+                <ButtonNav
+                    mode={ButtonNavMode.RIGHT}
+                    isDisabled={!table.getCanNextPage()}
+                    clickEvent={() => table.nextPage()}
+                />
             </div>
-            {/* <div> */}
-            {/*    {table.getPrePaginationRowModel().rows.length} */}
-            {/*    {' '} */}
-            {/*    Столбцы */}
-            {/* </div> */}
-            {/* <div> */}
-            {/*    <button onClick={() => rerender()}>Принудительно перерисовать</button> */}
-            {/* </div> */}
-            {/* <div> */}
-            {/*    <button onClick={() => refreshData()}>Обновить данные</button> */}
-            {/* </div> */}
-            {/* <pre> */}
-            {/*    {JSON.stringify( */}
-            {/*        { columnFilters: table.getState().columnFilters }, */}
-            {/*        null, */}
-            {/*        2, */}
-            {/*    )} */}
-            {/* </pre> */}
         </div>
     );
 };

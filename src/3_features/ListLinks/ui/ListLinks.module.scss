@@ -1,0 +1,19 @@
+.block {
+    gap: 40px;
+    padding: 40px;
+    display: flex;
+    color: var(--white);
+    flex-direction: column;
+}
+
+.title {
+    font-size: 21px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.list {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+}

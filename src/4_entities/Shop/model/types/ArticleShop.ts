@@ -11,21 +11,21 @@ interface ArticleShopType {
     slug: string;
     title: string;
     meta: Metadata;
+    vendor: string;
     api_url: string;
     content: string;
     date: Date | null;
     request_id: string;
+    price: number | null;
     previewCaption: string;
+    priceOld: number | null;
+    discount: number | null;
     updated_at: Date | null;
     blueprint: BlueprintType;
     preview_page: PictureType;
     collection: CollectionType;
-    preview_small: PictureType;
     last_modified: Date | null;
-    type_vacancy: TaxonomyType[];
-    product_vacancy: TaxonomyType[];
-    mestonakhozhdenie: TaxonomyType[],
-    department_vacancy: TaxonomyType[],
+    picturePreview: PictureType;
 }
 
 export {

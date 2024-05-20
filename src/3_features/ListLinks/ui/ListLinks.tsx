@@ -17,13 +17,25 @@ export const ListLinks = (props: ListLinksProps) => {
     return (
         <div className={classNames(cls.block, className)}>
             {
-                data?.title && <p>{ data.title }</p>
+                data?.title
+                && (
+                    <h3
+                        className={
+                            classNames(cls.title)
+                        }
+                    >
+                        { data.title }
+                    </h3>
+                )
             }
-            {
-                data.links.map((item, index) => (
-                    <LinkApp data={item.link} key={index} />
-                ))
-            }
+            <div className={classNames(cls.list)}>
+                {
+                    data.links.map((item, index) => (
+                        <LinkApp data={item.link} key={index} />
+                    ))
+                }
+            </div>
+
         </div>
     );
 };

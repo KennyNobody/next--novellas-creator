@@ -37,7 +37,7 @@ const JobPage = (props: JobPageProps) => {
                     decor={WrapperDecorType.NONE}
                     className={classNames(cls['section-group'])}
                 >
-                    <SectionJobCatalog />
+                    <SectionJobCatalog className={classNames(cls.job)} />
                     { pageData?.sectionPreviewNews
                         && (
                             <SectionPreviewNews
