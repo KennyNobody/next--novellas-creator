@@ -1,15 +1,15 @@
 import classNames from 'classnames';
-import cls from './LinkPerson.module.scss';
-import { ArticlePersonType } from '../../model/types/ArticlePerson';
+import cls from './LinkTax.module.scss';
+import { TaxType } from '../../model/types/Tax';
 
-interface LinkPersonProps {
+interface LinkTaxProps {
+    data: TaxType;
     isActive?: boolean;
     className?: string;
     clickEvent: () => void;
-    data: ArticlePersonType;
 }
 
-export const LinkPerson = (props: LinkPersonProps) => {
+export const LinkTax = (props: LinkTaxProps) => {
     const {
         data,
         isActive,
@@ -28,7 +28,16 @@ export const LinkPerson = (props: LinkPersonProps) => {
                 )
             }
         >
-            { data?.title }
+            <span
+                className={
+                    classNames(
+                        cls.content,
+                        { [cls['content--active']]: isActive },
+                    )
+                }
+            >
+                { data?.title }
+            </span>
         </button>
     );
 };

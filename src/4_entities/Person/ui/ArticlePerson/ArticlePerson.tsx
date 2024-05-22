@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import classNames from 'classnames';
+import { Editor } from '5_shared/ui/Editor/Editor';
+import grid from '5_shared/styles/grid.module.scss';
 import cls from './ArticlePerson.module.scss';
 import { ArticlePersonType } from '../../model/types/ArticlePerson';
 
@@ -14,7 +16,7 @@ export const ArticlePerson = (props: ArticlePersonProps) => {
         className,
     } = props;
 
-    const article = useMemo(() => (
+    return useMemo(() => (
         <article
             className={
                 classNames(
@@ -23,9 +25,49 @@ export const ArticlePerson = (props: ArticlePersonProps) => {
                 )
             }
         >
-            { data?.title }
+            <div className={classNames(grid.grid, cls.grid)}>
+                <div
+                    className={
+                        classNames(
+                            grid['grid__col--5'],
+                            cls['column-picture'],
+                        )
+                    }
+                >
+                    <picture className={classNames(cls.picture)}>
+                        {
+                            data?.picture?.permalink
+                            && (
+                                <img src={data.picture.permalink} alt={data.title || '#'} />
+                            )
+                        }
+                    </picture>
+                </div>
+                <div className={classNames(grid['grid__col--5'])}>
+                    {
+                        data?.job
+                        && (
+                            <p className={classNames(cls.job)}>
+                                { data.job }
+                            </p>
+                        )
+                    }
+                    {
+                        data?.title
+                        && (
+                            <h3 className={classNames(cls.title)}>
+                                {data?.title}
+                            </h3>
+                        )
+                    }
+                    {
+                        data?.content
+                        && (
+                            <Editor data={data.content} />
+                        )
+                    }
+                </div>
+            </div>
         </article>
     ), [className, data]);
-
-    return article;
 };

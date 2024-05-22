@@ -1,14 +1,109 @@
-.toolbar {
-    height: 92px;
-    margin-bottom: 25px;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-image: url("../../../5_shared/assets/backgrounds/nav-blur-bg.svg");
-}
+//.toolbar {
+//    height: 92px;
+//    margin-bottom: 25px;
+//}
 
 .nav {
+    position: relative;
+}
+
+.blur {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    border: 1px solid #ffffff1a;
+
+    &:before {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        display: block;
+        border-radius: 0;
+        filter: blur(44px);
+        position: absolute;
+        background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.2), rgba(65, 47, 177, 0.2));
+    }
+}
+
+.links {
     gap: 50px;
     display: flex;
+    min-height: 70px;
+    border-radius: 4px;
     padding: 10px 50px;
     align-items: center;
+}
+
+.swiper {
+    height: 760px;
+    //overflow: visible;
+}
+
+.pagination {
+    gap: 20px;
+    display: flex;
+    width: fit-content;
+    position: absolute;
+    flex-direction: column;
+    left: calc(50vw + (1200px / 2)) !important;
+    //position: relative;
+
+    &:before {
+        top: 50%;
+        width: 2px;
+        content: "";
+        height: 360%;
+        display: block;
+        position: absolute;
+        left: calc(50% - 1px);
+        transform: translateY(-50%);
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+
+    }
+}
+
+.bullet {
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    display: block;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    background-color: var(--white);
+
+    &--active {
+        transition: 0.3s all;
+        background-color: var(--violet);
+
+        &:before {
+            top: 50%;
+            left: 50%;
+            content: "";
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            border-radius: 50px;
+            background-color: #4439CC4D;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &:after {
+            top: 50%;
+            left: 50%;
+            content: "";
+            width: 42px;
+            height: 42px;
+            position: absolute;
+            border-radius: 50px;
+            background-color: #4439CC1A;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
 }

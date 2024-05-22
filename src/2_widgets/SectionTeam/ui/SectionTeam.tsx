@@ -75,10 +75,10 @@ export const SectionTeam = (props: SectionTeamProps) => {
                         />
                     )
                 }
-                <TeamTabs
-                    className={classNames(cls.tabs)}
-                />
             </Container>
+            <TeamTabs
+                className={classNames(cls.tabs)}
+            />
         </Section>
     );
 };

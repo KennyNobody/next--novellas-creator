@@ -6,6 +6,7 @@ interface TaxonomyBaseType {
 }
 
 interface TaxType {
+    id: string;
     slug: string;
     title: string;
     entries_count: number;

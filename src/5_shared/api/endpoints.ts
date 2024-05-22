@@ -15,6 +15,8 @@ export enum Routes {
     JOB_LIST = 'collections/vacancies/entries',
     SHOP_LIST = 'collections/shop/entries',
 
+    TEAM_TAX_DEPARTMENT = 'taxonomies/team-department/terms',
+
     JOB_TAX_TYPE = 'taxonomies/type_vacancy/terms',
     JOB_TAX_PRODUCT = 'taxonomies/product_vacancy/terms',
     JOB_TAX_LOCATION = 'taxonomies/mestonakhozhdenie/terms',

@@ -3,6 +3,7 @@ import { PictureType } from '4_entities/Picture';
 
 interface ArticlePersonType {
     id: number;
+    job: string;
     slug: string;
     title: string;
     locale: string;
@@ -11,8 +12,7 @@ interface ArticlePersonType {
     updatedAt: Date;
     content: string;
     publishedAt?: Date;
-    preview: PictureType;
-    previewCaption: string;
+    picture: PictureType;
 }
 
 export type {

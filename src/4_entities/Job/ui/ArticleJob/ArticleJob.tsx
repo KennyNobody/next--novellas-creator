@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { useMemo } from 'react';
 import classNames from 'classnames';
-import Link from 'next/link';
+import { Editor } from '5_shared/ui/Editor/Editor';
 import cls from './ArticleJob.module.scss';
 import { ArticleJobType } from '../../model/types/ArticleJob';
 
@@ -29,28 +30,24 @@ export const ArticleJob = (props: ArticleJobProps) => {
             {
                 data?.preview_small?.permalink
                 && (
-                    <picture className="picture">
+                    <picture className={classNames(cls.picture)}>
                         <img src={data.preview_small.permalink} alt={data?.title || '#'} />
                     </picture>
                 )
             }
             <div className={classNames(cls.main)}>
                 {
-                    data?.date
-                    && <time>{data.date.toString()}</time>
-                }
-                {
                     data?.title
                     && (
-                        <h3>
-                            { data?.title }
+                        <h3 className={classNames(cls.title)}>
+                            { data.title }
                         </h3>
                     )
                 }
                 {
                     data?.previewCaption
                     && (
-                        <p>{data.previewCaption}</p>
+                        <Editor data={data.previewCaption} />
                     )
                 }
             </div>

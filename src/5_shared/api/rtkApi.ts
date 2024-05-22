@@ -10,6 +10,7 @@ const rtkApi = createApi({
         'games-slider',
         'shop',
         'jobTax',
+        'teamTax',
         'person',
     ],
     baseQuery: fetchBaseQuery(

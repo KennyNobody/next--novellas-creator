@@ -1,5 +1,44 @@
 .block {
-    height: 760px;
+
+}
+
+.grid {
+    min-height: 760px;
+    align-items: center;
+}
+
+.column-picture {
+    height: 100%;
+    position: relative;
+}
+
+.picture {
+    width: 100%;
+    height: 100%;
+    transform: translateX(-70px);
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: bottom center;
+    }
+}
+
+.job {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 34px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 30px;
 }
 
 @media (width <= 2160px) {

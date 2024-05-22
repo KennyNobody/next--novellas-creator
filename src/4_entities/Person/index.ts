@@ -3,11 +3,8 @@ export {
 } from './ui/ArticlePerson/ArticlePerson';
 
 export {
-    LinkPerson,
-} from './ui/LinkPerson/LinkPerson';
-
-export {
     personApi,
+    useFetchPersonList,
     useLazyFetchPersonList,
 } from './api/personApi';
 
