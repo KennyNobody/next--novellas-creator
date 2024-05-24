@@ -8,6 +8,7 @@ const rtkApi = createApi({
         'job',
         'games',
         'games-slider',
+        'games-area',
         'shop',
         'jobTax',
         'teamTax',

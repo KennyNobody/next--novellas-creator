@@ -13,6 +13,7 @@ import { RouteSlug } from '5_shared/config/routes';
 import { Container } from '5_shared/ui/Container/Container';
 import { WrapperDecor, WrapperDecorType } from '5_shared/ui/WrapperDecor/WrapperDecor';
 import cls from './JobDetailPage.module.scss';
+import {SectionJobPreview} from "../../../2_widgets/SectionJobPreview";
 
 interface JobDetailPageProps {
     pageData: ArticleJobType;
@@ -39,17 +40,21 @@ const JobDetailPage = (props: JobDetailPageProps) => {
             </Header>
             <Main className={classNames(cls.block)}>
                 <WrapperDecor
-                    decor={WrapperDecorType.BOTTOM}
+                    className={classNames(cls.content)}
+                    decor={WrapperDecorType.NONE}
                 >
                     <Section
                         theme={SectionThemeMode.LiGHT}
                     >
-                        <Container>
-                            {
-                                pageData && <DetailJob data={pageData} />
-                            }
-                        </Container>
+                        {
+                            pageData && <DetailJob data={pageData} />
+                        }
                     </Section>
+                    <SectionJobPreview
+                        data={{
+                            title: 'Вакансии',
+                        }}
+                    />
                 </WrapperDecor>
             </Main>
             <Footer

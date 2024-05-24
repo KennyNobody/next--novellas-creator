@@ -3,6 +3,10 @@ export type {
     GamePreviewSlideType,
 } from './model/types/ArticleGame';
 
+export {
+    PromoGameAreaType,
+} from './model/types/PromoGameArea';
+
 export type {
     GameListSchema,
 } from './model/types/GameListSchema';
@@ -14,6 +18,7 @@ export {
 } from './model/slices/gameSlice';
 
 export {
+    useFetchGameByArea,
     useLazyFetchGameList,
     useLazyFetchGameSlider,
 } from './api/gameApi';
