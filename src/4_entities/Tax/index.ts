@@ -4,6 +4,8 @@ export {
 } from './model/types/Tax';
 
 export {
+    JobVacancyMode,
+    useFetchJobTaxListQuery,
     useFetchTeamTaxListQuery,
     useLazyFetchTeamTaxList,
 } from './api/taxApi';

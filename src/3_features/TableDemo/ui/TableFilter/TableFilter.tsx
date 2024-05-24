@@ -1,12 +1,12 @@
 import React from 'react';
 import { Column } from '@tanstack/react-table';
 import classNames from 'classnames';
+import { ArticleJobType } from '4_entities/Job';
 import { TableInput } from '../TableInput/TableInput';
-import { Person } from '../makedata';
 import cls from './TableFilter.module.scss';
 
 interface TableFilterProps {
-    column: Column<Person, unknown>;
+    column: Column<ArticleJobType, unknown>;
 }
 
 export const TableFilter = (props: TableFilterProps) => {
@@ -18,10 +18,14 @@ export const TableFilter = (props: TableFilterProps) => {
     const { filterVariant } = meta;
     const selectOptions = meta.selectOptions ?? [];
 
+    const selFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        column.setFilterValue(e.target.value.trim());
+    };
+
     return filterVariant === 'select' ? (
         <select
+            onChange={selFilter}
             className={classNames(cls.select)}
-            onChange={(e) => column.setFilterValue(e.target.value)}
             value={columnFilterValue?.toString()}
         >
             {/* See faceted column filters example for dynamic select options */}

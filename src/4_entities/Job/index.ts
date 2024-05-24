@@ -12,6 +12,7 @@ export {
 
 export {
     jobApi,
+    useFetchJobList,
     useLazyFetchJobList,
 } from './api/jobApi';
 
