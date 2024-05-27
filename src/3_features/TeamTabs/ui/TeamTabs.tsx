@@ -44,6 +44,7 @@ export const TeamTabs = (props: TeamTabsProps) => {
                                 <LinkTax
                                     data={item}
                                     key={item.id}
+                                    className={classNames(cls.link)}
                                     isActive={index === activeIndex}
                                     clickEvent={() => setActiveIndex(index)}
                                 />

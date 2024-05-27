@@ -17,8 +17,6 @@ interface MainIntoType {
     socials: {
         list: SocialLink[];
     };
-    gamesLinks: FooterLink[];
-    shopLinks: FooterLink[];
 }
 
 interface MainDataType {

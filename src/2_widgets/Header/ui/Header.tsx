@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import classNames from 'classnames';
-import {ReactNode} from 'react';
-import {MainIntoType} from 'app/model/types/MainData';
-import {Logo, LogoMode,} from '4_entities/Logo';
-import {Stack, StackDirectionType, StackSizeType,} from '5_shared/ui/Stack/Stack';
-import {Container} from '5_shared/ui/Container/Container';
-import {RoutesList, RouteSlug} from '5_shared/config/routes';
+import { ReactNode } from 'react';
+import { MainIntoType } from 'app/model/types/MainData';
+import { Logo, LogoMode } from '4_entities/Logo';
+import {
+    Stack,
+    StackSizeType,
+    StackDirectionType,
+} from '5_shared/ui/Stack/Stack';
+import { Container } from '5_shared/ui/Container/Container';
+import { RoutesList, RouteSlug } from '5_shared/config/routes';
+import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
 import cls from './Header.module.scss';
-import {ButtonRegular, ButtonTagType} from "../../../5_shared/ui/ButtonRegular";
 
 interface HeaderProps {
     isFixed?: true;
@@ -52,22 +56,10 @@ export const Header = (props: HeaderProps) => {
                     <nav className={classNames(cls.nav)}>
                         <Link
                             className={classNames(cls.link)}
-                            href={RoutesList[RouteSlug.FRONT].url}
-                        >
-                            { RoutesList[RouteSlug.FRONT].caption }
-                        </Link>
-                        <Link
-                            className={classNames(cls.link)}
                             href={RoutesList[RouteSlug.GAMES].url}
                         >
                             { RoutesList[RouteSlug.GAMES].caption }
                         </Link>
-                        {/*<Link*/}
-                        {/*    className={classNames(cls.link)}*/}
-                        {/*    href={RoutesList[RouteSlug.SHOP].url}*/}
-                        {/*>*/}
-                        {/*    { RoutesList[RouteSlug.SHOP].caption }*/}
-                        {/*</Link>*/}
                         <Link
                             className={classNames(cls.link)}
                             href={RoutesList[RouteSlug.ABOUT].url}
@@ -102,14 +94,6 @@ export const Header = (props: HeaderProps) => {
                             path={RoutesList[RouteSlug.SHOP].url}
                             label={RoutesList[RouteSlug.SHOP].caption}
                         />
-                        {/*<LinkIcon*/}
-                        {/*    href="#"*/}
-                        {/*    iconKey={IconKey.SEARCH}*/}
-                        {/*/>*/}
-                        {/*<LinkIcon*/}
-                        {/*    href="#"*/}
-                        {/*    iconKey={IconKey.CART}*/}
-                        {/*/>*/}
                     </Stack>
                 </div>
                 {

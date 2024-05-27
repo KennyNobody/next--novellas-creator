@@ -33,11 +33,39 @@
 
 .links {
     gap: 50px;
+    z-index: 1;
     display: flex;
     min-height: 70px;
+    overflow-x: auto;
+    position: relative;
+    overflow-y: hidden;
     border-radius: 4px;
     padding: 10px 50px;
     align-items: center;
+    /* Стили для Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: var(--white);
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+        height: 2px;
+        width: 2px;
+        scrollbar-width: none;
+        background: transparent;
+        -ms-overflow-style: none;
+    }
+
+
+
+}
+
+.link {
+    flex-shrink: 0;
 }
 
 .swiper {
