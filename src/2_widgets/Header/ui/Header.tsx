@@ -2,12 +2,9 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import { ReactNode } from 'react';
 import { MainIntoType } from 'app/model/types/MainData';
+import { MenuMobile } from '3_features/MenuMobile';
 import { Logo, LogoMode } from '4_entities/Logo';
-import {
-    Stack,
-    StackSizeType,
-    StackDirectionType,
-} from '5_shared/ui/Stack/Stack';
+import { Stack, StackDirectionType, StackSizeType } from '5_shared/ui/Stack/Stack';
 import { Container } from '5_shared/ui/Container/Container';
 import { RoutesList, RouteSlug } from '5_shared/config/routes';
 import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
@@ -93,7 +90,17 @@ export const Header = (props: HeaderProps) => {
                             tag={ButtonTagType.LINK}
                             path={RoutesList[RouteSlug.SHOP].url}
                             label={RoutesList[RouteSlug.SHOP].caption}
+                            className={classNames(cls['button-shop'])}
                         />
+                        {
+                            data?.blockLogo
+                            && (
+                                <MenuMobile
+                                    logo={data.blockLogo}
+                                    className={classNames(cls['menu-mobile'])}
+                                />
+                            )
+                        }
                     </Stack>
                 </div>
                 {

@@ -53,6 +53,7 @@ export const Footer = (props: FooterProps) => {
                             classNames(
                                 grid.grid__col,
                                 grid['grid__col--2'],
+                                grid['grid__col-mob--2'],
                             )
                         }
                     >
@@ -68,6 +69,7 @@ export const Footer = (props: FooterProps) => {
                             classNames(
                                 grid.grid__col,
                                 grid['grid__col--2'],
+                                grid['grid__col-mob--2'],
                             )
                         }
                     >
@@ -83,6 +85,7 @@ export const Footer = (props: FooterProps) => {
                             classNames(
                                 grid.grid__col,
                                 grid['grid__col--2'],
+                                grid['grid__col-mob--2'],
                             )
                         }
                     >
@@ -98,6 +101,7 @@ export const Footer = (props: FooterProps) => {
                             classNames(
                                 grid.grid__col,
                                 grid['grid__col--2'],
+                                grid['grid__col-mob--2'],
                             )
                         }
                     >
@@ -113,6 +117,7 @@ export const Footer = (props: FooterProps) => {
                             classNames(
                                 grid.grid__col,
                                 grid['grid__col--2'],
+                                grid['grid__col-mob--2'],
                             )
                         }
                     >
@@ -128,6 +133,7 @@ export const Footer = (props: FooterProps) => {
                             classNames(
                                 grid.grid__col,
                                 grid['grid__col--2'],
+                                grid['grid__col-mob--2'],
                             )
                         }
                     >
@@ -139,14 +145,50 @@ export const Footer = (props: FooterProps) => {
                         </Link>
                     </div>
                 </div>
-
             </nav>
             {
                 data?.socials?.list
                 && (
                     <Socials
                         data={data.socials.list}
-                        className={classNames(cls.socials)}
+                        className={
+                            classNames(
+                                cls.socials,
+                                cls['socials--desktop'],
+                            )
+                        }
+                    />
+                )
+            }
+        </div>
+    );
+
+    const sectionMobile = (
+        <div className={classNames(cls.mobile)}>
+            {
+                data?.socials?.list
+                && (
+                    <Socials
+                        data={data.socials.list}
+                        className={
+                            classNames(
+                                cls.socials,
+                                cls['socials--mobile'],
+                            )
+                        }
+                    />
+                )
+            }
+            {
+                data?.contactsSupport
+                && (
+                    <ContactItem
+                        data={data.contactsSupport}
+                        className={
+                            classNames(
+                                cls.support,
+                            )
+                        }
                     />
                 )
             }
@@ -173,7 +215,15 @@ export const Footer = (props: FooterProps) => {
             {
                 data?.contactsSupport
                 && (
-                    <ContactItem data={data.contactsSupport} />
+                    <ContactItem
+                        data={data.contactsSupport}
+                        className={
+                            classNames(
+                                cls.support,
+                                cls['support--desktop'],
+                            )
+                        }
+                    />
                 )
             }
         </div>
@@ -183,6 +233,7 @@ export const Footer = (props: FooterProps) => {
         <footer className={classNames(cls.block, className)}>
             <Container>
                 { sectionTop }
+                { sectionMobile }
                 { sectionMiddle }
                 { sectionBottom }
             </Container>

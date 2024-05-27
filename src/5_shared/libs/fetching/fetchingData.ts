@@ -5,7 +5,7 @@ const fetchData = async (route: Routes | string) => {
         `https://api.novellascreator.ru/api/${route}`,
         {
             // cache: 'force-cache',
-            cache: 'no-store',
+            next: { revalidate: 10 },
         },
     );
 

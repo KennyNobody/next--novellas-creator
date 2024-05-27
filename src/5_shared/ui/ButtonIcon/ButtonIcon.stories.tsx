@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { IconKey, LinkIcon as LinkIconComponent } from './LinkIcon';
+import type {Meta, StoryObj} from '@storybook/react';
+import {ButtonIcon as LinkIconComponent, IconKey} from './ButtonIcon';
 
 const meta: Meta<typeof LinkIconComponent> = {
     title: 'Shared/LinkIcon',
@@ -8,9 +8,10 @@ const meta: Meta<typeof LinkIconComponent> = {
     parameters: {
         layout: 'fullscreen',
     },
-    args: {
-        href: '#',
-    },
+    // args: {
+    //     iconKey: IconKey.MENU,
+    //     clickEvent: () => console.log('It,s work!'),
+    // },
 };
 
 export default meta;
@@ -19,8 +20,8 @@ type Story = StoryObj<typeof meta>;
 export const LinkIcon: Story = {
     render: () => (
         <LinkIconComponent
-            href="#"
-            iconKey={IconKey.SEARCH}
+            iconKey={IconKey.BACK}
+            clickEvent={() => console.log('It,s work!')}
         />
     ),
 };

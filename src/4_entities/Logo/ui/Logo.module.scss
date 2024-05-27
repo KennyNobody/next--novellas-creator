@@ -13,3 +13,12 @@
         display: block;
     }
 }
+
+@media (width <= 1300px) {
+    .block {
+        img {
+            height: 22px;
+        }
+    }
+
+}

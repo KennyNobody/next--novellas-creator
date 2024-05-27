@@ -36,3 +36,30 @@
     font-size: 15px;
     text-decoration: none;
 }
+
+.menu-mobile {
+    display: none;
+    visibility: hidden;
+}
+
+@media (width <= 1300px) {
+    .main {
+        gap: 30px;
+        padding: 20px 0 0;
+    }
+
+    .nav {
+        display: none;
+        visibility: hidden;
+    }
+
+    .button-shop {
+        visibility: hidden;
+        display: none !important;
+    }
+
+    .menu-mobile {
+        display: flex;
+        visibility: visible;
+    }
+}
