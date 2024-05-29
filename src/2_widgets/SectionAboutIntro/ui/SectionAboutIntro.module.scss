@@ -1,8 +1,7 @@
 .block {
-    height: 100vh;
     display: flex;
-    padding: 100px 0;
-    min-height: 650px;
+    padding: 180px 0;
+    min-height: 100vh;
     text-align: center;
     position: relative;
     color: var(--white);
@@ -61,5 +60,11 @@
 
     100% {
         transform: translateX(-50%) translateY(0);
+    }
+}
+
+@media (width <= 1300px) {
+    .block {
+        padding: 160px 0 100px;
     }
 }

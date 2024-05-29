@@ -2,18 +2,15 @@
 
 import Image from 'next/image';
 import classNames from 'classnames';
-import {
-    Section,
-    SectionThemeMode,
-} from '5_shared/ui/Section/Section';
-import { Editor } from '5_shared/ui/Editor/Editor';
+import {Section, SectionThemeMode,} from '5_shared/ui/Section/Section';
+import {Editor, EditorMode} from '5_shared/ui/Editor/Editor';
 import grid from '5_shared/styles/grid.module.scss';
-import { Title, TitleMode } from '5_shared/ui/Title/Title';
-import { Container } from '5_shared/ui/Container/Container';
-import { RoutesList, RouteSlug } from '5_shared/config/routes';
-import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
+import {Title, TitleMode} from '5_shared/ui/Title/Title';
+import {Container} from '5_shared/ui/Container/Container';
+import {RoutesList, RouteSlug} from '5_shared/config/routes';
+import {ButtonRegular, ButtonTagType} from '5_shared/ui/ButtonRegular';
 import cls from './SectionFrontAbout.module.scss';
-import { SectionFrontAboutType } from '../model/types/SectionFrontAbout';
+import {SectionFrontAboutType} from '../model/types/SectionFrontAbout';
 
 interface SectionFrontIntroProps {
     className?: string;
@@ -38,6 +35,7 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                             classNames(
                                 grid.grid__col,
                                 grid['grid__col--5'],
+                                grid['grid__col-mob--4'],
                             )
                         }
                     >
@@ -57,6 +55,7 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                             && (
                                 <Editor
                                     data={data.content}
+                                    mode={EditorMode.REGULAR}
                                     className={classNames(cls.editor)}
                                 />
                             )
@@ -64,8 +63,8 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                         <ButtonRegular
                             label="Подробнее"
                             tag={ButtonTagType.LINK}
-                            className={classNames(cls.button)}
                             path={RoutesList[RouteSlug.ABOUT].url}
+                            className={classNames(cls.button, cls['button--desktop'])}
                         />
                     </div>
                     {
@@ -76,6 +75,7 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                                     classNames(
                                         grid.grid__col,
                                         grid['grid__col--7'],
+                                        grid['grid__col-mob--4'],
                                     )
                                 }
                             >
@@ -88,6 +88,12 @@ export const SectionFrontAbout = (props: SectionFrontIntroProps) => {
                                         className={classNames(cls.image)}
                                     />
                                 </picture>
+                                <ButtonRegular
+                                    label="Подробнее"
+                                    tag={ButtonTagType.LINK}
+                                    path={RoutesList[RouteSlug.ABOUT].url}
+                                    className={classNames(cls.button, cls['button--mobile'])}
+                                />
                             </div>
                         )
                     }

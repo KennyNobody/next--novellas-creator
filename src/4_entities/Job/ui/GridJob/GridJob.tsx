@@ -22,7 +22,7 @@ export const GridJob = (props: GridJobProps) => {
             <div
                 key={item.id}
                 className={
-                    classNames(grid['grid__col--4'])
+                    classNames(grid['grid__col--4'], cls.cell)
                 }
             >
                 <ArticleJob data={item} />

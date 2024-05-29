@@ -22,7 +22,10 @@ export const GridShop = (props: GridShopProps) => {
             <div
                 key={item.id}
                 className={
-                    classNames(grid['grid__col--3'])
+                    classNames(
+                        grid['grid__col--3'],
+                        cls.cell,
+                    )
                 }
             >
                 <ArticleShop data={item} />

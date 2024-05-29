@@ -31,6 +31,8 @@ export const LinkApp = (props: LinkAppProps) => {
         className,
     } = props;
 
+    if (!data?.textVisible) return null;
+
     if (data?.textLink) {
         return (
             <a

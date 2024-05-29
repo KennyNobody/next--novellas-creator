@@ -4,6 +4,8 @@
     padding: 130px 0;
 }
 
-//@media (min-width: 701px) and (max-width: 1120px) {
-//
-//}
+@media (width <= 1300px) {
+    .section-news {
+        padding: 100px 0;
+    }
+}

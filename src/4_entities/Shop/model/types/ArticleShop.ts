@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import {
-    TaxonomyType,
     BlueprintType,
     CollectionType,
 } from '5_shared/types/statamic';

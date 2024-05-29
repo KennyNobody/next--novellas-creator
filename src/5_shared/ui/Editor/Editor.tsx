@@ -1,14 +1,21 @@
 import classNames from 'classnames';
 import cls from './Editor.module.scss';
 
+export enum EditorMode {
+    REGULAR = 'regular',
+    INVERTED = 'inverted',
+}
+
 interface EditorProps {
     data: string;
+    mode: EditorMode;
     className?: string;
 }
 
 export const Editor = (props: EditorProps) => {
     const {
         data,
+        mode,
         className,
     } = props;
 
@@ -17,6 +24,7 @@ export const Editor = (props: EditorProps) => {
             className={
                 classNames(
                     cls.block,
+                    cls[`block--${mode}`],
                     className,
                 )
             }

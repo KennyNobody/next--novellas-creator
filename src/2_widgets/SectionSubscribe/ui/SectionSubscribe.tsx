@@ -2,11 +2,8 @@
 
 import classNames from 'classnames';
 import { FormSubscription } from '3_features/FormSubscription';
-import {
-    Section,
-    SectionThemeMode,
-} from '5_shared/ui/Section/Section';
-import { Editor } from '5_shared/ui/Editor/Editor';
+import { Section, SectionThemeMode } from '5_shared/ui/Section/Section';
+import { Editor, EditorMode } from '5_shared/ui/Editor/Editor';
 import { Title, TitleMode } from '5_shared/ui/Title/Title';
 import { Container } from '5_shared/ui/Container/Container';
 import cls from './SectionSubscribe.module.scss';
@@ -46,6 +43,7 @@ export const SectionSubscribe = (props: SectionFrontIntroProps) => {
                         && (
                             <Editor
                                 data={data.content}
+                                mode={EditorMode.INVERTED}
                                 className={classNames(cls.editor)}
                             />
                         )

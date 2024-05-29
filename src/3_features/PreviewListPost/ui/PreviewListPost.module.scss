@@ -4,7 +4,42 @@
 }
 
 .stack {
-    gap: 50px;
+    gap: 30px;
     display: flex;
     flex-direction: column;
+}
+
+.scroll {
+    display: none;
+    visibility: hidden;
+}
+
+@media (width <= 1300px) {
+    .scroll {
+        gap: 16px;
+        display: flex;
+        overflow-x: auto;
+        visibility: visible;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .cell {
+        width: 280px;
+        flex-shrink: 0;
+    }
+
+    .grid {
+        display: none;
+        visibility: hidden;
+    }
+
+    .block {
+        padding: 0;
+        border: none;
+    }
 }

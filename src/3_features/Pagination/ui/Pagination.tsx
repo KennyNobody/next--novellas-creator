@@ -1,4 +1,8 @@
 import classNames from 'classnames';
+import {
+    ButtonRegular,
+    ButtonTagType,
+} from '5_shared/ui/ButtonRegular';
 import IconLeft from '5_shared/assets/icons/icon-arrow-left.svg';
 import IconRight from '5_shared/assets/icons/icon-arrow-right.svg';
 import cls from './Pagination.module.scss';
@@ -21,6 +25,8 @@ export const Pagination = (props: PaginationProps) => {
     const buttonEvent = (num: number) => {
         if (clickEvent) clickEvent(num);
     };
+
+    if (lastPage <= 1) return null;
 
     const renderPages = () => {
         const pages = [];
@@ -85,8 +91,21 @@ export const Pagination = (props: PaginationProps) => {
     };
 
     return (
-        <nav className={classNames(cls.block, className)}>
-            {renderPages()}
-        </nav>
+        <>
+            <nav className={classNames(cls.block, className)}>
+                {renderPages()}
+            </nav>
+            {
+                currentPage < lastPage
+                && (
+                    <ButtonRegular
+                        label="Показать ещё"
+                        tag={ButtonTagType.BUTTON}
+                        className={classNames(cls['button-more'])}
+                        onClickEvent={() => buttonEvent(currentPage + 1)}
+                    />
+                )
+            }
+        </>
     );
 };

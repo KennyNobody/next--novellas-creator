@@ -9,6 +9,7 @@ import { RouteSlug } from '5_shared/config/routes';
 import { Container } from '5_shared/ui/Container/Container';
 import { Section, SectionThemeMode } from '5_shared/ui/Section/Section';
 import cls from './ShopDetailPage.module.scss';
+import {WrapperDecor, WrapperDecorType} from "../../../5_shared/ui/WrapperDecor/WrapperDecor";
 
 interface ShopDetailPageProps {
     pageData: ArticleShopType;
@@ -32,15 +33,20 @@ const ShopDetailPage = (props: ShopDetailPageProps) => {
                 />
             </Header>
             <Main className={classNames(cls.block)}>
-                <Section
-                    theme={SectionThemeMode.LiGHT}
+                <WrapperDecor
+                    decor={WrapperDecorType.NONE}
+                    className={classNames(cls.wrapper)}
                 >
-                    <Container>
-                        {
-                            pageData && <DetailShop data={pageData} />
-                        }
-                    </Container>
-                </Section>
+                    <Section
+                        theme={SectionThemeMode.LiGHT}
+                    >
+                        <Container>
+                            {
+                                pageData && <DetailShop data={pageData} />
+                            }
+                        </Container>
+                    </Section>
+                </WrapperDecor>
             </Main>
             <Footer
                 data={mainData.sectionMainInfo}

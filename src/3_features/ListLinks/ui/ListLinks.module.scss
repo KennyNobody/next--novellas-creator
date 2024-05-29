@@ -17,3 +17,10 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (width <= 1300px) {
+    .block {
+        gap: 35px;
+        padding: 40px 20px;
+    }
+}

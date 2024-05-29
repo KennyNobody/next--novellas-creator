@@ -1,8 +1,18 @@
-.block {
-    padding: 40px 0 100px;
-}
+//.block {
+//    padding: 40px 0 100px;
+//}
 
 .title {
     color: var(--white);
     margin-bottom: 40px;
+}
+
+@media (width <= 1300px) {
+    .title {
+        margin-bottom: 30px;
+    }
+
+    .block {
+        padding: 0;
+    }
 }

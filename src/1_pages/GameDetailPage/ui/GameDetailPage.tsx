@@ -43,7 +43,8 @@ const GameDetailPage = (props: GameDetailPageProps) => {
             </Header>
             <Main className={classNames(cls.block)}>
                 <WrapperDecor
-                    decor={WrapperDecorType.BOTTOM}
+                    decor={WrapperDecorType.NONE}
+                    className={classNames(cls.wrapper)}
                 >
                     <Section
                         theme={SectionThemeMode.LiGHT}

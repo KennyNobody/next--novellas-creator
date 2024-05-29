@@ -1,11 +1,42 @@
+.block {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
 .link {
+    flex-shrink: 0;
     font-size: 14px;
     text-decoration: none;
     color: var(--grey-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     @at-root a#{&} { // Используем интерполяцию, чтобы скомбинировать тег a с .block
         &:hover {
             text-decoration: underline;
         }
     }
+
+    &:last-child {
+        flex-grow: 1;         /* Позволяет элементу расти и занимать доступное пространство */
+        flex-shrink: 1;       /* Позволяет элементу сжиматься */
+        flex-basis: auto;     /* Базовый размер - автоматический */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.line {
+    width: 4px;
+    height: 1px;
+    flex-shrink: 0;
+    display: block;
+    background-color: var(--grey-light);
+}
+
+@media (width <= 1300px) {
+
 }

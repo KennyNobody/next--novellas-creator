@@ -30,16 +30,16 @@ const Breadcrumbs = (props: BreadcrumbsProps) => {
     );
 
     return (
-        <nav className={classNames(className)}>
+        <nav className={classNames(cls.block, className)}>
             <Link
                 className={classNames(cls.link)}
                 href={RoutesList[RouteSlug.FRONT].url}
             >
                 { RoutesList[RouteSlug.FRONT].caption }
             </Link>
-            {' - '}
+            <span className={classNames(cls.line)} />
             { middleElement }
-            {title && ' - '}
+            {title && <span className={classNames(cls.line)} />}
             {title && <span className={classNames(cls.link)}>{title}</span>}
         </nav>
     );

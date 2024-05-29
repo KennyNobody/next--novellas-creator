@@ -18,10 +18,12 @@
     display: block;
     color: #2D3043;
     font-size: 16px;
+    overflow: hidden;
     font-family: inherit;
     border-radius: 100px;
+    text-overflow: ellipsis;
     background-color: #E0E0E0;
-    padding: 5px 70px 5px 25px;
+    padding: 5px 155px 5px 25px;
 
     &::placeholder {
         font-family: inherit;
@@ -34,4 +36,14 @@
     bottom: 5px;
     position: absolute;
     height: calc(100% - 10px);
+}
+
+@media (width <= 1300px) {
+    .block {
+        gap: 20px;
+    }
+
+    .input {
+        padding: 5px 150px 5px 25px;
+    }
 }

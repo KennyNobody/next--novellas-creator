@@ -19,6 +19,7 @@ interface ArticlePostType {
     content: string;
     publishedAt?: Date;
     preview: PictureType;
+    previewDetail: PictureType;
     previewCaption: string;
     introSlider: IntroSlide;
 }

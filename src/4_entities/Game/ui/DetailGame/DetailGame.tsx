@@ -1,7 +1,9 @@
 import classNames from 'classnames';
-import { Editor } from '5_shared/ui/Editor/Editor';
+import {Picture} from '4_entities/Picture';
+import {PlatformList} from '4_entities/Platform';
+import {Editor, EditorMode} from '5_shared/ui/Editor/Editor';
 import cls from './DetailGame.module.scss';
-import { ArticleGameType } from '../../model/types/ArticleGame';
+import {ArticleGameType} from '../../model/types/ArticleGame';
 
 interface DetailGameProps {
     className?: string;
@@ -13,7 +15,26 @@ export const DetailGame = (props: DetailGameProps) => {
 
     return (
         <div className={classNames(cls.block, className)}>
-            <Editor data={data.content} />
+            <div className={classNames(cls.columns)}>
+                <picture className={classNames(cls.picture)}>
+                    {
+                        data.preview
+                        && (
+                            <Picture data={data?.preview} />
+                        )
+                    }
+                </picture>
+                <div className={classNames(cls.info)}>
+                    <h1 className={classNames(cls.title)}>
+                        { data.title }
+                    </h1>
+                    <PlatformList data={data.platform} />
+                </div>
+            </div>
+            <Editor
+                data={data.content}
+                mode={EditorMode.REGULAR}
+            />
         </div>
     );
 };

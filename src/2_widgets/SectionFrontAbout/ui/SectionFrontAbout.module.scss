@@ -18,6 +18,15 @@
 
 .button {
     margin-top: 50px;
+
+    &--desktop {
+
+    }
+
+    &--mobile {
+        display: none;
+        visibility: hidden;
+    }
 }
 
 .picture {
@@ -30,4 +39,48 @@
 
 .image {
     position: absolute;
+}
+
+@media (width <= 1300px) {
+    .block {
+        padding: 100px 0;
+        min-height: 100vh;
+    }
+
+    .title {
+        margin-bottom: 25px;
+    }
+
+    .grid {
+        gap: 40px;
+    }
+
+    .editor {
+        margin-bottom: 0;
+    }
+
+    .button {
+        width: 100%;
+        margin-top: 40px;
+
+        &--desktop {
+            display: none;
+            visibility: hidden;
+        }
+
+        &--mobile {
+            display: block;
+            visibility: visible;
+        }
+
+    }
+
+    .picture {
+        width: 100%;
+        height: auto;
+    }
+
+    .image {
+        position: static;
+    }
 }

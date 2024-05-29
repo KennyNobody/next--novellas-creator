@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { Editor } from '5_shared/ui/Editor/Editor';
+import { Editor, EditorMode } from '5_shared/ui/Editor/Editor';
+import { setDate } from '5_shared/libs/helpers/setDate';
 import cls from './DetailPost.module.scss';
 import { ArticlePostType } from '../../model/types/ArticlePost';
-import {setDate} from "../../../../5_shared/libs/helpers/setDate";
 
 interface DetailPostProps {
     className?: string;
@@ -14,6 +14,16 @@ export const DetailPost = (props: DetailPostProps) => {
 
     return (
         <div className={classNames(cls.DetailPost, className)}>
+            {
+                data?.previewDetail?.permalink
+                && (
+                    <img
+                        alt={data?.title || '#'}
+                        className={classNames(cls['img-desktop'])}
+                        src={data?.previewDetail?.permalink}
+                    />
+                )
+            }
             {
                 data?.date
                 && (
@@ -30,7 +40,20 @@ export const DetailPost = (props: DetailPostProps) => {
                     </h1>
                 )
             }
-            <Editor data={data.content} />
+            {
+                data?.previewDetail?.permalink
+                && (
+                    <img
+                        alt={data?.title || '#'}
+                        className={classNames(cls['img-mobile'])}
+                        src={data?.previewDetail?.permalink}
+                    />
+                )
+            }
+            <Editor
+                data={data.content}
+                mode={EditorMode.REGULAR}
+            />
         </div>
     );
 };

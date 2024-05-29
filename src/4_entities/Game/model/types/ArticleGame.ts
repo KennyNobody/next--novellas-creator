@@ -5,6 +5,7 @@ import {
     BlueprintType,
     CollectionType,
 } from '5_shared/types/statamic';
+import {PlatformType} from "../../../Platform";
 
 interface GamePreviewSlideType {
     // pictureFull: PictureType;
@@ -24,6 +25,7 @@ interface ArticleGameType {
     sectionMeta: Metadata;
     inFullSlider: boolean;
     previewCaption: string;
+    platform: PlatformType[];
     // updated_at: Date | null;
     blueprint: BlueprintType;
     preview_page: PictureType;

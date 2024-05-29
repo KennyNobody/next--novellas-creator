@@ -1,12 +1,5 @@
-.block {
-    gap: 45px;
-    display: flex;
-    flex-direction: column;
-}
+.block {}
 
-.pagination {
-    gap: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (width <= 1300px) {
+
 }

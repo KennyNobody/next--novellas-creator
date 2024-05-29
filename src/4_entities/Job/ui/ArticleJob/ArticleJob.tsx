@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { useMemo } from 'react';
+import {useMemo} from 'react';
 import classNames from 'classnames';
-import { Editor } from '5_shared/ui/Editor/Editor';
+import {Editor, EditorMode} from '5_shared/ui/Editor/Editor';
 import cls from './ArticleJob.module.scss';
-import { ArticleJobType } from '../../model/types/ArticleJob';
+import {ArticleJobType} from '../../model/types/ArticleJob';
 
 interface ArticleJobProps {
     className?: string;
@@ -47,7 +47,10 @@ export const ArticleJob = (props: ArticleJobProps) => {
                 {
                     data?.previewCaption
                     && (
-                        <Editor data={data.previewCaption} />
+                        <Editor
+                            mode={EditorMode.REGULAR}
+                            data={data.previewCaption}
+                        />
                     )
                 }
             </div>

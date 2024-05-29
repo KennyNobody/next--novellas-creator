@@ -2,3 +2,23 @@
     margin-bottom: 40px;
     color: var(--bg-blue-dark);
 }
+
+.button-mobile {
+    display: none;
+    visibility: hidden;
+}
+
+@media (width <= 1300px) {
+    .button-desktop {
+        display: none;
+        visibility: hidden;
+    }
+
+    .button-mobile {
+        display: flex;
+        max-width: 460px;
+        visibility: visible;
+        margin: 40px auto 0;
+        width: 100% !important;
+    }
+}

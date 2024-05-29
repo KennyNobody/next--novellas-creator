@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { MainDataType } from 'app';
 import { Header } from '2_widgets/Header';
 import { Footer } from '2_widgets/Footer';
+import { SectionJobPreview } from '2_widgets/SectionJobPreview';
 import { Breadcrumbs } from '3_features/Breadcrumbs';
 import { ArticleJobType, DetailJob } from '4_entities/Job';
 import {
@@ -10,10 +11,8 @@ import {
 } from '5_shared/ui/Section/Section';
 import { Main } from '5_shared/ui/Main/Main';
 import { RouteSlug } from '5_shared/config/routes';
-import { Container } from '5_shared/ui/Container/Container';
 import { WrapperDecor, WrapperDecorType } from '5_shared/ui/WrapperDecor/WrapperDecor';
 import cls from './JobDetailPage.module.scss';
-import {SectionJobPreview} from "../../../2_widgets/SectionJobPreview";
 
 interface JobDetailPageProps {
     pageData: ArticleJobType;

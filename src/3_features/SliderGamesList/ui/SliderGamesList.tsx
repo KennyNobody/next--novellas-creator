@@ -2,27 +2,22 @@
 
 import Image from 'next/image';
 import classNames from 'classnames';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { Controller } from 'swiper/modules';
-import { Swiper as SwiperInstance } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {useSelector} from 'react-redux';
+import {useEffect, useState} from 'react';
+import {Controller} from 'swiper/modules';
+import {Swiper as SwiperInstance} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import {
-    getGameSlider,
-    fetchGameSlider,
-    ArticleGameType,
-    useLazyFetchGameSlider,
-} from '4_entities/Game';
-import { Editor } from '5_shared/ui/Editor/Editor';
+import {ArticleGameType, fetchGameSlider, getGameSlider, useLazyFetchGameSlider,} from '4_entities/Game';
+import {Editor, EditorMode} from '5_shared/ui/Editor/Editor';
 import grid from '5_shared/styles/grid.module.scss';
-import { useAppDispatch } from '5_shared/state/hooks';
-import { Title, TitleMode } from '5_shared/ui/Title/Title';
-import { Container } from '5_shared/ui/Container/Container';
-import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
-import { ButtonNav, ButtonNavMode } from '5_shared/ui/ButtonNav/ButtonNav';
+import {useAppDispatch} from '5_shared/state/hooks';
+import {Title, TitleMode} from '5_shared/ui/Title/Title';
+import {Container} from '5_shared/ui/Container/Container';
+import {ButtonRegular, ButtonTagType} from '5_shared/ui/ButtonRegular';
+import {ButtonNav, ButtonNavMode} from '5_shared/ui/ButtonNav/ButtonNav';
 import cls from './SliderGamesList.module.scss';
 
 interface SliderGamesListProps {
@@ -122,6 +117,7 @@ export const SliderGamesList = ({ className }: SliderGamesListProps) => {
                                                 className={classNames(cls.title)}
                                             />
                                             <Editor
+                                                mode={EditorMode.REGULAR}
                                                 data={item.previewCaption}
                                                 className={classNames(cls.editor)}
                                             />

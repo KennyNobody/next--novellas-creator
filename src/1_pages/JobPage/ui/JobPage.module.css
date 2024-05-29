@@ -6,3 +6,12 @@
     margin-bottom: 150px;
 }
 
+@media (width <= 1300px) {
+    .section-group {
+        padding: 40px 0 100px;
+    }
+
+    .job {
+        margin-bottom: 100px;
+    }
+}

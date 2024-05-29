@@ -6,3 +6,9 @@
     margin-bottom: 80px;
     color: var(--bg-blue-dark);
 }
+
+@media (width <= 1300px) {
+    .title {
+        margin-bottom: 40px;
+    }
+}

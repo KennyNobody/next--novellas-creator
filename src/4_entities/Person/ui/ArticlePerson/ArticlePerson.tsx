@@ -1,9 +1,9 @@
-import { useMemo } from 'react';
+import {useMemo} from 'react';
 import classNames from 'classnames';
-import { Editor } from '5_shared/ui/Editor/Editor';
+import {Editor, EditorMode} from '5_shared/ui/Editor/Editor';
 import grid from '5_shared/styles/grid.module.scss';
 import cls from './ArticlePerson.module.scss';
-import { ArticlePersonType } from '../../model/types/ArticlePerson';
+import {ArticlePersonType} from '../../model/types/ArticlePerson';
 
 interface ArticlePersonProps {
     className?: string;
@@ -63,7 +63,10 @@ export const ArticlePerson = (props: ArticlePersonProps) => {
                     {
                         data?.content
                         && (
-                            <Editor data={data.content} />
+                            <Editor
+                                data={data.content}
+                                mode={EditorMode.INVERTED}
+                            />
                         )
                     }
                 </div>

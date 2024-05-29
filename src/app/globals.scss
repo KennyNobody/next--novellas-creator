@@ -9,3 +9,10 @@ html {
     font-family: var(--font-regular);
     background-color: var(--bg-blue-dark);
 }
+
+@media (width <= 1300px) {
+    html {
+        font-size: 16px;
+    }
+
+}

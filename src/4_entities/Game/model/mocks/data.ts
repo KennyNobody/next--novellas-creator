@@ -66,6 +66,7 @@ const data: ArticleGameType = {
             api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/600x900.jpg',
         },
     },
+    platform: [],
 };
 
 export {

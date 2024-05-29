@@ -49,11 +49,23 @@ export const SectionPreviewNews = (props: SectionPreviewNewsProps) => {
                                 label="Ко всем новостям"
                                 icon={ButtonIconType.NEXT}
                                 path={RoutesList[RouteSlug.NEWS].url}
+                                className={classNames(
+                                    cls['button-desktop'],
+                                )}
                             />
                         </Toolbar>
                     )
                 }
                 <PreviewListPost />
+                <ButtonRegular
+                    tag={ButtonTagType.LINK}
+                    label="Ко всем новостям"
+                    icon={ButtonIconType.NEXT}
+                    path={RoutesList[RouteSlug.NEWS].url}
+                    className={classNames(
+                        cls['button-mobile'],
+                    )}
+                />
             </Container>
         </Section>
     );

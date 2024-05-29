@@ -4,3 +4,9 @@
     padding: 0 30px;
     max-width: 1240px;
 }
+
+@media (width <= 1300px) {
+    .block {
+        padding: 0 15px;
+    }
+}

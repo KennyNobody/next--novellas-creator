@@ -12,7 +12,7 @@ interface MapFrameProps {
 }
 
 export const MapContent = (props: MapFrameProps) => {
-    const { data } = props;
+    const { data, className } = props;
 
     const mapRef = useRef(null);
     const ymaps = useYMaps(['Map', 'Placemark']);
@@ -41,7 +41,7 @@ export const MapContent = (props: MapFrameProps) => {
         map.geoObjects.add(placemark);
     }, [ymaps]);
 
-    return <div ref={mapRef} style={{ width: '100%' }} />;
+    return <div ref={mapRef} className={classNames(className)} />;
 };
 
 export const MapFrame = (props: MapFrameProps) => {
@@ -49,7 +49,7 @@ export const MapFrame = (props: MapFrameProps) => {
 
     return (
         <YMaps query={{ apikey: 'ec6407b6-9cfe-4758-8cf1-3668718573ea' }}>
-            <MapContent data={data} className={classNames(className, cls.block)} />
+            <MapContent data={data} className={classNames(cls.block, className)} />
         </YMaps>
     );
 };

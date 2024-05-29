@@ -1,8 +1,8 @@
 .block {
     display: flex;
-    height: 100vh;
+    height: 650px;
     padding: 100px 0;
-    min-height: 650px;
+    min-height: 100vh;
     text-align: center;
     flex-direction: column;
     justify-content: center;
@@ -21,4 +21,18 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+@media (width <= 1300px) {
+    .block {
+        height: 600px;
+    }
+
+    .title {
+        margin-bottom: 24px;
+    }
+
+    .editor {
+        margin-bottom: 40px;
+    }
 }

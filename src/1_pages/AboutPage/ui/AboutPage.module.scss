@@ -4,3 +4,10 @@
     flex-direction: column;
     padding: 160px 0 120px;
 }
+
+@media (width <= 1300px) {
+    .section-lists {
+        gap: 100px;
+        padding: 100px 0;
+    }
+}

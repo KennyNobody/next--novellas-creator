@@ -40,7 +40,23 @@ export const PreviewListPost = (props: PreviewListPostProps) => {
                 classNames(cls.block, className)
             }
         >
-            <div className={grid.grid}>
+            <div className={classNames(cls.scroll)}>
+                {
+                    data.map((item) => (
+                        <div
+                            key={item.id}
+                            className={
+                                classNames(
+                                    cls.cell,
+                                )
+                            }
+                        >
+                            <ArticlePost data={item} />
+                        </div>
+                    ))
+                }
+            </div>
+            <div className={classNames(grid.grid, cls.grid)}>
                 {
                     data.map((item, index) => {
                         if (index === 0 || index === 1) {
@@ -72,7 +88,7 @@ export const PreviewListPost = (props: PreviewListPostProps) => {
                     <div className={classNames(cls.stack)}>
                         {
                             data.map((item, index) => {
-                                if (index > 1 && index < 4) {
+                                if (index > 1 && index < 5) {
                                     return (
                                         <ArticlePostSmall
                                             data={item}

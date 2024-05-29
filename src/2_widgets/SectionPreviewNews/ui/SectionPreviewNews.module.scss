@@ -5,3 +5,27 @@
 .title {
     color: var(--bg-blue-dark);
 }
+
+.button-desktop {
+
+}
+
+.button-mobile {
+    display: none;
+    visibility: hidden;
+}
+
+@media (width <= 1300px) {
+    .button-desktop {
+        display: none;
+        visibility: hidden;
+    }
+
+    .button-mobile {
+        width: 100%;
+        display: flex;
+        max-width: 460px;
+        margin: 40px auto 0;
+        visibility: visible;
+    }
+}

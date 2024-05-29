@@ -7,3 +7,10 @@
         color: var(--violet);
     }
 }
+
+@media (width <= 1300px) {
+    .title {
+        font-size: 40px;
+        line-height: 1.1;
+    }
+}

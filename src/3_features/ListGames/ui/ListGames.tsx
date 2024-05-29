@@ -56,6 +56,7 @@ export const ListGames = (props: ListGamesProps) => {
                     classNames(
                         grid.grid__col,
                         grid['grid__col--3'],
+                        cls.cell,
                     )
                 }
             >

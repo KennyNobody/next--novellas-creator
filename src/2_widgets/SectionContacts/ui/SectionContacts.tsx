@@ -40,7 +40,12 @@ export const SectionContacts = (props: SectionContactsProps) => {
                             && (
                                 <Picture
                                     data={data.picture}
-                                    className={classNames(cls.picture)}
+                                    className={
+                                        classNames(
+                                            cls.picture,
+                                            cls['picture--desktop'],
+                                        )
+                                    }
                                 />
                             )
                         }
@@ -51,6 +56,20 @@ export const SectionContacts = (props: SectionContactsProps) => {
                             <MapFrame
                                 data={data.coords}
                                 className={classNames(cls.map)}
+                            />
+                        )
+                    }
+                    {
+                        data?.picture
+                        && (
+                            <Picture
+                                data={data.picture}
+                                className={
+                                    classNames(
+                                        cls.picture,
+                                        cls['picture--mobile'],
+                                    )
+                                }
                             />
                         )
                     }

@@ -1,12 +1,24 @@
+.block {
+    width: 100%;
+    overflow-x: scroll;
+    margin-bottom: 40px;
+}
+
 .table {
     width: 100%;
-    margin-bottom: 40px;
+    min-width: 930px;
+    overflow-x: scroll;
+
     //border-collapse: separate;
 }
 
 .th {
     text-align: left;
     padding: 0 8px 15px;
+
+    & > :last-child {
+        text-align: center;
+    }
 }
 
 .tr {

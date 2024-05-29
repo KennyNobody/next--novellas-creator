@@ -1,0 +1,20 @@
+.block {
+    gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.title {
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+.item {
+    font-size: 16px;
+    padding: 2px 10px;
+    line-height: 20px;
+    color: var(--white);
+    border-radius: 30px;
+    background-color: #1C9BA3;
+}

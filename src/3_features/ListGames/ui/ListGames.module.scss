@@ -14,3 +14,23 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (width <= 1300px) {
+    .block {
+        gap: 30px;
+    }
+
+    .grid {
+        gap: 30px;
+    }
+
+    .cell {
+        grid-column: span 2;
+    }
+}
+
+@media (width <= 680px) {
+    .cell {
+        grid-column: span 4;
+    }
+}

@@ -43,3 +43,22 @@
     width: 8px;
     height: 13px;
 }
+
+.button-more {
+    display: none;
+    visibility: hidden;
+}
+
+@media (width <= 1300px) {
+    .block {
+        display: none;
+        visibility: hidden;
+    }
+
+    .button-more {
+        display: flex;
+        margin: 0 auto;
+        visibility: visible;
+    }
+
+}

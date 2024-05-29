@@ -103,3 +103,49 @@
 .item-content {
     font-size: 16px;
 }
+
+@media (width <= 1300px) {
+    .bg {
+        height: 500px;
+    }
+
+    .header {
+        overflow: hidden;
+        padding-top: 140px;
+        padding-bottom: 40px;
+    }
+
+    .department {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .title {
+        font-size: 24px;
+        line-height: 1.4;
+        margin-bottom: 40px;
+    }
+
+    .picture {
+        height: 400px;
+    }
+
+    .item {
+        margin-bottom: 20px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .item-title {
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 700;
+        color: var(--bg-blue-dark);
+    }
+
+    .item-content {
+        font-size: 16px;
+    }
+}

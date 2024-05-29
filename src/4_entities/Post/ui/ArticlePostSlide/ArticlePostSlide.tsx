@@ -5,7 +5,7 @@ import {Title, TitleMode} from '5_shared/ui/Title/Title';
 import {Container} from '5_shared/ui/Container/Container';
 import cls from './ArticlePostSlide.module.scss';
 import {ArticlePostType} from '../../model/types/ArticlePost';
-import {Editor} from "../../../../5_shared/ui/Editor/Editor";
+import {Editor, EditorMode} from "../../../../5_shared/ui/Editor/Editor";
 import {ButtonRegular, ButtonTagType} from "../../../../5_shared/ui/ButtonRegular";
 
 interface ArticlePostSlideProps {
@@ -58,6 +58,7 @@ export const ArticlePostSlide = (props: ArticlePostSlideProps) => {
                                 && (
                                     <Editor
                                         data={content}
+                                        mode={EditorMode.REGULAR}
                                         className={classNames(cls.editor)}
                                     />
                                 )

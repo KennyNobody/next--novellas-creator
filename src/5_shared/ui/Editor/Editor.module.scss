@@ -40,6 +40,15 @@
 
     b, strong {
        font-weight: 700;
-        color: var(--bg-blue-dark);
+    }
+
+    &--regular {
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--bg-blue-dark);
+        }
+
+        b, strong {
+            color: var(--bg-blue-dark);
+        }
     }
 }

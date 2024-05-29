@@ -2,3 +2,9 @@
     padding: 55px 0 155px;
     background-color: var(--white);
 }
+
+@media (width <= 1300px) {
+    .block {
+        padding: 35px 0 100px;
+    }
+}

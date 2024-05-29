@@ -38,3 +38,21 @@
         }
     }
 }
+
+@media (width <= 1300px) {
+    .block {
+        &--top {
+            &:after {
+                display: none;
+                visibility: hidden;
+            }
+        }
+
+        &--bottom {
+            &:before {
+                display: none;
+                visibility: hidden;
+            }
+        }
+    }
+}

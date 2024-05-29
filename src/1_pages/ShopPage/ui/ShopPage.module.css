@@ -1,3 +1,9 @@
 .block {
     padding: 55px 0 100px;
 }
+
+@media (width <= 1300px) {
+    .block {
+        padding: 40px 0 100px;
+    }
+}

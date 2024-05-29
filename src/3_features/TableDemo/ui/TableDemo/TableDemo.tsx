@@ -135,7 +135,7 @@ const TableDemo = () => {
     });
 
     return (
-        <div>
+        <div className={classNames(cls.block)}>
             <table className={classNames(cls.table)}>
                 <thead>
                     {table.getHeaderGroups().map((headerGroup) => (

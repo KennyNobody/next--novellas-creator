@@ -26,3 +26,19 @@
 .button {
     margin: 0 auto;
 }
+
+@media (width <= 1300px) {
+    .block {
+        padding: 80px 0;
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: 1.2;
+        margin-bottom: 18px;
+    }
+
+    .img {
+        margin-bottom: 70px;
+    }
+}
