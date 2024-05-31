@@ -20,4 +20,6 @@ export enum Routes {
     JOB_TAX_PRODUCT = 'taxonomies/product_vacancy/terms',
     JOB_TAX_LOCATION = 'taxonomies/mestonakhozhdenie/terms',
     JOB_TAX_DEPARTMENT = 'taxonomies/department_vacancy/terms',
+
+    FORM_SUBSCRIPTION = 'forms/newsletters',
 }

@@ -65,11 +65,17 @@ export const SliderGamesList = ({ className }: SliderGamesListProps) => {
         <div className={classNames(cls.block, className)}>
             <div className={classNames(cls['slider-main'])}>
                 <Swiper
+                    autoHeight
                     slidesPerView={1}
                     modules={[Controller]}
                     onSwiper={setMainSlider}
                     controller={{ control: paginationSlider }}
                     onSlideChange={(swiperInstance: SwiperInstance) => setActiveIndex(swiperInstance.activeIndex)}
+                    breakpoints={{
+                        1300: {
+                            autoHeight: false,
+                        },
+                    }}
                 >
                     {
                         data.map((item) => (
@@ -84,13 +90,14 @@ export const SliderGamesList = ({ className }: SliderGamesListProps) => {
                                                 classNames(
                                                     grid.grid__col,
                                                     grid['grid__col--7'],
+                                                    cls['column-picture'],
                                                 )
                                             }
                                         >
-                                            {
-                                                item?.sectionSlider?.picturePerson?.permalink
-                                                && (
-                                                    <picture className={classNames(cls.picture)}>
+                                            <picture className={classNames(cls.picture)}>
+                                                {
+                                                    item?.sectionSlider?.picturePerson?.permalink
+                                                    && (
                                                         <Image
                                                             width={620}
                                                             height={840}
@@ -98,15 +105,16 @@ export const SliderGamesList = ({ className }: SliderGamesListProps) => {
                                                             className={classNames(cls.image)}
                                                             src={item?.sectionSlider.picturePerson?.permalink}
                                                         />
-                                                    </picture>
-                                                )
-                                            }
+                                                    )
+                                                }
+                                            </picture>
                                         </div>
                                         <div
                                             className={
                                                 classNames(
                                                     grid.grid__col,
                                                     grid['grid__col--5'],
+                                                    cls['column-content'],
                                                 )
                                             }
                                         >
@@ -139,11 +147,16 @@ export const SliderGamesList = ({ className }: SliderGamesListProps) => {
                 <Container>
                     <Swiper
                         spaceBetween={20}
-                        slidesPerView={5}
+                        slidesPerView="auto"
                         modules={[Controller]}
                         onSwiper={setPaginationSlider}
                         controller={{ control: mainSlider }}
                         className={classNames(cls.pagination)}
+                        breakpoints={{
+                            1300: {
+                                slidesPerView: 5,
+                            },
+                        }}
                     >
                         {
                             data.map((item, index) => (
@@ -169,7 +182,9 @@ export const SliderGamesList = ({ className }: SliderGamesListProps) => {
                                             }}
                                             className={classNames(cls['button-content'])}
                                         >
-                                            { item.title }
+                                            <span className={classNames(cls['button-title'])}>
+                                                { item.title }
+                                            </span>
                                         </span>
                                     </button>
                                 </SwiperSlide>

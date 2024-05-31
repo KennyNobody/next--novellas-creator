@@ -1,11 +1,13 @@
 'use client';
 
 import classNames from 'classnames';
-import { FormSubscription } from '3_features/FormSubscription';
-import { Section, SectionThemeMode } from '5_shared/ui/Section/Section';
-import { Editor, EditorMode } from '5_shared/ui/Editor/Editor';
+import {
+    FormSubscription,
+} from '3_features/FormSubscription';
 import { Title, TitleMode } from '5_shared/ui/Title/Title';
 import { Container } from '5_shared/ui/Container/Container';
+import { Editor, EditorMode } from '5_shared/ui/Editor/Editor';
+import { Section, SectionThemeMode } from '5_shared/ui/Section/Section';
 import cls from './SectionSubscribe.module.scss';
 import { SectionSubscribeType } from '../model/types/SectionSubscribe';
 
@@ -48,7 +50,7 @@ export const SectionSubscribe = (props: SectionFrontIntroProps) => {
                             />
                         )
                     }
-                    <FormSubscription />
+                    <FormSubscription mode="large" />
                 </div>
             </Container>
         </Section>

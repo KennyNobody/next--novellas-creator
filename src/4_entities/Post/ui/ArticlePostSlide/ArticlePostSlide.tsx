@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import classNames from 'classnames';
 import grid from '5_shared/styles/grid.module.scss';
-import {Title, TitleMode} from '5_shared/ui/Title/Title';
-import {Container} from '5_shared/ui/Container/Container';
+import { Title, TitleMode } from '5_shared/ui/Title/Title';
+import { Container } from '5_shared/ui/Container/Container';
+import { Editor, EditorMode } from '5_shared/ui/Editor/Editor';
+import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
 import cls from './ArticlePostSlide.module.scss';
-import {ArticlePostType} from '../../model/types/ArticlePost';
-import {Editor, EditorMode} from "../../../../5_shared/ui/Editor/Editor";
-import {ButtonRegular, ButtonTagType} from "../../../../5_shared/ui/ButtonRegular";
+import { ArticlePostType } from '../../model/types/ArticlePost';
 
 interface ArticlePostSlideProps {
     className?: string;
@@ -40,7 +40,15 @@ export const ArticlePostSlide = (props: ArticlePostSlideProps) => {
             }
             <Container className={classNames(cls.container)}>
                 <div className={classNames(grid.grid, cls.grid)}>
-                    <div className={classNames(grid.grid__col, grid['grid__col--5'])}>
+                    <div
+                        className={
+                            classNames(
+                                grid.grid__col,
+                                grid['grid__col--5'],
+                                cls['column-content'],
+                            )
+                        }
+                    >
                         <div className={classNames(cls.content)}>
                             {
                                 title
@@ -66,13 +74,22 @@ export const ArticlePostSlide = (props: ArticlePostSlideProps) => {
                             <ButtonRegular
                                 label="Подробнее"
                                 tag={ButtonTagType.LINK}
+                                className={classNames(cls['button-desktop'])}
                             />
                         </div>
                     </div>
                     {
                         image
                         && (
-                            <div className={classNames(grid.grid__col, grid['grid__col--7'])}>
+                            <div
+                                className={
+                                    classNames(
+                                        grid.grid__col,
+                                        grid['grid__col--7'],
+                                        cls['column-picture'],
+                                    )
+                                }
+                            >
                                 <picture className={classNames(cls.picture)}>
                                     <Image
                                         width={475}
@@ -85,7 +102,11 @@ export const ArticlePostSlide = (props: ArticlePostSlideProps) => {
                             </div>
                         )
                     }
-
+                    <ButtonRegular
+                        label="Подробнее"
+                        tag={ButtonTagType.LINK}
+                        className={classNames(cls['button-mobile'])}
+                    />
                 </div>
             </Container>
         </div>

@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 import { MainIntoType } from 'app/model/types/MainData';
+import {
+    FormSubscription,
+} from '3_features/FormSubscription';
 import { Socials } from '3_features/Socials';
 import { Logo, LogoMode } from '4_entities/Logo';
 import { ContactItem } from '4_entities/ContactItem';
@@ -40,7 +43,7 @@ export const Footer = (props: FooterProps) => {
                     )
                 }
             </div>
-
+            <FormSubscription mode="small" />
         </div>
     );
 

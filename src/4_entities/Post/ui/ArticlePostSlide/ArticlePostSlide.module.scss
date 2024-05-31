@@ -1,7 +1,7 @@
 .block {
-    height: 100%;
+    height: auto;
     display: block;
-
+    min-height: 100%;
     position: relative;
 
     &:after {
@@ -39,10 +39,10 @@
 }
 
 .grid {
-    //height: 100%;
-    height: 100vh;
-    min-height: 700px;
-    max-height: 900px;
+    height: 100%;
+    //height: 100vh;
+    //min-height: 700px;
+    //max-height: 900px;
 }
 
 .content {
@@ -59,6 +59,7 @@
 }
 
 .editor {
+    color: #E0E0E0;
     margin-bottom: 50px;
 }
 
@@ -72,4 +73,68 @@
 
 .img {
     display: block;
+}
+
+.button-mobile {
+    display: none;
+    visibility: hidden;
+}
+
+@media (width <= 1300px) {
+    .column-content {
+        grid-column: span 4;
+    }
+
+    .column-picture {
+        grid-column: span 4;
+    }
+
+    .grid {
+        height: auto;
+    //    //height: 100%;
+    //    height: 100vh;
+    //    min-height: 700px;
+    //    max-height: 900px;
+    }
+    //
+    .content {
+        padding: 130px 0 0;
+    }
+
+    .title {
+        margin-bottom: 35px;
+    }
+
+    //.editor {
+    //    margin-bottom: 50px;
+    //}
+    //
+    //.picture {
+    //    width: 100%;
+    //    height: 100%;
+    //    display: flex;
+    //    align-items: flex-end;
+    //    justify-content: center;
+    //}
+    //
+    //.img {
+    //    display: block;
+    //}
+
+    .button-desktop {
+        display: none;
+        visibility: hidden;
+    }
+
+    .button-mobile {
+        left: 50%;
+        z-index: 2;
+        width: 100%;
+        bottom: 35px;
+        display: flex;
+        max-width: 420px;
+        position: absolute;
+        visibility: visible;
+        transform: translateX(-50%);
+    }
 }

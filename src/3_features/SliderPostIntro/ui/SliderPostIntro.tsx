@@ -15,7 +15,6 @@ import {
     useLazyFetchPostSlider, ArticlePostSlide,
 } from '4_entities/Post';
 import { useAppDispatch } from '5_shared/state/hooks';
-import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
 import cls from './SliderPostIntro.module.scss';
 
 interface SliderPostIntroProps {
