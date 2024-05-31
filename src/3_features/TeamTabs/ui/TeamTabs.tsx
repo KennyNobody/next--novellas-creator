@@ -54,17 +54,25 @@ export const TeamTabs = (props: TeamTabsProps) => {
                 </nav>
             </Container>
             <Swiper
+                autoHeight
                 spaceBetween={0}
                 slidesPerView={1}
                 pagination={{
                     clickable: true,
                     bulletClass: classNames(cls.bullet),
                     verticalClass: classNames(cls.pagination),
+                    horizontalClass: classNames(cls.pagination),
                     bulletActiveClass: classNames(cls['bullet--active']),
                 }}
                 modules={[Pagination]}
-                direction="vertical"
+                direction="horizontal"
                 className={classNames(cls.swiper)}
+                breakpoints={{
+                    1300: {
+                        autoHeight: false,
+                        direction: 'vertical',
+                    },
+                }}
             >
                 {
                     teamData?.map((item) => (

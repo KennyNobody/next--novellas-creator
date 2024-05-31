@@ -13,6 +13,9 @@ import { Main } from '5_shared/ui/Main/Main';
 import { RouteSlug } from '5_shared/config/routes';
 import { WrapperDecor, WrapperDecorType } from '5_shared/ui/WrapperDecor/WrapperDecor';
 import cls from './JobDetailPage.module.scss';
+import FormVacancy from "../../../3_features/FormVacancy/ui/FormVacancy";
+import {Modal} from "../../../5_shared/ui/Modal/Modal";
+import {useState} from "react";
 
 interface JobDetailPageProps {
     pageData: ArticleJobType;
@@ -49,6 +52,8 @@ const JobDetailPage = (props: JobDetailPageProps) => {
                             pageData && <DetailJob data={pageData} />
                         }
                     </Section>
+
+
                     <SectionJobPreview
                         data={{
                             title: 'Вакансии',

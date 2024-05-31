@@ -33,6 +33,7 @@ interface ArticleGameType {
     preview_small: PictureType;
     // last_modified: Date | null;
     scienic_tax: TaxonomyType[];
+    previewPromo: PictureType;
     sectionSlider: GamePreviewSlideType;
 }
 

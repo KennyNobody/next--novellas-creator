@@ -58,3 +58,40 @@
 .tabs {
     position: relative;
 }
+
+@media (width <= 1300px) {
+    .block {
+        min-height: 0;
+        padding-top: 70px;
+    }
+
+    .title {
+        text-align: left;
+        margin-bottom: 50px;
+    }
+
+    .image-1 {
+        display: none;
+        visibility: hidden;
+    }
+
+    .image-2 {
+        display: none;
+        visibility: hidden;
+    }
+
+    .image-3 {
+        display: none;
+        visibility: hidden;
+    }
+
+    .bg-picture {
+        display: none;
+        visibility: hidden;
+    }
+
+    .bg-image {
+        display: none;
+        visibility: hidden;
+    }
+}

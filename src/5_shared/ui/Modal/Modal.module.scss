@@ -1,0 +1,64 @@
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #000000B3;
+}
+
+.block {
+    padding: 60px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border-radius: 30px;
+    background-color: var(--white);
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.button {
+    top: 15px;
+    right: 15px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+@media (width <= 1300px) {
+    .block {
+        padding: 60px 20px;
+        border-radius: 15px;
+    }
+
+    .button {
+        top: 10px;
+        right: 10px;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        display: block;
+    }
+}

@@ -22,4 +22,5 @@ export enum Routes {
     JOB_TAX_DEPARTMENT = 'taxonomies/department_vacancy/terms',
 
     FORM_SUBSCRIPTION = 'forms/newsletters',
+    FORM_VACANCIES = 'forms/vakansii',
 }

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import classNames from 'classnames';
+import { SectionFormVacancy } from '2_widgets/SectionFormVacancy';
 import { Editor, EditorMode } from '5_shared/ui/Editor/Editor';
 import grid from '5_shared/styles/grid.module.scss';
 import { Container } from '5_shared/ui/Container/Container';
@@ -127,10 +128,11 @@ export const DetailJob = (props: DetailJobProps) => {
                                     <Editor
                                         data={data.content}
                                         mode={EditorMode.REGULAR}
+                                        className={classNames(cls.editor)}
                                     />
                                 )
                             }
-
+                            <SectionFormVacancy />
                         </div>
                     </div>
                 </Container>

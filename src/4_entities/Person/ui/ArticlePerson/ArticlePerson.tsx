@@ -43,7 +43,14 @@ export const ArticlePerson = (props: ArticlePersonProps) => {
                         }
                     </picture>
                 </div>
-                <div className={classNames(grid['grid__col--5'])}>
+                <div
+                    className={
+                        classNames(
+                            grid['grid__col--5'],
+                            cls['column-info'],
+                        )
+                    }
+                >
                     {
                         data?.job
                         && (

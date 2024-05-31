@@ -67,6 +67,12 @@ const data: ArticleGameType = {
         },
     },
     platform: [],
+    previewPromo: {
+        id: 'assets::placeholders/preview_small.png',
+        url: '/assets/placeholders/preview_small.png',
+        permalink: 'https://api.novellascreator.ru/assets/placeholders/preview_small.png',
+        api_url: 'https://api.novellascreator.ru/api/assets/assets/placeholders/preview_small.png',
+    },
 };
 
 export {

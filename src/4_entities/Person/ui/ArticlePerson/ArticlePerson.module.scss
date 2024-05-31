@@ -1,7 +1,3 @@
-.block {
-
-}
-
 .grid {
     min-height: 760px;
     align-items: center;
@@ -12,6 +8,10 @@
     position: relative;
 }
 
+.column-info {
+
+}
+
 .picture {
     width: 100%;
     height: 100%;
@@ -20,6 +20,7 @@
     img {
         width: 100%;
         height: 100%;
+        display: block;
         object-fit: contain;
         object-position: bottom center;
     }
@@ -41,10 +42,49 @@
     margin-bottom: 30px;
 }
 
-@media (width <= 2160px) {
+@media (width <= 1300px) {
+    .block {
 
-}
+    }
 
-@media (width <= 1200px) {
+    .grid {
+        min-height: 0;
+    }
 
+    .column-picture {
+        order: 2;
+        height: auto;
+        grid-column: span 4;
+    }
+
+    .column-info {
+        order: 1;
+        grid-column: span 4;
+    }
+
+    .picture {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        max-width: 360px;
+        transform: translateX(0);
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .job {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 5px;
+    }
+
+    .title {
+        font-size: 24px;
+        line-height: 1.4;
+        font-weight: 700;
+    }
 }

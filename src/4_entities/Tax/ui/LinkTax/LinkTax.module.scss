@@ -56,3 +56,39 @@
         background: linear-gradient(to top right, #4032DC, #221B76);
     }
 }
+
+@media (width <= 1300px) {
+    .block {
+
+        &:before {
+            display: none;
+            visibility: hidden;
+        }
+
+        &--active {
+            &:hover {
+                opacity: 1;
+            }
+
+            &:before {
+                display: none;
+                visibility: hidden;
+            }
+        }
+
+    }
+
+    .content {
+        height: 40px;
+        font-size: 16px;
+        padding: 5px 15px;
+        color: #D8D8D866;
+        justify-content: center;
+        background-color: #1A1838;
+        transition: 0.3s opacity;
+
+        &--active {
+            color: var(--white);
+        }
+    }
+}
