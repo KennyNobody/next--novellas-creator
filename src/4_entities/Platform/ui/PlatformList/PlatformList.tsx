@@ -20,12 +20,15 @@ export const PlatformList = (props: PlatformListProps) => {
             </span>
             {
                 data.map((item) => (
-                    <span
-                        key={item.key}
+                    <a
+                        target="_blank"
+                        key={item.id}
+                        href={item.link}
+                        rel="noopener noreferrer"
                         className={classNames(cls.item)}
                     >
-                        { item.label }
-                    </span>
+                        { item.name }
+                    </a>
                 ))
             }
         </div>

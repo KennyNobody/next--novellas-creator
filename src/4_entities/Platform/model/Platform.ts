@@ -1,7 +1,7 @@
 interface PlatformType {
-    key: 'web',
-    value: 'web',
-    label: 'Веб'
+    name: string;
+    link: string;
+    id: string;
 }
 
 export {

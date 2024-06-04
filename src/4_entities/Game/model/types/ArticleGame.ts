@@ -25,7 +25,7 @@ interface ArticleGameType {
     sectionMeta: Metadata;
     inFullSlider: boolean;
     previewCaption: string;
-    platform: PlatformType[];
+    platforms: PlatformType[];
     // updated_at: Date | null;
     blueprint: BlueprintType;
     preview_page: PictureType;

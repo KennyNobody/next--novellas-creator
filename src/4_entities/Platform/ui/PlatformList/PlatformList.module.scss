@@ -16,5 +16,11 @@
     line-height: 20px;
     color: var(--white);
     border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s opacity;
     background-color: #1C9BA3;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }

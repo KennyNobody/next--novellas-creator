@@ -1,13 +1,13 @@
 .block {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     margin-bottom: 40px;
 }
 
 .table {
     width: 100%;
     min-width: 930px;
-    overflow-x: scroll;
+    //overflow-x: scroll;
 
     //border-collapse: separate;
 }

@@ -1,13 +1,13 @@
 'use client';
 
 import classNames from 'classnames';
-import {PromoGameAreaType, useFetchGameByArea,} from '4_entities/Game';
-import {Container} from '5_shared/ui/Container/Container';
+import { PromoGameAreaType, useFetchGameByArea } from '4_entities/Game';
+import { Container } from '5_shared/ui/Container/Container';
+import { Editor, EditorMode } from '5_shared/ui/Editor/Editor';
+import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
+import Link from 'next/link';
+import { PlatformList } from '../../../4_entities/Platform';
 import cls from './PromoGame.module.scss';
-import {Editor, EditorMode} from "../../../5_shared/ui/Editor/Editor";
-import {PlatformList} from "../../../4_entities/Platform";
-import {ButtonRegular, ButtonTagType} from "../../../5_shared/ui/ButtonRegular";
-import Link from "next/link";
 
 interface PromoGameProps {
     className?: string;
@@ -43,7 +43,7 @@ export const PromoGame = (props: PromoGameProps) => {
                             className={classNames(cls.editor)}
                         />
                         <PlatformList
-                            data={data[0].platform}
+                            data={data[0].platforms}
                             className={classNames(cls.platforms)}
                         />
                         <img

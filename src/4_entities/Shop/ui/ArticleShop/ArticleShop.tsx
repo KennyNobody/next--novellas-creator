@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import cls from './ArticleShop.module.scss';
 import { ArticleShopType } from '../../model/types/ArticleShop';
+import {calculateDiscount} from "../../../../5_shared/libs/helpers/calcDiscount";
 
 interface ArticleShopProps {
     className?: string;
@@ -65,14 +66,14 @@ export const ArticleShop = (props: ArticleShopProps) => {
             <div className={classNames(cls.footer)}>
                 {
                     data?.priceOld
-                    && data?.discount
+                    && data?.price
                     && (
                         <>
                             <span className={classNames(cls.discount)}>
-                                {`- ${data.discount} %`}
+                                {`- ${calculateDiscount(data.priceOld, data.price)} %`}
                             </span>
                             <span className={classNames(cls.oldPrice)}>
-                                {`${data.discount} ₽`}
+                                {`${data.priceOld} ₽`}
                             </span>
                         </>
                     )

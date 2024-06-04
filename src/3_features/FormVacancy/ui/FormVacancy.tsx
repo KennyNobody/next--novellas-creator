@@ -6,7 +6,6 @@ import {
     ButtonRegular,
     ButtonTagType,
 } from '5_shared/ui/ButtonRegular';
-import Icon from '5_shared/assets/icons/file.svg';
 import cls from './FormVacancy.module.scss';
 import { useSentVacancyForm } from '../api/formApi';
 
@@ -20,11 +19,12 @@ export default function FormVacancy(props: FormVacancyProps) {
     const [fio, setFio] = useState<string>('');
     const [telefon, setTelefon] = useState<string>('');
     const [letter, setLetter] = useState<string>('');
-    const [file, setFile] = useState<File | null>(null);
+    const [resume, setResume] = useState<string>('');
     const [buttonText, setButtonText] = useState('Отправить');
     const [isEmailValid, setIsEmailValid] = useState<boolean>(true);
     const [isFioValid, setIsFioValid] = useState<boolean>(true);
     const [isTelefonValid, setIsTelefonValid] = useState<boolean>(true);
+    const [isResumeValid, setIsResumeValid] = useState<boolean>(true);
 
     const [trigger, { isLoading }] = useSentVacancyForm();
 
@@ -49,20 +49,28 @@ export default function FormVacancy(props: FormVacancyProps) {
             setIsTelefonValid(true);
         }
 
-        if (!email || !fio || !telefon) {
+        if (!resume) {
+            setIsResumeValid(false);
+        } else {
+            setIsResumeValid(true);
+        }
+
+        if (!email || !fio || !telefon || !resume) {
             return;
         }
 
         setButtonText('Отправка...');
 
         try {
-            await trigger({
+            const data = {
                 email,
                 fio,
                 telefon,
-                rezyume: file,
+                ssylka_na_rezyume: resume,
                 soprovoditelnoe_pismo: letter,
-            }).unwrap();
+            };
+            console.log(data);
+            await trigger(data).unwrap();
             setButtonText('Отправлено');
         } catch (error) {
             setButtonText('Ошибка!');
@@ -89,19 +97,8 @@ export default function FormVacancy(props: FormVacancyProps) {
                     <input type="text" value={email} placeholder="Ваш e-mail" onChange={(e) => setEmail(e.target.value)} className={classNames(cls.input, !isEmailValid && cls.alert)} />
                     <input type="text" value={fio} placeholder="Ваше ФИО" onChange={(e) => setFio(e.target.value)} className={classNames(cls.input, !isFioValid && cls.alert)} />
                     <input type="text" value={telefon} placeholder="Ваш телефон" onChange={(e) => setTelefon(e.target.value)} className={classNames(cls.input, !isTelefonValid && cls.alert)} />
+                    <input type="text" value={resume} placeholder="Ссылка на резюме" onChange={(e) => setResume(e.target.value)} className={classNames(cls.input, !isResumeValid && cls.alert)} />
                     <textarea value={letter} placeholder="Сопроводительное письмо" onChange={(e) => setLetter(e.target.value)} className={classNames(cls.textarea)} />
-                    <label className={classNames(cls.file)}>
-                        <Icon className={classNames(cls.file__icon)} />
-                        <p className={classNames(cls.file__title)}>
-                            {file ? file.name : 'Прикрепить резюме'}
-                        </p>
-                        <input
-                            type="file"
-                            accept=".pdf"
-                            onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-                            className={classNames(cls.file__input)}
-                        />
-                    </label>
                     <ButtonRegular
                         label={buttonText}
                         disabled={isLoading}

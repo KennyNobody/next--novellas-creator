@@ -55,6 +55,7 @@ export const SectionContacts = (props: SectionContactsProps) => {
                         && (
                             <MapFrame
                                 data={data.coords}
+                                mapKey={data.mapKey}
                                 className={classNames(cls.map)}
                             />
                         )

@@ -102,12 +102,12 @@ export const ArticlePostSlide = (props: ArticlePostSlideProps) => {
                             </div>
                         )
                     }
-                    <ButtonRegular
-                        label="Подробнее"
-                        tag={ButtonTagType.LINK}
-                        className={classNames(cls['button-mobile'])}
-                    />
                 </div>
+                <ButtonRegular
+                    label="Подробнее"
+                    tag={ButtonTagType.LINK}
+                    className={classNames(cls['button-mobile'])}
+                />
             </Container>
         </div>
     );

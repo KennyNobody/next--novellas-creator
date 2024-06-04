@@ -10,6 +10,7 @@ const sectionMetaMock: Metadata = {
 const mockData: ContactsPageType = {
     sectionMeta: sectionMetaMock,
     sectionContacts: {
+        mapKey: '123',
         coords: '[54.717130, 20.507685]',
         picture: pictureMock,
         blockLinks: {

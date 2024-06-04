@@ -7,12 +7,13 @@ import cls from './MapFrame.module.scss';
 
 interface MapFrameProps {
     data: string;
+    mapKey: string;
     // eslint-disable-next-line react/no-unused-prop-types
     className?: string;
 }
 
 export const MapContent = (props: MapFrameProps) => {
-    const { data, className } = props;
+    const { data, mapKey, className } = props;
 
     const mapRef = useRef(null);
     const ymaps = useYMaps(['Map', 'Placemark']);
@@ -39,17 +40,25 @@ export const MapContent = (props: MapFrameProps) => {
         );
 
         map.geoObjects.add(placemark);
-    }, [ymaps]);
+    }, [ymaps, data, mapKey]);
 
     return <div ref={mapRef} className={classNames(className)} />;
 };
 
 export const MapFrame = (props: MapFrameProps) => {
-    const { data, className } = props;
+    const {
+        data,
+        mapKey,
+        className,
+    } = props;
 
     return (
-        <YMaps query={{ apikey: 'ec6407b6-9cfe-4758-8cf1-3668718573ea' }}>
-            <MapContent data={data} className={classNames(cls.block, className)} />
+        <YMaps query={{ apikey: mapKey }}>
+            <MapContent
+                data={data}
+                mapKey={mapKey}
+                className={classNames(cls.block, className)}
+            />
         </YMaps>
     );
 };
