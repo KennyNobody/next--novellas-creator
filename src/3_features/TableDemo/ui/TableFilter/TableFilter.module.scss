@@ -1,10 +1,13 @@
 .select {
     width: 100%;
+    border: none;
     padding: 0 5px;
-    display: block;
+    display: flex;
     font-size: 18px;
     min-height: 40px;
+    font-weight: 600;
+    text-align: left;
     border-radius: 3px;
     font-family: inherit;
-    border: 1px solid #E0E0E0;
+    color: var(--bg-blue-dark);
 }

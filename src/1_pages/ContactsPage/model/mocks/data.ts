@@ -17,6 +17,9 @@ const mockData: ContactsPageType = {
             title: '',
             links: [],
         },
+        socials: {
+            list: [],
+        },
     },
 };
 

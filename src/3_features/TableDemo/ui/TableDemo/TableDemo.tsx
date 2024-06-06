@@ -28,6 +28,7 @@ import { TableFilter } from '../TableFilter/TableFilter';
 declare module '@tanstack/react-table' {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface ColumnMeta<TData extends RowData, TValue> {
+        placeholder?: string;
         filterVariant?: 'text' | 'select';
         selectOptions?: string[];
     }
@@ -69,6 +70,7 @@ const TableDemo = () => {
                 header: 'Отдел',
                 accessorKey: 'department_vacancy',
                 meta: {
+                    placeholder: 'Отдел',
                     filterVariant: 'select',
                     selectOptions: departments,
                 },
@@ -84,6 +86,7 @@ const TableDemo = () => {
                 header: 'Локация',
                 accessorKey: 'mestonakhozhdenie',
                 meta: {
+                    placeholder: 'Локация',
                     filterVariant: 'select',
                     selectOptions: locations,
                 },
@@ -97,6 +100,7 @@ const TableDemo = () => {
                 accessorKey: 'product_vacancy',
                 header: 'Продукт',
                 meta: {
+                    placeholder: 'Продукт',
                     filterVariant: 'select',
                     selectOptions: products,
                 },
@@ -147,28 +151,10 @@ const TableDemo = () => {
                                 <th className={classNames(cls.th)} key={header.id} colSpan={header.colSpan}>
                                     {header.isPlaceholder ? null : (
                                         <>
-                                            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-                                            <div
-                                                className={classNames(cls.title)}
-                                                {...{
-                                                    onClick: header.column.getToggleSortingHandler(),
-                                                }}
-                                            >
-                                                {flexRender(
-                                                    header.column.columnDef.header,
-                                                    header.getContext(),
-                                                )}
-                                                {{
-                                                    asc: ' 🔼',
-                                                    desc: ' 🔽',
-                                                }[header.column.getIsSorted() as string] ?? null}
-                                            </div>
                                             {header.column.getCanFilter() ? (
-                                                <div>
-                                                    <TableFilter
-                                                        column={header.column}
-                                                    />
-                                                </div>
+                                                <TableFilter
+                                                    column={header.column}
+                                                />
                                             ) : null}
                                         </>
                                     )}

@@ -15,7 +15,7 @@ export const TableFilter = (props: TableFilterProps) => {
     } = props;
     const columnFilterValue = column.getFilterValue();
     const meta = column.columnDef.meta ?? {};
-    const { filterVariant } = meta;
+    const { filterVariant, placeholder } = meta;
     const selectOptions = meta.selectOptions ?? [];
 
     const selFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -28,8 +28,7 @@ export const TableFilter = (props: TableFilterProps) => {
             className={classNames(cls.select)}
             value={columnFilterValue?.toString()}
         >
-            {/* See faceted column filters example for dynamic select options */}
-            <option value="">Выбрать...</option>
+            <option value="">{ placeholder || 'Выбрать...' }</option>
             {
                 selectOptions
                 && selectOptions?.map((item: string) => (
@@ -40,7 +39,7 @@ export const TableFilter = (props: TableFilterProps) => {
     ) : (
         <TableInput
             onChange={(value) => column.setFilterValue(value)}
-            placeholder="Искать..."
+            placeholder="Должность"
             type="text"
             initialValue={(columnFilterValue ?? '') as string}
         />

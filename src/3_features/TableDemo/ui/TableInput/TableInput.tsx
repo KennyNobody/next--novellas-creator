@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { InputHTMLAttributes, useEffect } from 'react';
+import Icon from '5_shared/assets/icons/icon-search.svg';
 import cls from './TableInput.module.scss';
 
 interface TableInputProps {
@@ -31,11 +32,13 @@ export const TableInput = (props: TableInputProps & Omit<InputHTMLAttributes<HTM
     }, [value]);
 
     return (
-        <input
-            {...args}
-            value={value}
-            className={classNames(cls.input)}
-            onChange={(e) => setValue(e.target.value)}
-        />
+        <label className={classNames(cls.label)}>
+            <input
+                {...args}
+                value={value}
+                className={classNames(cls.input)}
+                onChange={(e) => setValue(e.target.value)}
+            />
+        </label>
     );
 };
