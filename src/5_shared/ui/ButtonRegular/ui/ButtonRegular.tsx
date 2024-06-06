@@ -1,13 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
+import IconBag from '5_shared/assets/icons/icon-bag.svg';
 import IconNext from '5_shared/assets/icons/icon-next.svg';
 import cls from './ButtonRegular.module.scss';
-import {
-    ButtonType,
-    ButtonTagType,
-    ButtonIconType,
-} from '../types/ButtonRegular';
+import {ButtonIconType, ButtonTagType, ButtonType,} from '../types/ButtonRegular';
 
 interface ButtonRegularProps {
     label: string;
@@ -21,7 +18,8 @@ interface ButtonRegularProps {
 }
 
 const icons = {
-    next: () => <IconNext className={classNames(cls.icon, cls.loader)} />,
+    next: () => <IconNext className={classNames(cls.icon, cls['icon--next'], cls.loader)} />,
+    bag: () => <IconBag className={classNames(cls.icon, cls['icon--bag'], cls.loader)} />,
 };
 
 export const ButtonRegular = (props: ButtonRegularProps) => {
@@ -38,10 +36,11 @@ export const ButtonRegular = (props: ButtonRegularProps) => {
 
     const buttonContent = (
         <div className={classNames(cls.wrapper)}>
+            {icon && icon === ButtonIconType.BAG && React.createElement(icons[icon])}
             <span className={classNames(cls.button__text)}>
                 {label}
             </span>
-            {icon && React.createElement(icons[icon])}
+            {icon && icon === ButtonIconType.NEXT && React.createElement(icons[icon])}
         </div>
     );
 

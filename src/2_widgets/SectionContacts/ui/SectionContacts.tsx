@@ -31,6 +31,7 @@ export const SectionContacts = (props: SectionContactsProps) => {
                             && (
                                 <ListLinks
                                     data={data.blockLinks}
+                                    links={data.socials.list}
                                     className={classNames(cls.info)}
                                 />
                             )

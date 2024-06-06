@@ -10,6 +10,7 @@ enum ButtonTagType {
 
 enum ButtonIconType {
     NEXT = 'next',
+    BAG = 'bag',
 }
 
 export {

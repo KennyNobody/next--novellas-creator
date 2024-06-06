@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 import { MainIntoType } from 'app/model/types/MainData';
-import {
-    FormSubscription,
-} from '3_features/FormSubscription';
+import { FormSubscription } from '3_features/FormSubscription';
 import { Socials } from '3_features/Socials';
 import { Logo, LogoMode } from '4_entities/Logo';
 import { ContactItem } from '4_entities/ContactItem';
@@ -11,6 +9,8 @@ import grid from '5_shared/styles/grid.module.scss';
 import { Copyright } from '5_shared/ui/Copyright/Copyright';
 import { Container } from '5_shared/ui/Container/Container';
 import { RoutesList, RouteSlug } from '5_shared/config/routes';
+import { SocialsMode } from '3_features/Socials/ui/Socials';
+import { ScrollTop } from '3_features/ScrollTop';
 import cls from './Footer.module.scss';
 
 interface FooterProps {
@@ -153,6 +153,7 @@ export const Footer = (props: FooterProps) => {
                 data?.socials?.list
                 && (
                     <Socials
+                        mode={SocialsMode.FOOTER}
                         data={data.socials.list}
                         className={
                             classNames(
@@ -163,6 +164,9 @@ export const Footer = (props: FooterProps) => {
                     />
                 )
             }
+            <ScrollTop
+                className={classNames(cls.scroll)}
+            />
         </div>
     );
 
@@ -172,6 +176,7 @@ export const Footer = (props: FooterProps) => {
                 data?.socials?.list
                 && (
                     <Socials
+                        mode={SocialsMode.FOOTER}
                         data={data.socials.list}
                         className={
                             classNames(

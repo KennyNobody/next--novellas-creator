@@ -7,8 +7,14 @@ import IconInst from '5_shared/assets/icons/icon-inst.svg';
 import cls from './Socials.module.scss';
 import { SocialLink, IconKey } from '../model/types/Socials';
 
+enum SocialsMode {
+    PAGE = 'page',
+    FOOTER = 'footer',
+}
+
 interface SocialsProps {
     className?: string;
+    mode: SocialsMode;
     data: SocialLink[];
 }
 
@@ -28,6 +34,7 @@ const renderIcon = (iconKey: IconKey, className: string | undefined) => {
 const Socials = (props: SocialsProps) => {
     const {
         data,
+        mode,
         className,
     } = props;
 
@@ -40,9 +47,9 @@ const Socials = (props: SocialsProps) => {
                         target="_blank"
                         href={item.link}
                         rel="noopener noreferrer"
-                        className={classNames(cls.link, className)}
+                        className={classNames(cls.link, cls[`link--${mode}`], className)}
                     >
-                        { renderIcon(item?.icon?.key, classNames(cls.icon)) }
+                        { renderIcon(item?.icon?.key, classNames(cls.icon, cls[`icon--${mode}`])) }
                     </a>
                 ))
             }
@@ -52,5 +59,6 @@ const Socials = (props: SocialsProps) => {
 
 export {
     IconKey,
+    SocialsMode,
     Socials,
 };

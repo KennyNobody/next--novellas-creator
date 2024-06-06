@@ -11,11 +11,25 @@
     align-items: center;
     border-radius: 32px;
     justify-content: center;
-    background-color: #2D3043;
+
+    &--page {
+        background-color: #6767FF;
+    }
+
+    &--footer {
+        background-color: #2D3043;
+    }
 }
 
 .icon {
     width: 32px;
     height: 32px;
-    fill: var(--white);
+
+    &--page {
+        fill: #2D1CA3;
+    }
+
+    &--footer {
+        fill: var(--bg-blue-dark);
+    }
 }

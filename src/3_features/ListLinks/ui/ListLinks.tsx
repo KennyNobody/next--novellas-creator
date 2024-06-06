@@ -1,16 +1,20 @@
 import classNames from 'classnames';
-import { LinkApp } from '4_entities/LinkApp';
+import {LinkApp} from '4_entities/LinkApp';
 import cls from './ListLinks.module.scss';
-import { ListLinksType } from '../model/type/ListLinks';
+import {ListLinksType} from '../model/type/ListLinks';
+import {SocialLink, Socials} from "../../Socials";
+import {SocialsMode} from "../../Socials/ui/Socials";
 
 interface ListLinksProps {
     className?: string;
     data: ListLinksType;
+    links: SocialLink[];
 }
 
 export const ListLinks = (props: ListLinksProps) => {
     const {
         data,
+        links,
         className,
     } = props;
 
@@ -35,7 +39,15 @@ export const ListLinks = (props: ListLinksProps) => {
                     ))
                 }
             </div>
-
+            {
+                links
+                && (
+                    <Socials
+                        data={links}
+                        mode={SocialsMode.PAGE}
+                    />
+                )
+            }
         </div>
     );
 };

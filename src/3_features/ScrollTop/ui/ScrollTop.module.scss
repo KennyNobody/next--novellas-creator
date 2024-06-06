@@ -1,0 +1,35 @@
+.block {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s opacity;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.circle {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: #2D3043;
+}
+
+.icon {
+    width: 12px;
+    height: 12px;
+    fill: #777884;
+    display: block;
+    transform: rotate(-90deg);
+}
+
+.text {
+    color: #2D3043;
+    font-size: 16px;
+    font-weight: 600;
+    transform: rotate(-90deg) translateY(-8px);
+}

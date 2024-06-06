@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import classNames from 'classnames';
-import { ReactNode } from 'react';
-import { MainIntoType } from 'app/model/types/MainData';
-import { MenuMobile } from '3_features/MenuMobile';
-import { Logo, LogoMode } from '4_entities/Logo';
-import { Stack, StackDirectionType, StackSizeType } from '5_shared/ui/Stack/Stack';
-import { Container } from '5_shared/ui/Container/Container';
-import { RoutesList, RouteSlug } from '5_shared/config/routes';
-import { ButtonRegular, ButtonTagType } from '5_shared/ui/ButtonRegular';
+import {ReactNode} from 'react';
+import {MainIntoType} from 'app/model/types/MainData';
+import {MenuMobile} from '3_features/MenuMobile';
+import {Logo, LogoMode} from '4_entities/Logo';
+import {Stack, StackDirectionType, StackSizeType} from '5_shared/ui/Stack/Stack';
+import {Container} from '5_shared/ui/Container/Container';
+import {RoutesList, RouteSlug} from '5_shared/config/routes';
+import {ButtonIconType, ButtonRegular, ButtonTagType} from '5_shared/ui/ButtonRegular';
 import cls from './Header.module.scss';
 
 interface HeaderProps {
@@ -88,6 +88,7 @@ export const Header = (props: HeaderProps) => {
                     >
                         <ButtonRegular
                             tag={ButtonTagType.LINK}
+                            icon={ButtonIconType.BAG}
                             path={RoutesList[RouteSlug.SHOP].url}
                             label={RoutesList[RouteSlug.SHOP].caption}
                             className={classNames(cls['button-shop'])}

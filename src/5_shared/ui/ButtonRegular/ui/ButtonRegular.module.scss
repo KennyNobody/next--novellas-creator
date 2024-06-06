@@ -77,8 +77,17 @@
 }
 
 .icon {
-    width: 9px;
-    height: 12px;
+    flex-shrink: 0;
     display: block;
-    fill: var(--white)
+    fill: var(--white);
+
+    &--next {
+        width: 9px;
+        height: 12px;
+    }
+
+    &--bag {
+        width: 21px;
+        height: 21px;
+    }
 }
